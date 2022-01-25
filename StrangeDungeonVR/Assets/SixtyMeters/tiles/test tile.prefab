@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670786086671233145}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0.6239586, z: -2.107097}
   m_LocalScale: {x: 0.4129176, y: 0.17348187, z: 0.48303947}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620866264552047655}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &667707478137035765
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2172e5a7df04726498800a494502e3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileDoor:
+  tileDoors:
   - {fileID: 490105740994661344}
   - {fileID: 2285011670535544593}
   - {fileID: 109409691284303364}
@@ -353,14 +353,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7974679837269814114}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: -0, y: 0.6239586, z: 2.1278071}
   m_LocalScale: {x: 0.4129176, y: 0.17348187, z: 0.48303947}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620866264552047655}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!33 &7722930509990426712
 MeshFilter:
   m_ObjectHideFlags: 0
