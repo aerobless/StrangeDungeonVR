@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using SixtyMeters.logic.door;
 using UnityEngine;
 
-namespace SixtyMeters.tiles.scripts
+namespace SixtyMeters.logic
 {
     public class DungeonTile : MonoBehaviour
     {
-        public List<TileDoor> tileDoors;
+        public List<DungeonTileConnection> tileDoors;
 
         //The current center of the game, moves with the player
         public bool isCenter;

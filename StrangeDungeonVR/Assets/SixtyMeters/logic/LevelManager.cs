@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SixtyMeters
+namespace SixtyMeters.logic
 {
     public class LevelManager : MonoBehaviour
     {

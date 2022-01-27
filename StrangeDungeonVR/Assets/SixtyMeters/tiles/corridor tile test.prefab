@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileDoors:
-  - {fileID: 1806347499143445863}
-  - {fileID: 1806347498044781932}
+  - {fileID: 2220349745489170383}
+  - {fileID: 2220349744457254852}
   isCenter: 0
 --- !u!1 &4594824596814968010
 GameObject:
@@ -483,9 +483,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}
---- !u!114 &1806347498044781932 stripped
+--- !u!114 &2220349744457254852 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2798274524793245190, guid: 3323844dec7d54a438d213ca18cf38b8,
+  m_CorrespondingSourceObject: {fileID: 2383632306768018606, guid: 3323844dec7d54a438d213ca18cf38b8,
     type: 3}
   m_PrefabInstance: {fileID: 4594824595760773994}
   m_PrefabAsset: {fileID: 0}
@@ -1137,9 +1137,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}
---- !u!114 &1806347499143445863 stripped
+--- !u!114 &2220349745489170383 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2798274524793245190, guid: 3323844dec7d54a438d213ca18cf38b8,
+  m_CorrespondingSourceObject: {fileID: 2383632306768018606, guid: 3323844dec7d54a438d213ca18cf38b8,
     type: 3}
   m_PrefabInstance: {fileID: 4594824596792783713}
   m_PrefabAsset: {fileID: 0}

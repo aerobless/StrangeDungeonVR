@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 654647237723126292}
-  - component: {fileID: 2798274524793245190}
   m_Layer: 0
   m_Name: small doorway (connecting)
   m_TagString: Untagged
@@ -33,21 +32,55 @@ Transform:
   - {fileID: 2780185745483257404}
   - {fileID: 6562730720086372126}
   - {fileID: 1404675643561679031}
+  - {fileID: 6706232695855623441}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2798274524793245190
+--- !u!1 &6435582422060674362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6706232695855623441}
+  - component: {fileID: 2383632306768018606}
+  m_Layer: 0
+  m_Name: ConnectionGizmo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6706232695855623441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435582422060674362}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.1930001, z: -0.1140008}
+  m_LocalScale: {x: 2.3425, y: 2.0781999, z: 0.20387}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654647237723126292}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2383632306768018606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765672167238956612}
+  m_GameObject: {fileID: 6435582422060674362}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75fdaf41fd0be9d46b1d23b5a8ddc408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectionId: small brick doorway
 --- !u!1001 &1404675643561746823
 PrefabInstance:
   m_ObjectHideFlags: 0
