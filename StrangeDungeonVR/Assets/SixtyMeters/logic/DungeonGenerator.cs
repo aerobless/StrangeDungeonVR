@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SixtyMeters.logic.door;
 using SixtyMeters.utilities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SixtyMeters.logic
 {
@@ -17,8 +19,7 @@ namespace SixtyMeters.logic
             var tileDoorOnStartTile = startTile.tileDoors[0];
 
             //Spawn new Tile
-            var randomNextTile = Helper.GETRandomFromList(tiles);
-            var newTile = Instantiate(randomNextTile, Vector3.zero, Quaternion.identity);
+            var newTile = SpawnRandomNewTile();
             //Align new tile with existing tile
             AlignAndAttachTileDoor(tileDoorOnStartTile, newTile);
             tileDoorOnStartTile.Attach();
@@ -38,6 +39,18 @@ namespace SixtyMeters.logic
                     CreateTilesForAttachmentPoints(createdTile2);
                 }
             }
+        }
+
+        private GameObject SpawnRandomNewTile()
+        {
+            var randomNextTile = Helper.GETRandomFromList(tiles);
+            var newTile = Instantiate(randomNextTile, Vector3.zero, Quaternion.identity);
+            
+            // The tile seed is intended to avoid player decisions (go left or right) messing with the predictable
+            // nature of a seeded level. By setting a seed for each door connection point it does not matter what
+            // the player decides, the seed will be based on the original random seed
+            newTile.GetComponent<DungeonTile>().tileSeed = Random.Range(0, Int32.MaxValue);
+            return newTile;
         }
 
         private List<DungeonTile> CreateTilesForAttachmentPoints(DungeonTile newTile)
