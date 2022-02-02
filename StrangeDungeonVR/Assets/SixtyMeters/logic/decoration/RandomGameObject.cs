@@ -52,7 +52,7 @@ namespace SixtyMeters.logic.decoration
         {
             // Draw a yellow sphere at the transform's position
 
-            Gizmos.color = Color.blue;
+            Gizmos.color = new Color(0, 0, 1, 0.3f);
             if (replacementSet.Count > 0)
             {
                 Gizmos.color = Color.green;   

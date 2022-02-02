@@ -64,10 +64,10 @@ namespace SixtyMeters.logic
 
         private void AttachNewTile(DungeonTileConnection dungeonTileConnection, List<DungeonTile> createdTiles)
         {
-            var newTile2 = Instantiate(tiles[0], Vector3.zero, Quaternion.identity);
-            AlignAndAttachTileDoor(dungeonTileConnection, newTile2);
+            var newTile = SpawnRandomNewTile();
+            AlignAndAttachTileDoor(dungeonTileConnection, newTile);
             dungeonTileConnection.Attach();
-            createdTiles.Add(newTile2.GetComponent<DungeonTile>());
+            createdTiles.Add(newTile.GetComponent<DungeonTile>());
         }
 
         /// <summary>
