@@ -196,3 +196,4 @@ MonoBehaviour:
   - {fileID: 3644968723958793762, guid: 7d29acc67f728f24598abb792c30977a, type: 3}
   - {fileID: 8254847874161637646, guid: 0c8581052eff5d541a7bd6a3ce672e1c, type: 3}
   replacementSet: []
+  appearanceChance: 10

@@ -14,6 +14,9 @@ namespace SixtyMeters.logic.decoration
         // if not defined the possibility will only be applied to this GO itself
         public List<GameObject> replacementSet;
 
+        // Between 1 - 10. If 10 it the object is always there, if 1 it has a 1 in 10 chance to appear
+        public int appearanceChance = 10;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -34,8 +37,27 @@ namespace SixtyMeters.logic.decoration
             }
 
             var currentTransform = transform;
-            Instantiate(randomFromList, currentTransform.position, currentTransform.rotation);
+
+            if (appearanceChance < 10)
+            {
+                var random = Random.Range(1, 10);
+                if (random < appearanceChance)
+                {
+                }
+            }
+
+            if (RollObjectAppearance())
+            {
+                Instantiate(randomFromList, currentTransform.position, currentTransform.rotation);
+            }
+
             Destroy(gameObject);
+        }
+
+        private bool RollObjectAppearance()
+        {
+            var random = Random.Range(1, 10);
+            return appearanceChance == 10 || random < appearanceChance;
         }
 
         private void ReplaceGameObjectsInSet(GameObject randomFromList)
@@ -55,8 +77,9 @@ namespace SixtyMeters.logic.decoration
             Gizmos.color = new Color(0, 0, 1, 0.3f);
             if (replacementSet.Count > 0)
             {
-                Gizmos.color = Color.green;   
+                Gizmos.color = Color.green;
             }
+
             Gizmos.DrawCube(transform.position, Vector3.one);
         }
     }
