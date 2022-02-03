@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4594824595654400841}
   - component: {fileID: 4594824595654400854}
+  - component: {fileID: 1136292580726603560}
   m_Layer: 0
   m_Name: corridor tile test
   m_TagString: Untagged
@@ -52,7 +53,38 @@ MonoBehaviour:
   tileDoors:
   - {fileID: 2220349745489170383}
   - {fileID: 2220349744457254852}
+  tileSeed: 0
   isCenter: 0
+--- !u!114 &1136292580726603560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594824595654400855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 68da6a41c81abfb419ab4891ec22718b, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &4594824596814968010
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -83.635
+      value: -83.61
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -449,17 +481,17 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -480,6 +512,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: small doorway (connecting) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.302536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025436
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}
@@ -1083,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.12
+      value: -20.120003
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1093,7 +1135,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -63.135
+      value: -63.59601
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1103,7 +1145,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1113,7 +1155,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1134,6 +1176,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: small doorway (connecting)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.302536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025436
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}

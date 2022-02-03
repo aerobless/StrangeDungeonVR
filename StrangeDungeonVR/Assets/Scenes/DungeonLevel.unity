@@ -1684,6 +1684,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2718894939084641851, guid: d8d1163a38cc7aa4880e4a3d5d5a941e,
+        type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718894939084641851, guid: d8d1163a38cc7aa4880e4a3d5d5a941e,
+        type: 3}
+      propertyPath: collisionLayers.m_Bits
+      value: 514
+      objectReference: {fileID: 0}
     - target: {fileID: 2718894939556901584, guid: d8d1163a38cc7aa4880e4a3d5d5a941e,
         type: 3}
       propertyPath: m_RootOrder
@@ -5489,10 +5499,10 @@ MonoBehaviour:
     activateOnImpulse: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 17
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 515
+    m_Bits: 514
   collisionThreshold: 0.1
   collisionResistance:
     mode: 1
@@ -8436,6 +8446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1297801983}
   - component: {fileID: 1297801984}
+  - component: {fileID: 1297801985}
   m_Layer: 0
   m_Name: entrance cave
   m_TagString: Untagged
@@ -8489,6 +8500,36 @@ MonoBehaviour:
   - {fileID: 1486694214}
   tileSeed: 0
   isCenter: 1
+--- !u!114 &1297801985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297801982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 480365b1024529b47a1599e04139e869, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1298437530
 GameObject:
   m_ObjectHideFlags: 0
@@ -14971,7 +15012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321209018126211}
   m_LocalRotation: {x: 0.7006992, y: 0.7084374, z: 0.057385325, w: -0.062001266}
-  m_LocalPosition: {x: 0.392, y: -0.022, z: -0.004}
+  m_LocalPosition: {x: 0.3771233, y: 0.00000014156103, z: -0.00000091455877}
   m_LocalScale: {x: 1, y: 0.82517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15902,7 +15943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130495722828167}
   m_LocalRotation: {x: 0.7006994, y: 0.70843726, z: 0.057382874, w: -0.062001698}
-  m_LocalPosition: {x: -0.392, y: 0.022, z: 0.004}
+  m_LocalPosition: {x: -0.37712356, y: 0.00000023469329, z: -0.000000035390258}
   m_LocalScale: {x: 1, y: 0.82517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18331,6 +18372,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1450893453783585427, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_EndPoint.x
+      value: -0.00000023841903
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450893453783585427, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.3025396
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450893453783585427, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_StartPoint.x
+      value: 0.00000023841903
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450893453783585427, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025396
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617778439735436192, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.19746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617778439735436192, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710796
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617778439735436192, guid: afa9a842e927fcc4b9b37011d279de76,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071056
+      objectReference: {fileID: 0}
     - target: {fileID: 4074909114688239134, guid: afa9a842e927fcc4b9b37011d279de76,
         type: 3}
       propertyPath: m_RootOrder
@@ -18715,12 +18791,12 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.049
+      value: -0.048999786
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.143
+      value: 4.118
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -18730,17 +18806,17 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -18761,6 +18837,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: small doorway (connecting)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.3025398
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025398
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}

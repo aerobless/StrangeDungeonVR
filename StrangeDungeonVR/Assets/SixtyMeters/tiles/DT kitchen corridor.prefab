@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074909114688239134}
   - component: {fileID: 5993152591962987207}
+  - component: {fileID: 8552210267135942542}
   m_Layer: 0
   m_Name: DT kitchen corridor
   m_TagString: Untagged
@@ -101,6 +102,36 @@ MonoBehaviour:
   - {fileID: 2301403711613394569}
   tileSeed: 0
   isCenter: 0
+--- !u!114 &8552210267135942542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837451502356557523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: ee447a029b936104c96537bc0c4576e4, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &4870631495760240952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1565,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45
+      value: 45.19746
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1549,7 +1580,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071079
+      value: 0.70710796
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1559,7 +1590,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70710576
+      value: -0.7071056
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -1585,6 +1616,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: small doorway (connecting)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.x
+      value: -0.00000023841903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.3025396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.x
+      value: 0.00000023841903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025396
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}
@@ -2251,7 +2302,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 29.80254
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -2266,7 +2317,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071037
+      value: 0.70710385
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -2276,7 +2327,7 @@ PrefabInstance:
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071099
+      value: 0.7071097
       objectReference: {fileID: 0}
     - target: {fileID: 654647237723126292, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
@@ -2302,6 +2353,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: small doorway (connecting) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.x
+      value: -0.0000035762796
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_EndPoint.z
+      value: 2.3025396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.x
+      value: -0.000004053114
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
+        type: 3}
+      propertyPath: m_StartPoint.z
+      value: -2.3025396
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3323844dec7d54a438d213ca18cf38b8, type: 3}
