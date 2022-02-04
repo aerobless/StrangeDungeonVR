@@ -27,12 +27,12 @@ namespace SixtyMeters.logic
 
             // Initial
             var createdTiles = CreateTilesForAttachmentPoints(newTile.GetComponent<DungeonTile>());
-            
+
             // Recursion Loop 1
             foreach (var createdTile in createdTiles)
             {
                 var createdTiles2 = CreateTilesForAttachmentPoints(createdTile);
-                
+
                 // Recursion Loop 2
                 foreach (var createdTile2 in createdTiles2)
                 {
@@ -41,11 +41,16 @@ namespace SixtyMeters.logic
             }
         }
 
+        public void GenerateNewTilesFor(DungeonTile tile)
+        {
+            CreateTilesForAttachmentPoints(tile);
+        }
+
         private GameObject SpawnRandomNewTile()
         {
             var randomNextTile = Helper.GETRandomFromList(tiles);
             var newTile = Instantiate(randomNextTile, Vector3.zero, Quaternion.identity);
-            
+
             // The tile seed is intended to avoid player decisions (go left or right) messing with the predictable
             // nature of a seeded level. By setting a seed for each door connection point it does not matter what
             // the player decides, the seed will be based on the original random seed

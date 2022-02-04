@@ -2,7 +2,7 @@ using RootMotion.Dynamics;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace SixtyMeters.characters
+namespace SixtyMeters.logic.ai
 {
     public class AIController : MonoBehaviour
     {
@@ -13,6 +13,9 @@ namespace SixtyMeters.characters
 
         public WayPoint testWaypoint1;
         public WayPoint testWaypoint2;
+
+        //Keep following Waypoint 1
+        public bool followWaypoint1;
 
         private WayPoint _currentWaypoint;
 
@@ -40,16 +43,24 @@ namespace SixtyMeters.characters
 
         private void UpdateDestination()
         {
-            //Logic for testing only
-            _navMeshAgent.SetDestination(_currentWaypoint.transform.position);
-            if (HasReachedCurrentWayPoint(2f) && _currentWaypoint == testWaypoint1)
-            {
-                _currentWaypoint = testWaypoint2;
-            }
-
-            if (HasReachedCurrentWayPoint(2f) && _currentWaypoint == testWaypoint2)
+            if (followWaypoint1)
             {
                 _currentWaypoint = testWaypoint1;
+                _navMeshAgent.SetDestination(_currentWaypoint.transform.position);
+            }
+            else
+            {
+                //Logic for testing only
+                _navMeshAgent.SetDestination(_currentWaypoint.transform.position);
+                if (HasReachedCurrentWayPoint(2f) && _currentWaypoint == testWaypoint1)
+                {
+                    _currentWaypoint = testWaypoint2;
+                }
+
+                if (HasReachedCurrentWayPoint(2f) && _currentWaypoint == testWaypoint2)
+                {
+                    _currentWaypoint = testWaypoint1;
+                }
             }
         }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SixtyMeters.characters
+namespace SixtyMeters.logic
 {
     public class WayPoint : MonoBehaviour
     {
