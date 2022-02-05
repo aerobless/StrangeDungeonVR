@@ -36,8 +36,6 @@ namespace SixtyMeters.logic.decoration
                 ReplaceGameObjectsInSet(randomFromList);
             }
 
-            var currentTransform = transform;
-
             if (appearanceChance < 10)
             {
                 var random = Random.Range(1, 10);
@@ -48,10 +46,16 @@ namespace SixtyMeters.logic.decoration
 
             if (RollObjectAppearance())
             {
-                Instantiate(randomFromList, currentTransform.position, currentTransform.rotation);
+                InstantiateWithOriginalParent(randomFromList, transform);
             }
 
             Destroy(gameObject);
+        }
+
+        private void InstantiateWithOriginalParent(GameObject randomFromList, Transform currentTransform)
+        {
+            var instantiatedObj = Instantiate(randomFromList, currentTransform.position, currentTransform.rotation);
+            instantiatedObj.transform.parent = transform.parent;
         }
 
         private bool RollObjectAppearance()
@@ -64,8 +68,7 @@ namespace SixtyMeters.logic.decoration
         {
             foreach (var go in replacementSet)
             {
-                var currentTransform = go.transform;
-                Instantiate(randomFromList, currentTransform.position, currentTransform.rotation);
+                InstantiateWithOriginalParent(randomFromList, go.transform);
                 Destroy(go);
             }
         }
