@@ -8,6 +8,7 @@ namespace SixtyMeters.logic.door
     {
         // Used to find compatible tile connections
         public string connectionId;
+        public GameObject lockedDoorAppearance;
 
         private TileConnectionState _state = TileConnectionState.UNATTACHED;
         private DungeonTile _parentTile;
@@ -101,6 +102,7 @@ namespace SixtyMeters.logic.door
         public void Lock()
         {
             _state = TileConnectionState.LOCKED;
+            lockedDoorAppearance.SetActive(true);
         }
     }
 }
