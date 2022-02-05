@@ -5,7 +5,8 @@ Library: lib_burst_generated
 --global-safety-checks-setting=Off
 --dump=Function
 --float-precision=Standard
---compilation-defines=UNITY_2021_2_8
+--disable-warnings=BC1370
+--compilation-defines=UNITY_2021_2_9
 --compilation-defines=UNITY_2021_2
 --compilation-defines=UNITY_2021
 --compilation-defines=UNITY_5_3_OR_NEWER
@@ -131,11 +132,13 @@ Library: lib_burst_generated
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
 --compilation-defines=XR_MGMT_GTE_320
+--compilation-defines=NMC_CAN_ACCESS_TERRAIN
 --compilation-defines=USING_COMPATIBLE_OCULUS_XR_PLUGIN_VERSION
 --compilation-defines=USING_URP
 --compilation-defines=USING_MRC_COMPATIBLE_URP_VERSION
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=UNITY_ANALYTICS
+--generate-link-xml=Temp\burst.link.xml
 --output=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\UnityEngine.SpatialTracking.dll
@@ -145,9 +148,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\HurricaneVR.Framework.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll
+--root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Assembly-CSharp-firstpass.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.XR.Oculus.dll
+--root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.AI.Navigation.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Oculus.VR.dll
