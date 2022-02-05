@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using SixtyMeters.logic.decoration;
 using SixtyMeters.logic.door;
 using UnityEngine;
@@ -34,6 +35,13 @@ namespace SixtyMeters.logic
         {
         }
 
+        public List<DungeonTile> GetAttachedTiles()
+        {
+            return tileDoors.Where(door => door.IsAttached())
+                .Select(door => door.GetAttachedTile())
+                .ToList();
+        }
+
         public void NotifyPlayerEnterOrExit()
         {
             _tileIsOccupiedByPlayer = !_tileIsOccupiedByPlayer;
@@ -41,11 +49,35 @@ namespace SixtyMeters.logic
             {
                 Debug.Log("Player has entered tile " + gameObject.name);
                 _dungeonGenerator.GenerateNewTilesFor(this);
+                _dungeonGenerator.RemoveExpiredTiles(this);
             }
             else
             {
                 Debug.Log("Player has left tile " + gameObject.name);
             }
+        }
+
+        public List<DungeonTileConnection> GetAttachedDoors()
+        {
+            return tileDoors.Where(door => door.IsAttached())
+                .Select(door => door.GetAttachedDoor())
+                .ToList();
+        }
+
+        public void SetOccupiedByPlayer()
+        {
+            _tileIsOccupiedByPlayer = true;
+        }
+
+        public bool HasLockedDoors()
+        {
+            return tileDoors.Any(door => door.IsLocked());
+        }
+
+        public void Remove()
+        {
+            GetAttachedDoors().ForEach(door => door.Lock());
+            Destroy(gameObject, 1f);
         }
     }
 }

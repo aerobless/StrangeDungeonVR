@@ -16,6 +16,9 @@ namespace SixtyMeters.logic
         // Start is called before the first frame update
         void Start()
         {
+            // The player starts off in this tile, so we need to set it as occupied manually
+            startTile.SetOccupiedByPlayer();
+
             // Generates the first tile connecting to the starting tile that is already in the world
             GenerateNewTilesFor(startTile);
         }
@@ -23,8 +26,21 @@ namespace SixtyMeters.logic
         public void GenerateNewTilesFor(DungeonTile existingTile)
         {
             existingTile.tileDoors
-                .Where(door => !door.IsAttached())
+                .Where(door => door.IsUnattached())
                 .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
+        }
+
+        public void RemoveExpiredTiles(DungeonTile existingTile)
+        {
+            if (!existingTile.HasLockedDoors())
+            {
+                // Only delete when entering a fresh corridor
+                existingTile.GetAttachedTiles()
+                    .SelectMany(tile => tile.GetAttachedTiles())
+                    .Distinct()
+                    .Where(tile => tile != existingTile)
+                    .ToList().ForEach(tileToBeRemoved => tileToBeRemoved.Remove());   
+            }
         }
 
         private List<DungeonTile> AttachNewTile(DungeonTileConnection doorInExistingTile)

@@ -9,7 +9,7 @@ namespace SixtyMeters.logic.door
         // Used to find compatible tile connections
         public string connectionId;
 
-        private bool _isAttached;
+        private TileConnectionState _state = TileConnectionState.UNATTACHED;
         private DungeonTile _parentTile;
         private DungeonTileConnection _connectedDoor;
 
@@ -26,13 +26,52 @@ namespace SixtyMeters.logic.door
 
         public bool IsAttached()
         {
-            return _isAttached;
+            return _state == TileConnectionState.ATTACHED;
         }
+
+        public bool IsUnattached()
+        {
+            return _state == TileConnectionState.UNATTACHED;
+        }
+
+        public bool IsLocked()
+        {
+            return _state == TileConnectionState.LOCKED;
+        }
+
 
         public void Attach(DungeonTileConnection doorInAttachedTile)
         {
             _connectedDoor = doorInAttachedTile;
-            _isAttached = true;
+            _state = TileConnectionState.ATTACHED;
+        }
+
+        /// <summary>
+        /// Returns the tile attached to this door
+        /// </summary>
+        /// <returns></returns>
+        public DungeonTile GetAttachedTile()
+        {
+            return _connectedDoor.GetParentTile();
+        }
+
+        public DungeonTileConnection GetAttachedDoor()
+        {
+            return _connectedDoor;
+        }
+
+        /// <summary>
+        /// Get the parent dungeon tile of this door
+        /// </summary>
+        /// <returns></returns>
+        public DungeonTile GetParentTile()
+        {
+            if (_parentTile == null)
+            {
+                _parentTile = GetComponentInParent<DungeonTile>();
+            }
+
+            return _parentTile;
         }
 
         void OnDrawGizmos()
@@ -54,6 +93,14 @@ namespace SixtyMeters.logic.door
             {
                 _parentTile.NotifyPlayerEnterOrExit();
             }
+        }
+
+        /// <summary>
+        /// Should be called when the attached tile is removed, locks the door permanently
+        /// </summary>
+        public void Lock()
+        {
+            _state = TileConnectionState.LOCKED;
         }
     }
 }
