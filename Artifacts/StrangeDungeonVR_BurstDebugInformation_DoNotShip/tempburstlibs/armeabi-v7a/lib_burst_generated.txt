@@ -163,6 +163,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Facebook.WitAI.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\AssistantCoreSDKRuntime.dll
+--root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\PrefabBaker.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Oculus.AudioManager.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Oculus.LipSync.dll
 --root-assembly=C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR\Temp\StagingArea\Data\Managed\Oculus.Spatializer.dll
