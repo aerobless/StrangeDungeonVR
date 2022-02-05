@@ -16,34 +16,24 @@ namespace SixtyMeters.logic
         // Start is called before the first frame update
         void Start()
         {
-            var tileDoorOnStartTile = startTile.tileDoors[0];
-
-            //Spawn new Tile
-            var newTile = SpawnRandomNewTile();
-            //Align new tile with existing tile
-            AlignAndAttachTileDoor(tileDoorOnStartTile, newTile);
-            tileDoorOnStartTile.Attach();
-            //Iterate over doors on new tile and a) add tile or b) close them off
-
-            // Initial
-            var createdTiles = CreateTilesForAttachmentPoints(newTile.GetComponent<DungeonTile>());
-
-            // Recursion Loop 1
-            foreach (var createdTile in createdTiles)
-            {
-                var createdTiles2 = CreateTilesForAttachmentPoints(createdTile);
-
-                // Recursion Loop 2
-                foreach (var createdTile2 in createdTiles2)
-                {
-                    CreateTilesForAttachmentPoints(createdTile2);
-                }
-            }
+            // Generates the first tile connecting to the starting tile that is already in the world
+            GenerateNewTilesFor(startTile);
         }
 
-        public void GenerateNewTilesFor(DungeonTile tile)
+        public void GenerateNewTilesFor(DungeonTile existingTile)
         {
-            CreateTilesForAttachmentPoints(tile);
+            existingTile.tileDoors
+                .Where(door => !door.IsAttached())
+                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
+        }
+
+        private List<DungeonTile> AttachNewTile(DungeonTileConnection doorInExistingTile)
+        {
+            var createdTiles = new List<DungeonTile>();
+            var newTile = SpawnRandomNewTile();
+            AlignAndAttachTileDoor(doorInExistingTile, newTile);
+            createdTiles.Add(newTile.GetComponent<DungeonTile>());
+            return createdTiles;
         }
 
         private GameObject SpawnRandomNewTile()
@@ -58,34 +48,18 @@ namespace SixtyMeters.logic
             return newTile;
         }
 
-        private List<DungeonTile> CreateTilesForAttachmentPoints(DungeonTile newTile)
-        {
-            var createdTiles = new List<DungeonTile>();
-            newTile.tileDoors
-                .Where(door => !door.IsAttached())
-                .ToList().ForEach(door => AttachNewTile(door, createdTiles));
-            return createdTiles;
-        }
-
-        private void AttachNewTile(DungeonTileConnection dungeonTileConnection, List<DungeonTile> createdTiles)
-        {
-            var newTile = SpawnRandomNewTile();
-            AlignAndAttachTileDoor(dungeonTileConnection, newTile);
-            dungeonTileConnection.Attach();
-            createdTiles.Add(newTile.GetComponent<DungeonTile>());
-        }
-
         /// <summary>
         /// Aligns a new tile on an existing door.
         /// </summary>
-        /// <param name="existingConnection">the door in an existing tile, will not be moved</param>
+        /// <param name="doorInExistingTile">the door in an existing tile, will not be moved</param>
         /// <param name="newTile">the new tile, will be moved to attach to the existing door</param>
-        private void AlignAndAttachTileDoor(DungeonTileConnection existingConnection, GameObject newTile)
+        private void AlignAndAttachTileDoor(DungeonTileConnection doorInExistingTile, GameObject newTile)
         {
             var randomDoorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().tileDoors);
-            randomDoorInNewTile.Attach();
+            randomDoorInNewTile.Attach(doorInExistingTile);
+            doorInExistingTile.Attach(randomDoorInNewTile);
 
-            var targetTransform = existingConnection.transform;
+            var targetTransform = doorInExistingTile.transform;
             var newTileParentTransform = newTile.transform;
             var newTileChildDoorTransform = randomDoorInNewTile.transform;
 

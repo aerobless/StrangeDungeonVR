@@ -11,6 +11,7 @@ namespace SixtyMeters.logic.door
 
         private bool _isAttached;
         private DungeonTile _parentTile;
+        private DungeonTileConnection _connectedDoor;
 
         // Start is called before the first frame update
         void Start()
@@ -28,8 +29,9 @@ namespace SixtyMeters.logic.door
             return _isAttached;
         }
 
-        public void Attach()
+        public void Attach(DungeonTileConnection doorInAttachedTile)
         {
+            _connectedDoor = doorInAttachedTile;
             _isAttached = true;
         }
 
