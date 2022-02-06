@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 127
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 128
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 19
+  controlID: 129
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -500,10 +500,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 457.6
+    x: 377.6
     y: 73.6
-    width: 1870.0001
-    height: 1064.6
+    width: 2166.7998
+    height: 1183
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -515,8 +515,8 @@ MonoBehaviour:
   m_SearchText: 
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a73eced7
-    m_LastClickedID: -674349401
+    m_SelectedIDs: d7dddea2
+    m_LastClickedID: -1562452521
     m_ExpandedIDs: a01a5fa653336be2000000004f0a7f2ec53aba5a
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: board
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -606,22 +606,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Lightmaps/DT first hall
+    - Assets/PolygonFantasyKingdom/Prefabs/Environments
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: board
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Lightmaps/DT first hall
+  - Assets/PolygonFantasyKingdom/Prefabs/Environments
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\theow\git\StrangeDungeonVR\StrangeDungeonVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 62.19995}
-    m_SelectedIDs: 7cb80000
-    m_LastClickedID: 47228
-    m_ExpandedIDs: 0000000016b8000018b800001ab800001cb800001eb8000020b8000022b8000024b8000026b8000028b800002ab800002cb800002eb8000030b8000032b8000034b8000036b8000038b800003ab800003cb800003eb8000040b8000042b8000044b8000046b8000048b800004ab800006eb800007eb8000000ca9a3b
+    scrollPos: {x: 0, y: 660}
+    m_SelectedIDs: 367b0200
+    m_LastClickedID: 162614
+    m_ExpandedIDs: 0000000016b8000018b800001ab800001cb800001eb8000020b8000022b8000024b8000026b8000028b800002ab800002cb800002eb8000030b8000032b8000034b8000036b8000038b800003ab800003cb800003eb8000040b8000042b8000044b8000046b8000048b800004ab800005eb8000062b8000066b800006cb8000076b80000f69902000c9b020000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300006c6e01003624070006060100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 456
+    m_CachedPref: -456
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -779,9 +779,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fadcffff
-      m_LastClickedID: -8966
-      m_ExpandedIDs: f2deffffe0e4ffff32fbffff
+      m_SelectedIDs: c6490400
+      m_LastClickedID: 281030
+      m_ExpandedIDs: 2833f8ff6a88fbff1689fbff06b8fbffacbffcffa6d3fffff2deffffe0e4ffff32fbffff80780000ea790000367a00003c7a00005e470400a44c04009a4f0400cc52040064530400045c0400
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -839,8 +839,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.599976}
+      snapOffset: {x: -100, y: -25.599976}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -883,7 +883,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -894,9 +894,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -112, y: 25.599998}
+      snapOffset: {x: 67.5, y: 86}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 0
       id: Orientation
       index: 0
       layout: 4
@@ -949,7 +949,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Navmesh Display
@@ -1015,7 +1015,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -1024,16 +1024,16 @@ MonoBehaviour:
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 0
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 93.447296, y: 5.975156, z: 87.363365}
+    m_Target: {x: 0.86085033, y: 11.782798, z: -4.6934876}
     speed: 2
-    m_Value: {x: 93.447296, y: 5.975156, z: 87.363365}
+    m_Value: {x: 0.86085033, y: 11.782798, z: -4.6934876}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1080,13 +1080,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.012725374, y: -0.9864446, z: 0.05932605, w: -0.1554361}
+    m_Target: {x: -0.3600164, y: 0.116714805, z: -0.04945098, w: -0.92485654}
     speed: 2
-    m_Value: {x: -0.012719558, y: -0.9859937, z: 0.059298933, w: -0.15536505}
+    m_Value: {x: -0.35982952, y: 0.11665422, z: -0.049425308, w: -0.9243764}
   m_Size:
-    m_Target: 0.8620727
+    m_Target: 0.31305313
     speed: 2
-    m_Value: 0.8620727
+    m_Value: 0.31305313
   m_Ortho:
     m_Target: 0
     speed: 2
