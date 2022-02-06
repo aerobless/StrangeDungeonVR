@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!28 &2800000
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DT first hall_light-250
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: f7a3a47ef41e01eec88aa003fb6a9e35
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 1
+  serializedVersion: 2
+  m_Width: 32
+  m_Height: 32
+  m_CompleteImageSize: 832
+  m_MipsStripped: 0
+  m_TextureFormat: 50
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMasterTextureLimit: 0
+  m_StreamingMipmaps: 1
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 3
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 1
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 832
+  _typelessdata: fcfdffffffffffff3d3d1d1d0000ffff6fc07e3a00fc24cc8499301366c24c986fc04a2000f4c16db80db7e136dc06f96fc04c2200d6b586d6d25a5a4f6b692dfcfdffffffffffff232310100000fffffcfdffffffffffff232310100000ffff6fc09c4a0090ededbdbdb7f7360000006fc0a44c00dcecfffdbffff73f2005a46fc04a2200f2c16db80db7e1364a42496fc0462000f85d803db127f6849c9013fcfdffffffffffff232310100000fffffcfdffffffffffff232310100000ffff6fc09a48009c4930b921afe48de495bc6fc0aa5200d6b58479358ffed556d80a620149379c18000200e9d2aff6aaa55a6fc052220028a480e4bef7f7f6dededb6fc05426002e000000b0b7f7f6dededb6fc046200000a4a49494201364824c9018c1204680085023f9383e9fcfe7f3f971e9554c0243449c0228bd0b04ddf97f41c354a8804200d30aa00900532269366fc0140600000000000000008006d040fcfdffffffffffff040401010000fffffcfdffffffffffff040401010000fffff18800cc440c02b02a41c2b7cb3907a108c1bc5a008600fdfffffffffffff30ff1e833cc440c22c6a9415fa050a858506fc0020000006c852d0c000000000000fcfdffffffffffff040401010000fffffcfdffffffffffff040401010000ffff41c3dcac01561249040040369742b2435d6806eb2bb3076043c20201000010ea6fc0100a045200000000000000b801f56fc0020000fea5a49494925252c24c98fcfdffffffffffff040401010000fffffcfdffffffffffff040401010000ffff6fc0984600ea7cc92f896ed12dba45b76fc04a2200dc05fc80cfb2d37ffa6fddfcfdffffffffffff232310100000ffff6fc0a44c002e0454b0dfb7a5b6d496da41c35025818000800a002c89ec889df26fc0461e0000a4a49494925212948492f20003c0005c020240a5ce97a7d3c30462019305be02020000000000000004d0fcfdffffffffffff040401010000ffff51c3ae0500001c6b915379b536db6cee6fc046200000a4a49494201364824c9062017d09b40202000000000000c0071dfcfdffffffffffff040401010000ffff18c1a4284000000000002e800dea80ca1401fb12760600000000000000001060fcfdffffffffffff313116160000ffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
