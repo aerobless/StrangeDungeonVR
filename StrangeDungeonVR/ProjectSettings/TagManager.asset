@@ -18,8 +18,8 @@ TagManager:
   - DynamicPose
   - 
   - 
-  - 
-  - 
+  - Walkable
+  - Obstruction
   - 
   - 
   - 

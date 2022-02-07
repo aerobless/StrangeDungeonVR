@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace SixtyMeters.logic.ai
 {
-    public class AIController : MonoBehaviour
+    public class TestAIController : MonoBehaviour
     {
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;

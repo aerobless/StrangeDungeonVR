@@ -308,6 +308,11 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.00019001961
       objectReference: {fileID: 0}
+    - target: {fileID: 3924027509007222391, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: MinHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3924027509722682562, guid: 6974999791dc8804fafee05e319aa932,
         type: 3}
       propertyPath: m_Name
@@ -367,6 +372,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144970921230453477, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: Dash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144970921230453477, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: TeleportDistance
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5601958842363464469, guid: 6974999791dc8804fafee05e319aa932,
         type: 3}
@@ -4386,7 +4401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046314777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.42, y: -4.22, z: -35.57}
+  m_LocalPosition: {x: -3.42, y: -4.456, z: -35.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4522,7 +4537,7 @@ GameObject:
   - component: {fileID: 1088174025}
   - component: {fileID: 1088174026}
   - component: {fileID: 1088174028}
-  - component: {fileID: 1088174027}
+  - component: {fileID: 1088174029}
   m_Layer: 8
   m_Name: Character_Skeleton_Slave_01
   m_TagString: Untagged
@@ -4582,22 +4597,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1088174027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088174024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d271fcd5d51097f47907885787bd8ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puppet: {fileID: 774489362}
-  testWaypoint1: {fileID: 146139037}
-  testWaypoint2: {fileID: 2065158541}
-  followWaypoint1: 1
 --- !u!195 &1088174028
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4608,18 +4607,32 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 2
+  m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1088174029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088174024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7a88d66b3a5724f9724146dd11c307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puppet: {fileID: 774489362}
+  playerAggressionRange: 10
 --- !u!1 &1162075649
 GameObject:
   m_ObjectHideFlags: 0
@@ -9014,7 +9027,7 @@ Transform:
   m_GameObject: {fileID: 1321209018126211}
   m_LocalRotation: {x: 0.7006992, y: 0.7084374, z: 0.057385325, w: -0.062001266}
   m_LocalPosition: {x: 0.37712327, y: 0.0000015106052, z: -0.0000004377216}
-  m_LocalScale: {x: 1, y: 0.82517, z: 1}
+  m_LocalScale: {x: 0.80924, y: 0.6294314, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4887888491424741}
@@ -9409,9 +9422,9 @@ MonoBehaviour:
   fixTargetTransforms: 1
   solverIterationCount: 6
   visualizeTargetPose: 1
-  mappingWeight: 1
-  pinWeight: 1
-  muscleWeight: 1
+  mappingWeight: 0.833
+  pinWeight: 0.799
+  muscleWeight: 0.82
   muscleSpring: 100
   muscleDamper: 0
   pinPow: 4
@@ -9945,7 +9958,7 @@ Transform:
   m_GameObject: {fileID: 1130495722828167}
   m_LocalRotation: {x: 0.7006994, y: 0.70843726, z: 0.057382874, w: -0.062001698}
   m_LocalPosition: {x: -0.3771235, y: -0.0000014081597, z: -0.00000031664968}
-  m_LocalScale: {x: 1, y: 0.82517, z: 1}
+  m_LocalScale: {x: 0.80924, y: 0.6294314, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884913590560647}

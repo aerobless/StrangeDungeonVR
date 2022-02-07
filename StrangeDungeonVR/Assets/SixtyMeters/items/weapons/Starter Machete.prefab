@@ -623,7 +623,7 @@ MonoBehaviour:
   ProjectionDistance: 0.01
   ProjectionAngle: 20
   IsDualStabber: 0
-  CanRunThrough: 0
+  CanRunThrough: 1
   CollidersToIgnore: []
   StabbingColliders:
   - {fileID: 0}
