@@ -1,0 +1,6 @@
+pot_breaking_01.wav: CC0 https://freesound.org/people/zerolagtime/sounds/214336/
+pot_breaking_02.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
+pot_breaking_03.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
+pot_breaking_04.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
+pot_breaking_05.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
+
