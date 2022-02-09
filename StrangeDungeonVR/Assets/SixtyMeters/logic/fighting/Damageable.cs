@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
+using RootMotion.Dynamics;
 using UnityEngine;
 
 namespace SixtyMeters.logic.fighting
 {
     public class Damageable : MonoBehaviour
     {
-        public List<Hitbox> hitboxes;
+        public GameObject hitboxParent;
+        public PuppetMaster puppetMaster;
 
         public SkinnedMeshRenderer meshRenderer;
         public Material dmgMaterial;
@@ -15,7 +18,7 @@ namespace SixtyMeters.logic.fighting
         // Start is called before the first frame update
         void Start()
         {
-            hitboxes.ForEach(hitbox => hitbox.SetDmgListener(this));
+            hitboxParent.GetComponentsInChildren<Hitbox>().ToList().ForEach(hitbox => hitbox.SetupHitbox(this, puppetMaster));
             _originalMaterial = meshRenderer.material;
         }
 

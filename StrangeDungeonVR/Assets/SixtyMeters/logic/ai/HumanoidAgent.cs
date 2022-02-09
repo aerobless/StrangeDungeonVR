@@ -56,7 +56,7 @@ namespace SixtyMeters.logic.ai
                     }
                     else if (distanceToPlayer <= AttackRange)
                     {
-                        _animator.SetTrigger(SwordAttack);
+                        //_animator.SetTrigger(SwordAttack);
                     }
                     else
                     {
