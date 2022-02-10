@@ -1,4 +1,5 @@
 using RootMotion.Dynamics;
+using SixtyMeters.logic.fighting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ namespace SixtyMeters.logic.ai
     {
         // Public
         public BehaviourPuppet puppet;
+        public PuppetMaster puppetMaster;
+        public AudioSource audioSource;
 
         // Internals set up at start
         private NavMeshAgent _navMeshAgent;
@@ -24,6 +27,8 @@ namespace SixtyMeters.logic.ai
 
         // Settings
         public float playerAggressionRange = 10;
+        public float healthPoints = 100;
+        public float despawnTimeAfterDeath = 5f;
 
         // Indexed animator access
         private static readonly int Forward = Animator.StringToHash("Forward");
@@ -83,6 +88,12 @@ namespace SixtyMeters.logic.ai
             }
 
             return false;
+        }
+
+        public void Die()
+        {
+            puppetMaster.Kill();
+            Destroy(gameObject, despawnTimeAfterDeath);
         }
     }
 }

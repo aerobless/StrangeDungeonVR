@@ -4,3 +4,10 @@ pot_breaking_03.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
 pot_breaking_04.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
 pot_breaking_05.wav: CC0 https://freesound.org/people/Kinoton/sounds/399080/
 
+sword_swish_01.flac: CC0 https://freesound.org/people/qubodup/sounds/59992/
+
+wood-impact-01.wav: cc3.0 https://freesound.org/people/original_sound/sounds/376818/ by original_sound
+wood-impact-02.wav: cc0 https://freesound.org/people/d00121058/sounds/390766/
+wood-impact-03.wav: cc0 https://freesound.org/people/WilsonGamer123/sounds/593886/
+
+drawbridge-gate-closing_01.wav: cc3.0 https://freesound.org/people/Sergenious/sounds/55820/ by Sergenious
