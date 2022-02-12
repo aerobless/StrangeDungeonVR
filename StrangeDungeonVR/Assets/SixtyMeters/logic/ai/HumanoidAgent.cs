@@ -1,5 +1,6 @@
 using RootMotion.Dynamics;
-using SixtyMeters.logic.fighting;
+using RootMotion.FinalIK;
+using SixtyMeters.logic.player;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,11 +12,14 @@ namespace SixtyMeters.logic.ai
         public BehaviourPuppet puppet;
         public PuppetMaster puppetMaster;
         public AudioSource audioSource;
+        public InteractionObject starterWeapon;
 
         // Internals set up at start
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
-        private GameObject _player;
+        private PlayerActor _player;
+        private InteractionSystem _interactionSystem;
+        private AimIK _aimIK;
 
         // Internals dynamic
         private WayPoint _currentWaypoint;
@@ -24,6 +28,7 @@ namespace SixtyMeters.logic.ai
         // Constants
         private const float RateLimit = 1;
         private const float AttackRange = 2;
+        private readonly Vector3 _animatedAimDirection = Vector3.forward;
 
         // Settings
         public float playerAggressionRange = 10;
@@ -39,7 +44,13 @@ namespace SixtyMeters.logic.ai
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _animator = GetComponent<Animator>();
-            _player = GameObject.Find("PlayerController");
+            _interactionSystem = GetComponent<InteractionSystem>();
+            _aimIK = GetComponent<AimIK>();
+            _player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
+
+            // Pickup weapon and enable puppet mode once setup is finished
+            Invoke(nameof(PickupWeapon), 2f);
+            Invoke(nameof(EnablePuppetMode), 5f);
         }
 
         // Update is called once per frame
@@ -57,11 +68,12 @@ namespace SixtyMeters.logic.ai
                     var distanceToPlayer = GetDistanceToPlayer();
                     if (distanceToPlayer < playerAggressionRange && distanceToPlayer > AttackRange)
                     {
-                        _navMeshAgent.SetDestination(_player.transform.position);
+                        _navMeshAgent.SetDestination(_player.gameObject.transform.position);
                     }
                     else if (distanceToPlayer <= AttackRange)
                     {
-                        //_animator.SetTrigger(SwordAttack);
+                        _aimIK.solver.target = _player.head.transform;
+                        _animator.SetTrigger(SwordAttack);
                     }
                     else
                     {
@@ -77,7 +89,7 @@ namespace SixtyMeters.logic.ai
 
         private float GetDistanceToPlayer()
         {
-            return Vector3.Distance(transform.position, _player.transform.position);
+            return Vector3.Distance(transform.position, _player.gameObject.transform.position);
         }
 
         private bool HasReachedCurrentWayPoint(float distance)
@@ -94,6 +106,29 @@ namespace SixtyMeters.logic.ai
         {
             puppetMaster.Kill();
             Destroy(gameObject, despawnTimeAfterDeath);
+        }
+
+        private void PickupWeapon()
+        {
+            if (starterWeapon)
+            {
+                _interactionSystem.StartInteraction(FullBodyBipedEffector.RightHand, starterWeapon, true);
+            }
+        }
+
+        private void EnablePuppetMode()
+        {
+            puppetMaster.mode = PuppetMaster.Mode.Active;
+            Debug.Log("Setup finished! Puppet for " + name + " is now active!");
+        }
+
+        /**
+         * Used to make sure the head & hand aim are directed toward the target
+         */
+        void LateUpdate()
+        {
+            _aimIK.solver.axis =
+                _aimIK.solver.transform.InverseTransformVector(_aimIK.transform.rotation * _animatedAimDirection);
         }
     }
 }
