@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SixtyMeters.logic.decoration;
 using SixtyMeters.logic.door;
+using SixtyMeters.logic.interfaces;
 using UnityEngine;
 
 namespace SixtyMeters.logic
@@ -23,7 +24,7 @@ namespace SixtyMeters.logic
         {
             _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
 
-            var randomizedElements = GetComponentsInChildren<RandomGameObject>();
+            var randomizedElements = GetComponentsInChildren<IRandomizeable>();
             foreach (var go in randomizedElements)
             {
                 go.Randomize();

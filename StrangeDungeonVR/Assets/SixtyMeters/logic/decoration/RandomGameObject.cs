@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.decoration
 {
-    public class RandomGameObject : MonoBehaviour
+    public class RandomGameObject : MonoBehaviour, IRandomizeable
     {
         // Replacement objects that will be used instead of the existing one, should match in size
         public List<GameObject> possibilities;
