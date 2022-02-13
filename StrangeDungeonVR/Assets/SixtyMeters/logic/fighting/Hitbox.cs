@@ -7,7 +7,7 @@ namespace SixtyMeters.logic.fighting
 {
     public class Hitbox : MonoBehaviour
     {
-        private Damageable _dmgListener;
+        private HumanoidAgentDamageable _dmgListener;
         private PuppetMaster _puppetMaster;
 
         // Start is called before the first frame update
@@ -20,7 +20,7 @@ namespace SixtyMeters.logic.fighting
         {
         }
 
-        public void SetupHitbox(Damageable listener, PuppetMaster puppetMaster)
+        public void SetupHitbox(HumanoidAgentDamageable listener, PuppetMaster puppetMaster)
         {
             _dmgListener = listener;
             _puppetMaster = puppetMaster;

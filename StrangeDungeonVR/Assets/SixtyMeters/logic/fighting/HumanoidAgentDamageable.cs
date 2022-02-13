@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using RootMotion.Dynamics;
 using SixtyMeters.logic.ai;
-using SixtyMeters.utilities;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.fighting
 {
-    public class Damageable : MonoBehaviour
+    public class HumanoidAgentDamageable : MonoBehaviour, IDamageable
     {
         // Public 
         public SkinnedMeshRenderer meshRenderer;
@@ -55,6 +55,7 @@ namespace SixtyMeters.logic.fighting
             {
                 _hitLocked = true;
                 _healthPoints -= incomingDmg;
+                
                 _audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
 
                 meshRenderer.material = dmgMaterial;
@@ -70,4 +71,5 @@ namespace SixtyMeters.logic.fighting
             _hitLocked = false;
         }
     }
+    
 }

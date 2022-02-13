@@ -11,3 +11,6 @@ wood-impact-02.wav: cc0 https://freesound.org/people/d00121058/sounds/390766/
 wood-impact-03.wav: cc0 https://freesound.org/people/WilsonGamer123/sounds/593886/
 
 drawbridge-gate-closing_01.wav: cc3.0 https://freesound.org/people/Sergenious/sounds/55820/ by Sergenious
+
+spiketrap_01.wav: cc0 https://freesound.org/people/Deathscyp/sounds/443806/
+trap_reset_rattling_01.wav: cc3.0 https://freesound.org/people/jorickhoofd/sounds/160047/ by jorickhoofd

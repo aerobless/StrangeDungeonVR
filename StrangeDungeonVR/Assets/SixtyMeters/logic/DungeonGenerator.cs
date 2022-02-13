@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SixtyMeters.logic.door;
-using SixtyMeters.utilities;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

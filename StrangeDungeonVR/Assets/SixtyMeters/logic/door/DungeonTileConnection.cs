@@ -90,7 +90,7 @@ namespace SixtyMeters.logic.door
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<PlayerOneBodyCollider>())
+            if (other.GetComponent<PlayerBodyCollider>())
             {
                 _parentTile.NotifyPlayerEnterOrExit();
             }

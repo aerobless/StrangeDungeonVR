@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using SixtyMeters.utilities;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.audio

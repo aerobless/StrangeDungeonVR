@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using SixtyMeters.logic.interfaces;
-using SixtyMeters.utilities;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.decoration
