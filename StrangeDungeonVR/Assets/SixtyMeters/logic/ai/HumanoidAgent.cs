@@ -37,7 +37,7 @@ namespace SixtyMeters.logic.ai
 
         // Indexed animator access
         private static readonly int Forward = Animator.StringToHash("Forward");
-        private static readonly int SwordAttack = Animator.StringToHash("SwordAttack");
+        private static readonly int SwingAttacks = Animator.StringToHash("SwingAttacks");
 
         // Start is called before the first frame update
         void Start()
@@ -68,15 +68,17 @@ namespace SixtyMeters.logic.ai
                     var distanceToPlayer = GetDistanceToPlayer();
                     if (distanceToPlayer < playerAggressionRange && distanceToPlayer > AttackRange)
                     {
+                        _animator.SetBool(SwingAttacks, false);
                         _navMeshAgent.SetDestination(_player.gameObject.transform.position);
                     }
                     else if (distanceToPlayer <= AttackRange)
                     {
                         _aimIK.solver.target = _player.head.transform;
-                        _animator.SetTrigger(SwordAttack);
+                        _animator.SetBool(SwingAttacks, true);
                     }
                     else
                     {
+                        _animator.SetBool(SwingAttacks, false);
                         //TODO: wander
                     }
 

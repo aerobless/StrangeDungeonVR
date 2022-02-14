@@ -32,7 +32,7 @@ namespace SixtyMeters.logic.fighting
             _puppetMaster = _humanoidAgent.puppetMaster;
             _audioSource = _humanoidAgent.audioSource;
 
-            _puppetMaster.GetComponentsInChildren<Hitbox>().ToList()
+            _puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));
             _originalMaterial = meshRenderer.material;
 

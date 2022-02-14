@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - projectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - DynamicPose
   - 
   - 
-  - Walkable
-  - Obstruction
+  - 
+  - 
   - 
   - 
   - 
@@ -32,7 +33,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - AgentWeapon
   - 
   - 
   - 
