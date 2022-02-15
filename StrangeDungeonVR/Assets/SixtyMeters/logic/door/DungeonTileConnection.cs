@@ -1,4 +1,5 @@
 using System;
+using SixtyMeters.logic.dungeon;
 using SixtyMeters.logic.player;
 using UnityEngine;
 

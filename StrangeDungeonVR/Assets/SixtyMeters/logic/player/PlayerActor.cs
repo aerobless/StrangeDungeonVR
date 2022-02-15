@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using SixtyMeters.logic.dungeon;
 using SixtyMeters.logic.fighting;
 using UnityEngine;
 
@@ -16,14 +17,29 @@ namespace SixtyMeters.logic.player
         public float damageCanvasInitialAlpha = 0.5f;
         public float damageCanvasDuration = 3f;
 
+        // Internals set up at start
+        private DungeonGenerator _dungeonGenerator;
+
         // Start is called before the first frame update
         void Start()
         {
+            _dungeonGenerator = GameObject.Find("DungeonGenerator").GetComponent<DungeonGenerator>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (healthPoints <= 0)
+            {
+                PlayerDeath();
+            }
+        }
+
+        private void PlayerDeath()
+        {
+            Debug.Log("The player has died!");
+            _dungeonGenerator.GenerateDeathTileAndMovePlayerToHeaven(gameObject);
+            healthPoints = 100;
         }
 
         public void ApplyDamage(float incomingDmg)
