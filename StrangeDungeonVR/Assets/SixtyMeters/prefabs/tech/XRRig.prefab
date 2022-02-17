@@ -2040,6 +2040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 584984536166762480}
   dmgCanvas: {fileID: 2315042227275079194}
+  xrRig: {fileID: 1130901676366185716}
   healthPoints: 100
   damageCanvasInitialAlpha: 0.3
   damageCanvasDuration: 3

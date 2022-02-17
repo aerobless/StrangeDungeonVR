@@ -11,6 +11,7 @@ namespace SixtyMeters.logic.player
         // Public
         public GameObject head;
         public CanvasGroup dmgCanvas;
+        public List<GameObject> teleportWithPlayer;
 
         // Settings
         public float healthPoints = 100;
@@ -38,7 +39,10 @@ namespace SixtyMeters.logic.player
         private void PlayerDeath()
         {
             Debug.Log("The player has died!");
-            _dungeonGenerator.GenerateDeathTileAndMovePlayerToHeaven(gameObject);
+            var deathTile = _dungeonGenerator.GenerateDeathTile();
+            var routeToHeaven = deathTile.playerSpawnLocation.transform.position - gameObject.transform.position;
+            gameObject.transform.position += routeToHeaven;
+            teleportWithPlayer.ForEach(go => go.transform.position += routeToHeaven);
             healthPoints = 100;
         }
 

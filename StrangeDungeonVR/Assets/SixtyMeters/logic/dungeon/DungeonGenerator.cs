@@ -49,19 +49,18 @@ namespace SixtyMeters.logic.dungeon
             }
         }
 
-        public void GenerateDeathTileAndMovePlayerToHeaven(GameObject player)
+        public DeathTile GenerateDeathTile()
         {
             // Spawn heaven
-            var heavenLocation = _currentCenterTile.transform.position + new Vector3(5000, 5000, 5000);
+            var heavenLocation = _currentCenterTile.transform.position + new Vector3(300, 300, 300);
             var heaven = Instantiate(deathTile, heavenLocation, Quaternion.identity);
-
-            // Teleport player to heaven
-            player.transform.position = heaven.GetComponent<DeathTile>().playerSpawnLocation.transform.position;
 
             // Destroy remaining dungeon tiles
             _currentCenterTile.GetAttachedTiles()
                 .ToList().ForEach(tileToBeRemoved => tileToBeRemoved.Remove());
             Destroy(_currentCenterTile, 1f);
+
+            return heaven.GetComponent<DeathTile>();
         }
 
         private List<DungeonTile> AttachNewTile(DungeonTileConnection doorInExistingTile)
