@@ -1,25 +1,27 @@
 using System;
 using SixtyMeters.logic.fighting;
-using SixtyMeters.logic.player;
 using SixtyMeters.logic.utilities;
-using UnityEditor;
 using UnityEngine;
 
 namespace SixtyMeters.logic.traps
 {
     public class SpikeTrap : MonoBehaviour
     {
+        // Components
         public GameObject spikes;
         public Vector3 loweredPosition;
         public Vector3 fullyExtendedPosition;
-        public float spikeExtensionTime = 0.07f;
-        public float spikeLoweringTime = 2f;
-        public float spikeWaitBeforeLoweringTime = 3f;
-        public float damagePerHit = 50;
 
         public AudioSource audioSource;
         public AudioClip spikesExtending;
         public AudioClip spikesRetracting;
+
+        // Settings 
+        public float spikeExtensionTime = 0.07f;
+        public float spikeLoweringTime = 2f;
+        public float spikeWaitBeforeLoweringTime = 3f;
+        public float damagePerHit = 50;
+        public bool persistentTrap; // Meaning it does not move when triggered
 
         // Used to prevent the trap from being triggered again before its fully reset
         private bool _triggered;
@@ -27,7 +29,10 @@ namespace SixtyMeters.logic.traps
         // Start is called before the first frame update
         void Start()
         {
-            spikes.transform.localPosition = loweredPosition;
+            if (!persistentTrap)
+            {
+                spikes.transform.localPosition = loweredPosition;
+            }
         }
 
         // Update is called once per frame
@@ -40,7 +45,14 @@ namespace SixtyMeters.logic.traps
             if (!_triggered && coll.GetComponent<TriggerCollider>())
             {
                 _triggered = true;
-                RaiseSpikes(Wait(LowerSpikes(ResettingTrapFinished())));
+                if (!persistentTrap)
+                {
+                    RaiseSpikes(Wait(LowerSpikes(ResettingTrapFinished())));
+                }
+                else
+                {
+                    audioSource.PlayOneShot(spikesExtending);
+                }
 
                 coll.GetComponentInParent<IDamageable>()?.ApplyDamage(damagePerHit);
             }

@@ -16,3 +16,5 @@ spiketrap_01.wav: cc0 https://freesound.org/people/Deathscyp/sounds/443806/
 trap_reset_rattling_01.wav: cc3.0 https://freesound.org/people/jorickhoofd/sounds/160047/ by jorickhoofd
 
 death-women-choir.wav: cc3.0 https://freesound.org/people/liezen3/sounds/479938/ by liezen3
+
+shelf_breaking_01.wav: cc0 https://freesound.org/people/simonjsounds/sounds/260004/
