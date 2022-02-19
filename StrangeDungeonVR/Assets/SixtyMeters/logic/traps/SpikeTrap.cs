@@ -42,7 +42,7 @@ namespace SixtyMeters.logic.traps
 
         public void TriggerTrap(Collider coll)
         {
-            if (!_triggered && coll.GetComponent<TriggerCollider>())
+            if (!_triggered)
             {
                 _triggered = true;
                 if (!persistentTrap)

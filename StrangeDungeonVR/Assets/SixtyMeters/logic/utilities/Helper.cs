@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using SixtyMeters.logic.player;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -39,7 +37,7 @@ namespace SixtyMeters.logic.utilities
         {
             return LerpPosition(objectToMove, targetPosition, duration, NoAction());
         }
-        
+
         public static IEnumerator Wait(float timeToWait, Action doAfter)
         {
             yield return new WaitForSeconds(timeToWait);

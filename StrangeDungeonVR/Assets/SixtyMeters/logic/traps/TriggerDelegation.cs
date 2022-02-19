@@ -19,7 +19,10 @@ namespace SixtyMeters.logic.traps
 
         private void OnTriggerEnter(Collider other)
         {
-            doOnTriggerEnter.Invoke(other);
+            if (other.GetComponent<TriggerCollider>())
+            {
+                doOnTriggerEnter.Invoke(other);
+            }
         }
     }
 }

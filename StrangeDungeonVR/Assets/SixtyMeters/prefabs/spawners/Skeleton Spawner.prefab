@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5967869386768786504}
-  - component: {fileID: 2316076666233104684}
+  - component: {fileID: 7773702194229345855}
   m_Layer: 0
   m_Name: Skeleton Spawner
   m_TagString: Untagged
@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331798524598707337}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 17}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2316076666233104684
+--- !u!114 &7773702194229345855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8331798524598707337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1000c532b7c53458eecb8cc2f62ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: 34e503ec6985e734f9b21194fd0b78e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibilities:
-  - {fileID: 7657287064061230799, guid: 84b1dc087ed529f458c803c07215ba80, type: 3}
-  replacementSet: []
-  appearanceChance: 10
+  spawnableAgents:
+  - agent: {fileID: 7657287064061230799, guid: 84b1dc087ed529f458c803c07215ba80, type: 3}
+    heightOffset: 5
+  spawnTime: 0

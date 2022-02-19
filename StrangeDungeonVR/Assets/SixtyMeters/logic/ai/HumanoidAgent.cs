@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using RootMotion.Dynamics;
 using RootMotion.FinalIK;
 using SixtyMeters.logic.generator;
+using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.player;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace SixtyMeters.logic.ai
 {
-    public class HumanoidAgent : MonoBehaviour
+    public class HumanoidAgent : MonoBehaviour, ITrackedLifecycle
     {
         // Public
         public BehaviourPuppet puppet;
@@ -25,6 +27,7 @@ namespace SixtyMeters.logic.ai
         // Internals dynamic
         private WayPoint _currentWaypoint;
         private float _nextMovementCheck;
+        private readonly List<IDestructionListener> _destructionListener = new();
 
         // Constants
         private const float RateLimit = 1;
@@ -108,6 +111,7 @@ namespace SixtyMeters.logic.ai
         public void Die()
         {
             puppetMaster.Kill();
+            _destructionListener.ForEach(listener => listener.ObjectDestroyed(gameObject));
             Destroy(gameObject, despawnTimeAfterDeath);
         }
 
@@ -132,6 +136,11 @@ namespace SixtyMeters.logic.ai
         {
             _aimIK.solver.axis =
                 _aimIK.solver.transform.InverseTransformVector(_aimIK.transform.rotation * _animatedAimDirection);
+        }
+
+        public void RegisterDestructionListener(IDestructionListener destructionListener)
+        {
+            _destructionListener.Add(destructionListener);
         }
     }
 }
