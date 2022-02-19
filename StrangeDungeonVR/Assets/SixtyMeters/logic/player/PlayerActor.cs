@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using SixtyMeters.logic.dungeon;
 using SixtyMeters.logic.fighting;
+using SixtyMeters.logic.generator;
 using UnityEngine;
 
 namespace SixtyMeters.logic.player

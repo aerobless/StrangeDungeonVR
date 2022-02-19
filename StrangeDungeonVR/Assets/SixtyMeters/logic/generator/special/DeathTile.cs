@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SixtyMeters.logic.dungeon.special
+namespace SixtyMeters.logic.generator.special
 {
     public class DeathTile : MonoBehaviour
     {

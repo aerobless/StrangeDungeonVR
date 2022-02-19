@@ -4,7 +4,7 @@ using SixtyMeters.logic.door;
 using SixtyMeters.logic.interfaces;
 using UnityEngine;
 
-namespace SixtyMeters.logic.dungeon
+namespace SixtyMeters.logic.generator
 {
     public class DungeonTile : MonoBehaviour
     {

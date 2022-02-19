@@ -3,7 +3,7 @@ using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 
-namespace SixtyMeters.logic.decoration
+namespace SixtyMeters.logic.generator.randomization
 {
     public class RandomGameObject : MonoBehaviour, IRandomizeable
     {

@@ -1,5 +1,6 @@
 using RootMotion.Dynamics;
 using RootMotion.FinalIK;
+using SixtyMeters.logic.generator;
 using SixtyMeters.logic.player;
 using UnityEngine;
 using UnityEngine.AI;

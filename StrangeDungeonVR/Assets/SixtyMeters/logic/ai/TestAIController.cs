@@ -1,4 +1,5 @@
 using RootMotion.Dynamics;
+using SixtyMeters.logic.generator;
 using UnityEngine;
 using UnityEngine.AI;
 

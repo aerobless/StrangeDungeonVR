@@ -1,5 +1,4 @@
-using System;
-using SixtyMeters.logic.dungeon;
+using SixtyMeters.logic.generator;
 using SixtyMeters.logic.player;
 using UnityEngine;
 

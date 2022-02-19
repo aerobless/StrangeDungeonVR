@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SixtyMeters.logic.door;
-using SixtyMeters.logic.dungeon.special;
+using SixtyMeters.logic.generator.special;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SixtyMeters.logic.dungeon
+namespace SixtyMeters.logic.generator
 {
     public class DungeonGenerator : MonoBehaviour
     {
