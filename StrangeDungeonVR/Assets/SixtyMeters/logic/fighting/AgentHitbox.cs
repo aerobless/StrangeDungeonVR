@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using RootMotion.Dynamics;
 using UnityEngine;
 
@@ -7,6 +6,10 @@ namespace SixtyMeters.logic.fighting
 {
     public class AgentHitbox : MonoBehaviour
     {
+        // Internal Settings
+        private readonly float _minVelocityForDamage = 2;
+
+        // Internal Dynamics
         private HumanoidAgentDamageable _dmgListener;
         private PuppetMaster _puppetMaster;
 
@@ -30,24 +33,31 @@ namespace SixtyMeters.logic.fighting
         {
             if (other.gameObject.GetComponent<DamageObject>())
             {
-                _dmgListener.ApplyDamage(other.gameObject.GetComponent<DamageObject>().GetDamage());
-                //TODO: reset after a while
-                Debug.Log(name);
-                
-                Vector3 dir = other.contacts[0].point - transform.position;
-                dir.Normalize();
-                
-                var magnitude = 5000;
-                // We then get the opposite (-Vector3) and normalize it
-                //dir = -dir.normalized;
-                // And finally we add force in the direction of dir and multiply it by force. 
-                // This will push back the player
-                GetComponent<Rigidbody>().AddForce(dir * magnitude);
-                
-                //Unpin muscles
-                //var muscle = _puppetMaster.GetMuscleIndex(GetComponent<Rigidbody>());
-                //_puppetMaster.SetMuscleWeightsRecursive(muscle, 0.5f, 0f);
-                //StartCoroutine(ResetMuscle(muscle));
+                //Vector3 collisionForce = other.impulse / Time.fixedDeltaTime;
+                var relativeVelocityMagnitude = other.relativeVelocity.magnitude;
+                Debug.Log(relativeVelocityMagnitude);
+                if (relativeVelocityMagnitude > _minVelocityForDamage)
+                {
+                    var impactPoint = other.GetContact(0).point;
+                    var damageObject = other.gameObject.GetComponent<DamageObject>();
+                    _dmgListener.ApplyDamage(damageObject, relativeVelocityMagnitude, impactPoint);
+
+                    // Apply force
+                    Vector3 dir = other.contacts[0].point - transform.position;
+                    dir.Normalize();
+
+                    var magnitude = 5000;
+                    // We then get the opposite (-Vector3) and normalize it
+                    //dir = -dir.normalized;
+                    // And finally we add force in the direction of dir and multiply it by force. 
+                    // This will push back the player
+                    GetComponent<Rigidbody>().AddForce(dir * magnitude);
+
+                    //Unpin muscles
+                    //var muscle = _puppetMaster.GetMuscleIndex(GetComponent<Rigidbody>());
+                    //_puppetMaster.SetMuscleWeightsRecursive(muscle, 0.5f, 0f);
+                    //StartCoroutine(ResetMuscle(muscle));
+                }
             }
         }
 

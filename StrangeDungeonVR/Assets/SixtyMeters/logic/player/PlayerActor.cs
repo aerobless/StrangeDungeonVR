@@ -46,7 +46,7 @@ namespace SixtyMeters.logic.player
             healthPoints = 100;
         }
 
-        public void ApplyDamage(float incomingDmg)
+        public void ApplyDirectDamage(float incomingDmg)
         {
             healthPoints -= incomingDmg;
             Debug.Log("Player took " + incomingDmg + " dmg and their HP is now " + healthPoints);
@@ -55,6 +55,11 @@ namespace SixtyMeters.logic.player
                 dmgCanvas.alpha = damageCanvasInitialAlpha;
                 StartCoroutine(LerpDamageScreen(dmgCanvas, 0, damageCanvasDuration));
             }
+        }
+
+        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        {
+            throw new System.NotImplementedException();
         }
 
         private static IEnumerator LerpDamageScreen(CanvasGroup canvas, float targetValue, float duration)

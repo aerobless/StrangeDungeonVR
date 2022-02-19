@@ -7,9 +7,14 @@ namespace SixtyMeters.logic.ai
     {
         public HumanoidAgentDamageable damageReceiver;
 
-        public void ApplyDamage(float incomingDmg)
+        public void ApplyDirectDamage(float incomingDmg)
         {
-            damageReceiver.ApplyDamage(incomingDmg);
+            damageReceiver.ApplyDirectDamage(incomingDmg);
+        }
+
+        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        {
+            damageReceiver.ApplyDamage(damageObject, relativeVelocityMagnitude, pointOfImpact);
         }
     }
 }

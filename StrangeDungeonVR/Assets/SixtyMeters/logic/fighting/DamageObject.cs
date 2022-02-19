@@ -16,7 +16,7 @@ namespace SixtyMeters.logic.fighting
         {
         }
 
-        public float GetDamage()
+        public float GetDamagePoints()
         {
             return damagePerHit;
         }

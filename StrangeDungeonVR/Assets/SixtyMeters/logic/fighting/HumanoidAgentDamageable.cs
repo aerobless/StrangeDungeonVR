@@ -3,6 +3,7 @@ using System.Linq;
 using RootMotion.Dynamics;
 using SixtyMeters.logic.ai;
 using SixtyMeters.logic.utilities;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SixtyMeters.logic.fighting
@@ -20,6 +21,7 @@ namespace SixtyMeters.logic.fighting
         private HumanoidAgent _humanoidAgent;
         private PuppetMaster _puppetMaster;
         private AudioSource _audioSource;
+        private GameObject _damageTextObject;
 
         // Internal settings
         private float _healthPoints;
@@ -31,6 +33,7 @@ namespace SixtyMeters.logic.fighting
             _humanoidAgent = GetComponent<HumanoidAgent>();
             _puppetMaster = _humanoidAgent.puppetMaster;
             _audioSource = _humanoidAgent.audioSource;
+            _damageTextObject = Resources.Load("DamageText") as GameObject;
 
             _puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));
@@ -49,20 +52,50 @@ namespace SixtyMeters.logic.fighting
             }
         }
 
-        public void ApplyDamage(float incomingDmg)
+        public void ApplyDirectDamage(float incomingDmg)
         {
             if (!_hitLocked)
             {
                 _hitLocked = true;
-                _healthPoints -= incomingDmg;
-                
-                _audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
-
-                meshRenderer.material = dmgMaterial;
-                Debug.Log("Sustained dmg: " + incomingDmg);
-
-                Invoke(nameof(ResetHit), 0.2f);
+                ApplyDamageAndUnlock((int) incomingDmg, transform.position);
             }
+        }
+
+        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        {
+            if (!_hitLocked)
+            {
+                _hitLocked = true;
+
+                // Calculate damage
+                var calculatedDmg = CalculateDamage(damageObject, relativeVelocityMagnitude);
+
+                ApplyDamageAndUnlock(calculatedDmg, pointOfImpact);
+            }
+        }
+
+        private void ApplyDamageAndUnlock(int dmg, Vector3 pointOfImpact)
+        {
+            _audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
+
+            meshRenderer.material = dmgMaterial;
+
+            // Damage Text
+            var damageText = Instantiate(_damageTextObject, pointOfImpact, Quaternion.identity);
+            damageText.GetComponent<DamageText>().SetDamageText(dmg);
+            Debug.Log("Sustained dmg: " + dmg);
+
+            _healthPoints -= dmg;
+            Invoke(nameof(ResetHit), 1f);
+        }
+
+        private static int CalculateDamage(DamageObject damageObject, float relativeVelocityMagnitude)
+        {
+            var baseDmgPoints = damageObject.GetDamagePoints();
+            var criticalDamageRng = Random.Range(0, 3); //TODO: determine by weapon
+
+            // Base 5 + 2-12 + 0-3 = 5 - 20
+            return (int) (baseDmgPoints + relativeVelocityMagnitude + criticalDamageRng);
         }
 
         private void ResetHit()
@@ -71,5 +104,4 @@ namespace SixtyMeters.logic.fighting
             _hitLocked = false;
         }
     }
-    
 }

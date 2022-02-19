@@ -3509,11 +3509,11 @@ MonoBehaviour:
   mode: 1
   blendTime: 0.1
   fixTargetTransforms: 0
-  solverIterationCount: 6
+  solverIterationCount: 4
   visualizeTargetPose: 1
-  mappingWeight: 0.833
-  pinWeight: 0.799
-  muscleWeight: 0.82
+  mappingWeight: 0.944
+  pinWeight: 0.923
+  muscleWeight: 0.941
   muscleSpring: 100
   muscleDamper: 0
   pinPow: 4
@@ -3596,8 +3596,8 @@ MonoBehaviour:
     props:
       group: 5
       mappingWeight: 0.959
-      pinWeight: 0.856
-      muscleWeight: 0.648
+      pinWeight: 0.897
+      muscleWeight: 0.899
       muscleDamper: 0.923
       internalCollisionIgnores:
         ignoreAll: 0
@@ -3629,8 +3629,8 @@ MonoBehaviour:
     props:
       group: 6
       mappingWeight: 0.929
-      pinWeight: 0.793
-      muscleWeight: 0.661
+      pinWeight: 0.915
+      muscleWeight: 0.899
       muscleDamper: 0.914
       internalCollisionIgnores:
         ignoreAll: 0
@@ -3794,9 +3794,9 @@ MonoBehaviour:
     props:
       group: 3
       mappingWeight: 0.964
-      pinWeight: 0.811
-      muscleWeight: 0.486
-      muscleDamper: 0.905
+      pinWeight: 0.916
+      muscleWeight: 0.926
+      muscleDamper: 0.925
       internalCollisionIgnores:
         ignoreAll: 0
         muscles: []
@@ -3827,9 +3827,9 @@ MonoBehaviour:
     props:
       group: 3
       mappingWeight: 0.928
-      pinWeight: 0.798
-      muscleWeight: 0.446
-      muscleDamper: 0.905
+      pinWeight: 0.903
+      muscleWeight: 0.92
+      muscleDamper: 0.917
       internalCollisionIgnores:
         ignoreAll: 0
         muscles: []
@@ -3860,8 +3860,8 @@ MonoBehaviour:
     props:
       group: 4
       mappingWeight: 0.92
-      pinWeight: 0.792
-      muscleWeight: 0.45
+      pinWeight: 0.888
+      muscleWeight: 0.887
       muscleDamper: 0.915
       internalCollisionIgnores:
         ignoreAll: 0
@@ -3893,9 +3893,9 @@ MonoBehaviour:
     props:
       group: 3
       mappingWeight: 0.942
-      pinWeight: 0.819
-      muscleWeight: 0.436
-      muscleDamper: 0.874
+      pinWeight: 0.909
+      muscleWeight: 0.9
+      muscleDamper: 0.938
       internalCollisionIgnores:
         ignoreAll: 0
         muscles: []
@@ -3926,8 +3926,8 @@ MonoBehaviour:
     props:
       group: 3
       mappingWeight: 0.91
-      pinWeight: 0.783
-      muscleWeight: 0.446
+      pinWeight: 0.882
+      muscleWeight: 0.883
       muscleDamper: 0.91
       internalCollisionIgnores:
         ignoreAll: 0
@@ -3959,8 +3959,8 @@ MonoBehaviour:
     props:
       group: 4
       mappingWeight: 0.923
-      pinWeight: 0.748
-      muscleWeight: 0.45
+      pinWeight: 0.911
+      muscleWeight: 0.917
       muscleDamper: 0.914
       internalCollisionIgnores:
         ignoreAll: 0
@@ -3992,8 +3992,8 @@ MonoBehaviour:
     props:
       group: 2
       mappingWeight: 0.91
-      pinWeight: 0.554
-      muscleWeight: 0.4
+      pinWeight: 0.893
+      muscleWeight: 0.893
       muscleDamper: 0.91
       internalCollisionIgnores:
         ignoreAll: 0
@@ -6839,7 +6839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462aebc5252344b4caf628db765936de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 10
+  damagePerHit: 1
 --- !u!1 &7657287063511014674
 GameObject:
   m_ObjectHideFlags: 0
@@ -9824,7 +9824,7 @@ MonoBehaviour:
     m_Bits: 4113
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 770
+    m_Bits: 0
   collisionThreshold: 0.1
   collisionResistance:
     mode: 1
@@ -9858,7 +9858,7 @@ MonoBehaviour:
       by each muscle's target velocity magnitude. This can be used to make collision
       resistance higher while the character moves or animates faster.
   collisionResistanceMultipliers: []
-  maxCollisions: 5
+  maxCollisions: 3
   regainPinSpeed: 1.5
   boostFalloff: 1
   defaults:

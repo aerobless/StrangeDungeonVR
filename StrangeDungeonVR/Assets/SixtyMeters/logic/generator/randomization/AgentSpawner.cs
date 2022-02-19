@@ -68,6 +68,7 @@ namespace SixtyMeters.logic.generator.randomization
             if (_spawnedAgents.Count < maxAliveAgents)
             {
                 var spawnedAgent = InstantiateWithOriginalParent(agent, transform);
+                spawnedAgent.GetComponent<ITrackedLifecycle>().RegisterDestructionListener(this);
                 _spawnedAgents.Add(spawnedAgent);
             }
         }
@@ -95,6 +96,7 @@ namespace SixtyMeters.logic.generator.randomization
         public void ObjectDestroyed(GameObject trackedObject)
         {
             _spawnedAgents.Remove(trackedObject);
+            Debug.Log("Removed tracked object " + _spawnedAgents.Count);
         }
     }
 

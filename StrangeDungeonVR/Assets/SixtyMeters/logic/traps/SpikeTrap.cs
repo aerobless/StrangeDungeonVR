@@ -54,7 +54,7 @@ namespace SixtyMeters.logic.traps
                     audioSource.PlayOneShot(spikesExtending);
                 }
 
-                coll.GetComponentInParent<IDamageable>()?.ApplyDamage(damagePerHit);
+                coll.GetComponentInParent<IDamageable>()?.ApplyDirectDamage(damagePerHit);
             }
         }
 
