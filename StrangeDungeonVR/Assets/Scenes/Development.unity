@@ -7601,11 +7601,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1297801983}
     m_Modifications:
-    - target: {fileID: 1099517425751518567, guid: 9e060ce1e09175d499168a745e1f48cb,
-        type: 3}
-      propertyPath: damagePerHit
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7264134997233159985, guid: 9e060ce1e09175d499168a745e1f48cb,
         type: 3}
       propertyPath: m_RootOrder
@@ -8882,7 +8877,7 @@ PrefabInstance:
     - target: {fileID: 8217702927509824732, guid: a81e96e0fe48ecc4c946f442aa0073cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8217702927509824732, guid: a81e96e0fe48ecc4c946f442aa0073cf,
         type: 3}

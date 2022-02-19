@@ -16,18 +16,15 @@ namespace SixtyMeters.logic.generator.randomization
             {
                 Debug.LogError(name + " has no decoration options defined!");
             }
-            else
-            {
-                // Initially disable all decorations
-                decorationOptions.ForEach(decoration => decoration.SetActive(false));
-            }
         }
 
         public void Randomize()
         {
+            decorationOptions.ForEach(decoration => decoration.SetActive(false));
             var randomDecoration = Helper.GETRandomFromList(decorationOptions);
             randomDecoration.SetActive(true);
             RandomizeSubDecorations(randomDecoration);
+            Debug.Log("Randomized decorations, chose "+randomDecoration.name);
         }
 
         private static void RandomizeSubDecorations(GameObject parentObject)

@@ -68,7 +68,7 @@ namespace SixtyMeters.logic.generator.randomization
             if (_spawnedAgents.Count < maxAliveAgents)
             {
                 var spawnedAgent = InstantiateWithOriginalParent(agent, transform);
-                spawnedAgent.GetComponent<ITrackedLifecycle>().RegisterDestructionListener(this);
+                spawnedAgent.GetComponentInChildren<ITrackedLifecycle>().RegisterDestructionListener(this);
                 _spawnedAgents.Add(spawnedAgent);
             }
         }
