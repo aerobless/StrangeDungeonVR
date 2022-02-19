@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
@@ -9,24 +10,30 @@ namespace SixtyMeters.logic.generator.randomization
     {
         public List<GameObject> decorationOptions;
 
-        // Start is called before the first frame update
         void Start()
         {
             if (decorationOptions.Count == 0)
             {
                 Debug.LogError(name + " has no decoration options defined!");
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
+            else
+            {
+                // Initially disable all decorations
+                decorationOptions.ForEach(decoration => decoration.SetActive(false));
+            }
         }
 
         public void Randomize()
         {
-            decorationOptions.ForEach(option => option.SetActive(false));
-            Helper.GETRandomFromList(decorationOptions).SetActive(true);
+            var randomDecoration = Helper.GETRandomFromList(decorationOptions);
+            randomDecoration.SetActive(true);
+            RandomizeSubDecorations(randomDecoration);
+        }
+
+        private static void RandomizeSubDecorations(GameObject parentObject)
+        {
+            var subDecorations = parentObject.GetComponentsInChildren<IRandomizeable>();
+            subDecorations.ToList().ForEach(decoration => decoration.Randomize());
         }
     }
 }
