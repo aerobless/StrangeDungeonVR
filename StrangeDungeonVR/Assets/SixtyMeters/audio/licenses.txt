@@ -20,3 +20,6 @@ death-women-choir.wav: cc3.0 https://freesound.org/people/liezen3/sounds/479938/
 shelf_breaking_01.wav: cc0 https://freesound.org/people/simonjsounds/sounds/260004/
 
 pendulum_woosh_01.wav: cc3.0 https://freesound.org/people/newagesoup/sounds/377827/ by newagesoup
+
+coin_impact_01.wav: CC BY 3.0 https://freesound.org/people/LittleRobotSoundFactory/sounds/276100/ by LittleRobotSoundFactory
+coin_deposit.mp3: CC0 https://freesound.org/people/jact878787/sounds/323809/

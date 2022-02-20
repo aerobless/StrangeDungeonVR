@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6117604686982321297}
   - component: {fileID: 2740695443802983331}
   - component: {fileID: 6422937342033113298}
+  - component: {fileID: -506896208574598376}
   m_Layer: 0
   m_Name: D_Vase_01
   m_TagString: Untagged
@@ -172,3 +173,19 @@ MonoBehaviour:
   LastVelocity: 0
   MaxImpulse: 0
   MaxVelocity: 0
+--- !u!114 &-506896208574598376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703548305461851619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4263698f61dc4414e80f878c39ff6363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot:
+  - loot: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb, type: 3}
+    minAmount: 3
+    maxAmount: 12

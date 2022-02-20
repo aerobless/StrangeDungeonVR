@@ -483,6 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6092347818258555979}
   - component: {fileID: 779686301983222997}
+  - component: {fileID: 4897053050928227719}
   m_Layer: 0
   m_Name: Broken_Vase
   m_TagString: Untagged
@@ -532,6 +533,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 674860968f609cd47b143882802c2395, type: 3}
   - {fileID: 8300000, guid: 76ace05f5405c7d42a1d2fbb6b020fe2, type: 3}
   audioSource: {fileID: 9184993818458729328}
+--- !u!114 &4897053050928227719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901641786743930609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4263698f61dc4414e80f878c39ff6363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAtStart: 1
+  loot:
+  - loot: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb, type: 3}
+    minAmount: 3
+    maxAmount: 15
 --- !u!1 &7672949878830227545
 GameObject:
   m_ObjectHideFlags: 0
