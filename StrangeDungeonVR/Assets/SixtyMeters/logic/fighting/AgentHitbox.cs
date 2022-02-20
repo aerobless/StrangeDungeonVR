@@ -35,7 +35,6 @@ namespace SixtyMeters.logic.fighting
             {
                 //Vector3 collisionForce = other.impulse / Time.fixedDeltaTime;
                 var relativeVelocityMagnitude = other.relativeVelocity.magnitude;
-                Debug.Log(relativeVelocityMagnitude);
                 if (relativeVelocityMagnitude > _minVelocityForDamage)
                 {
                     var impactPoint = other.GetContact(0).point;

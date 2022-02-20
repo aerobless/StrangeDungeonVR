@@ -14,6 +14,7 @@ namespace SixtyMeters.logic.ai
         // Public
         public BehaviourPuppet puppet;
         public PuppetMaster puppetMaster;
+        public GameObject rootObject; //Needed for destruction
         public AudioSource audioSource;
         public InteractionObject starterWeapon;
 
@@ -112,7 +113,7 @@ namespace SixtyMeters.logic.ai
         {
             puppetMaster.Kill();
             _destructionListener.ForEach(listener => listener.ObjectDestroyed(gameObject));
-            Destroy(gameObject, despawnTimeAfterDeath);
+            Destroy(rootObject, despawnTimeAfterDeath);
         }
 
         private void PickupWeapon()

@@ -1,7 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using HurricaneVR.Framework.Core;
+using HurricaneVR.Framework.Core.Grabbers;
+using HurricaneVR.Framework.Shared;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.generator;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.player
@@ -12,6 +17,8 @@ namespace SixtyMeters.logic.player
         public GameObject head;
         public CanvasGroup dmgCanvas;
         public List<GameObject> teleportWithPlayer;
+        public GameObject mainWeapon; //TODO: allow for a binding process later
+        public HVRHandGrabber rightHand;
 
         // Settings
         public float healthPoints = 100;
@@ -34,6 +41,19 @@ namespace SixtyMeters.logic.player
             {
                 PlayerDeath();
             }
+        }
+
+        public void SummonMainWeapon()
+        {
+            // if weird bugs appear - the players sword needs to be attached to his gameobject otherwise the local lerp won't work
+            StartCoroutine(Helper.LerpPosition(mainWeapon.transform, rightHand.transform, 1,
+                GrabWeapon(rightHand, mainWeapon)));
+            //rightHand.Grab(mainWeapon.GetComponent<HVRGrabbable>(), HVRGrabTrigger.Toggle);
+        }
+
+        private static Action GrabWeapon(HVRHandGrabber hand, GameObject weapon)
+        {
+            return () => { }; //hand.Grab(weapon.GetComponent<HVRGrabbable>(), HVRGrabTrigger.Active); };
         }
 
         private void PlayerDeath()

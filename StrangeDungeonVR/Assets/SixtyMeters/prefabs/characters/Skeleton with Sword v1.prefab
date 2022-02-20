@@ -7853,6 +7853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puppet: {fileID: 7657287064335189188}
   puppetMaster: {fileID: 7662115537134207076}
+  rootObject: {fileID: 7657287064061230799}
   audioSource: {fileID: 7657287064277027532}
   starterWeapon: {fileID: 7683200864165743858}
   playerAggressionRange: 10

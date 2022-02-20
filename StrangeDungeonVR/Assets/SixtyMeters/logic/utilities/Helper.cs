@@ -33,6 +33,22 @@ namespace SixtyMeters.logic.utilities
             doAfter?.Invoke();
         }
 
+        public static IEnumerator LerpPosition(Transform objectToMove, Transform target, float duration, Action doAfter)
+        {
+            float time = 0;
+            var startPosition = objectToMove.localPosition;
+            while (time < duration)
+            {
+                var smoothStep = Mathf.SmoothStep(0f, 1f, time / duration);
+                objectToMove.localPosition = Vector3.Lerp(startPosition, target.localPosition, smoothStep);
+                time += Time.deltaTime;
+                yield return null;
+            }
+
+            objectToMove.localPosition = target.localPosition;
+            doAfter?.Invoke();
+        }
+
         public static IEnumerator LerpPosition(Transform objectToMove, Vector3 targetPosition, float duration)
         {
             return LerpPosition(objectToMove, targetPosition, duration, NoAction());

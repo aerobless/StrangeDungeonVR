@@ -396,7 +396,6 @@ GameObject:
   - component: {fileID: 7264134997234485417}
   - component: {fileID: 7264134997235369823}
   - component: {fileID: 440678208391562171}
-  - component: {fileID: 42675271072802567}
   - component: {fileID: 2417306979441148122}
   - component: {fileID: 4217383716309051033}
   - component: {fileID: 1099517425751518567}
@@ -494,18 +493,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 42636576a831b204dab6a5c961a14a5f, type: 3}
---- !u!114 &42675271072802567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264134997233376789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008b9eb1d384f6d40ad65985883f2ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2417306979441148122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +581,7 @@ MonoBehaviour:
   Grabbed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 42675271072802567}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PersistentGrabbable, Assembly-CSharp
         m_MethodName: MakePersistent
         m_Mode: 1

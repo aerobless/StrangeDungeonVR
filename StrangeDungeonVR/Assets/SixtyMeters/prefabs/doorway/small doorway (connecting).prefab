@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_GlowingOrb_05
       objectReference: {fileID: 0}
+    - target: {fileID: 164116, guid: 9e2073d9f1afc544ca0b3f8d272d568e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 473392, guid: 9e2073d9f1afc544ca0b3f8d272d568e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -625,6 +629,10 @@ PrefabInstance:
     - target: {fileID: 187352, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
       propertyPath: m_Name
       value: SM_Env_Wall_DoorFrame_Double_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 187352, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488334, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
       propertyPath: m_RootOrder
@@ -1037,6 +1045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Brick_Rubble_01
       objectReference: {fileID: 0}
+    - target: {fileID: 191796, guid: 3e288e91154144d4a8449e8f03d24b20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404298, guid: 3e288e91154144d4a8449e8f03d24b20, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1107,6 +1119,10 @@ PrefabInstance:
     - target: {fileID: 187352, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
       propertyPath: m_Name
       value: SM_Env_Wall_DoorFrame_Double_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 187352, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488334, guid: 947ebd566533c054abc552d63317dbaf, type: 3}
       propertyPath: m_RootOrder
