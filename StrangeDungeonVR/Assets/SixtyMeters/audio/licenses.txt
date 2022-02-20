@@ -18,3 +18,5 @@ trap_reset_rattling_01.wav: cc3.0 https://freesound.org/people/jorickhoofd/sound
 death-women-choir.wav: cc3.0 https://freesound.org/people/liezen3/sounds/479938/ by liezen3
 
 shelf_breaking_01.wav: cc0 https://freesound.org/people/simonjsounds/sounds/260004/
+
+pendulum_woosh_01.wav: cc3.0 https://freesound.org/people/newagesoup/sounds/377827/ by newagesoup
