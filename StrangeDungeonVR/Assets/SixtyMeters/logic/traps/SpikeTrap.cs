@@ -52,6 +52,7 @@ namespace SixtyMeters.logic.traps
                 else
                 {
                     audioSource.PlayOneShot(spikesExtending);
+                    Wait(ResettingTrapFinished()).Invoke();
                 }
 
                 coll.GetComponentInParent<IDamageable>()?.ApplyDirectDamage(damagePerHit);
