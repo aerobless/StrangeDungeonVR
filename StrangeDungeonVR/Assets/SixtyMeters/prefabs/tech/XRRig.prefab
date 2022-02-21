@@ -1719,8 +1719,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 10}
-  m_Center: {x: 0, y: 0, z: 5}
+  m_Size: {x: 0.5, y: 0.5, z: 4}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!114 &4162794107880655106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6058,8 +6058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6ce9c5c422df545a771e8b0bebb1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAudioSource: {fileID: 8393844201333060772}
-  coinDepositSound: {fileID: 8300000, guid: ad8db4f4db31bce4ebd8b0818cd7d6ee, type: 3}
 --- !u!1 &3795676122270841471
 GameObject:
   m_ObjectHideFlags: 0
