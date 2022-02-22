@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HurricaneVR.Framework.Core;
 using HurricaneVR.Framework.Core.Grabbers;
+using HurricaneVR.Framework.Core.Utils;
 using HurricaneVR.Framework.Shared;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.generator;
@@ -62,7 +63,10 @@ namespace SixtyMeters.logic.player
             var deathTile = _dungeonGenerator.GenerateDeathTile();
             var routeToHeaven = deathTile.playerSpawnLocation.transform.position - gameObject.transform.position;
             gameObject.transform.position += routeToHeaven;
-            teleportWithPlayer.ForEach(go => go.transform.position += routeToHeaven);
+            teleportWithPlayer.ForEach(go =>
+            {
+                go.transform.position += routeToHeaven;
+            });
             healthPoints = 100;
         }
 

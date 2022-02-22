@@ -23,3 +23,5 @@ pendulum_woosh_01.wav: cc3.0 https://freesound.org/people/newagesoup/sounds/3778
 
 coin_impact_01.wav: CC BY 3.0 https://freesound.org/people/LittleRobotSoundFactory/sounds/276100/ by LittleRobotSoundFactory
 coin_deposit.mp3: CC0 https://freesound.org/people/jact878787/sounds/323809/
+
+small_torch_fire_loop.wav: cc3.0 https://freesound.org/people/PhreaKsAccount/sounds/46273/ by PhreaKsAccount
