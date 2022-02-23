@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace SixtyMeters.logic.generator.special
 {
-    public class DeathTile : MonoBehaviour, IHasSpawnPoint
+    public class StartTile : MonoBehaviour, IHasSpawnPoint
     {
         public WayPoint playerSpawnLocation;
+        public GameObject graveyard;
 
         // Start is called before the first frame update
         void Start()
@@ -17,10 +18,14 @@ namespace SixtyMeters.logic.generator.special
         {
         }
 
-
         public WayPoint GetSpawnPoint()
         {
             return playerSpawnLocation;
+        }
+
+        public void EnableGraveyard()
+        {
+            graveyard.SetActive(true);
         }
     }
 }

@@ -863,11 +863,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 5c84ddac-9841-43fd-88cd-e79ff9e44f65
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Strange Dungeon VR
+  organizationId: theo-winter
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SixtyMeters.logic.door;
 using SixtyMeters.logic.generator.special;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,9 +14,12 @@ namespace SixtyMeters.logic.generator
     {
         public List<GameObject> tiles;
         public DungeonTile startTile;
+        public DungeonTile restartTile;
         public DungeonTile deathTile;
 
         private DungeonTile _currentCenterTile;
+
+        private readonly List<DungeonTile> _activeTiles = new();
 
         // Start is called before the first frame update
         void Start()
@@ -38,29 +42,37 @@ namespace SixtyMeters.logic.generator
 
         public void RemoveExpiredTiles(DungeonTile existingTile)
         {
-            if (!existingTile.HasLockedDoors() && existingTile != startTile)
+            if (!existingTile.HasLockedDoors())
             {
                 // Only delete when entering a fresh corridor
                 existingTile.GetAttachedTiles()
                     .SelectMany(tile => tile.GetAttachedTiles())
                     .Distinct()
                     .Where(tile => tile != existingTile)
-                    .ToList().ForEach(tileToBeRemoved => tileToBeRemoved.Remove());
+                    .ToList().ForEach(tileToBeRemoved =>
+                    {
+                        _activeTiles.Remove(tileToBeRemoved);
+                        tileToBeRemoved.Remove();
+                    });
             }
         }
 
-        public DeathTile GenerateDeathTile()
+        public StartTile GenerateRespawnTile(Transform playerTransform)
         {
-            // Spawn heaven
-            var heavenLocation = _currentCenterTile.transform.position + new Vector3(300, 300, 300);
-            var heaven = Instantiate(deathTile, heavenLocation, Quaternion.identity);
+            // Setup respawn tile
+            var respawnTile = Instantiate(restartTile, playerTransform.transform.position, Quaternion.identity);
+            AlignTileToPlayer(playerTransform, respawnTile.gameObject);
 
-            // Destroy remaining dungeon tiles
-            _currentCenterTile.GetAttachedTiles()
-                .ToList().ForEach(tileToBeRemoved => tileToBeRemoved.Remove());
-            Destroy(_currentCenterTile, 1f);
+            // Destroy all remaining dungeon tiles & add this one to the list
+            _activeTiles.ForEach(tile => tile.Remove());
+            _activeTiles.Clear();
+            _activeTiles.Add(respawnTile);
 
-            return heaven.GetComponent<DeathTile>();
+            // Prepare for next run
+            _currentCenterTile = respawnTile;
+            respawnTile.SetOccupiedByPlayer();
+            GenerateNewTilesFor(respawnTile);
+            return respawnTile.GetComponent<StartTile>();
         }
 
         private List<DungeonTile> AttachNewTile(DungeonTileConnection doorInExistingTile)
@@ -69,6 +81,7 @@ namespace SixtyMeters.logic.generator
             var newTile = SpawnRandomNewTile();
             AlignAndAttachTileDoor(doorInExistingTile, newTile);
             createdTiles.Add(newTile.GetComponent<DungeonTile>());
+            _activeTiles.AddRange(createdTiles);
             return createdTiles;
         }
 
@@ -106,6 +119,23 @@ namespace SixtyMeters.logic.generator
             var childToTarget = targetTransform.position - newTileChildDoorTransform.position;
             newTileParentTransform.position += childToTarget;
         }
+
+        private void AlignTileToPlayer(Transform playerTransform, GameObject newTile)
+        {
+            var randomDoorInNewTile = newTile.GetComponent<IHasSpawnPoint>().GetSpawnPoint().transform;
+
+            var targetTransform = playerTransform;
+            var newTileParentTransform = newTile.transform;
+            var newTileChildDoorTransform = randomDoorInNewTile.transform;
+
+            var childRotToTarget = targetTransform.rotation * Quaternion.Inverse(newTileChildDoorTransform.rotation);
+            newTileParentTransform.rotation = childRotToTarget;
+            ReverseTile(newTileParentTransform);
+
+            var childToTarget = targetTransform.position - newTileChildDoorTransform.position;
+            newTileParentTransform.position += childToTarget;
+        }
+
 
         private void ReverseTile(Transform tile)
         {
