@@ -64,7 +64,7 @@ namespace SixtyMeters.logic.generator
             AlignTileToPlayer(playerTransform, respawnTile.gameObject);
 
             // Destroy all remaining dungeon tiles & add this one to the list
-            _activeTiles.ForEach(tile => tile.Remove());
+            _activeTiles.ForEach(tile => tile.Remove(0f));
             _activeTiles.Clear();
             _activeTiles.Add(respawnTile);
 

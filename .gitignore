@@ -48,6 +48,10 @@ StrangeDungeonVR/.consulo/
 *.pdb.meta
 *.mdb.meta
 
+# Krita
+*.kra~
+*.png~
+
 # Unity3D generated file on crash reports
 StrangeDungeonVR/sysinfo.txt
 
@@ -74,3 +78,4 @@ StrangeDungeonVR/Assets/ThirdParty
 
 # Other
 StrangeDungeonVR/Artifacts
+Artifacts

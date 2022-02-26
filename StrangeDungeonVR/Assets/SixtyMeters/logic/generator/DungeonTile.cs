@@ -74,10 +74,10 @@ namespace SixtyMeters.logic.generator
             return tileDoors.Any(door => door.IsLocked());
         }
 
-        public void Remove()
+        public void Remove(float destructionTime = 1f)
         {
             GetAttachedDoors().ForEach(door => door.Lock());
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, destructionTime);
         }
     }
 }
