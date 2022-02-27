@@ -2,6 +2,29 @@
 
 Discover an endless dungeon full of monsters, treasure and secrets. Battle through enemies while collecting power-ups and gold. Strange Dungeon is a rogue-lite experience with a randomised, endless level.
 
+## Changelog
+
+### 0.2 (next release)
+* ...
+* Added ambient sound logic to offset the sound starting point, making e.g. multiple torches sound less uniform
+* Improved HVR teleport/dash ability to properly indicate the teleport destination
+* Updated Unity to latest version, includes various performance fixes for XR
+
+### 0.1.1 (current live version)
+* Integrated unity analytics platform to track player metrics
+* Restricted navmesh creation for walkable/colliding game objects. This improves AI navigation and performance.
+
+### 0.1
+* Initial alpha release on AppLab (for invited testers only)
+* Announcement board with play instructions
+* Player can die after taking too much damage
+* Player can respawn on the graveyard of a new starting tile
+* Player can kill skeletons
+* Player can destroy bookshelfs and vases to obtain coins
+* Dungeon generates random tiles when player progresses through dungeon
+* Dungeon randomizes tiles with predefined decorations
+* Dungeon tracks created tiles and deletes them when no longer needed
+
 ## Privacy Policy
 
 Sixty Meters built the Strange Dungeon VR app as a Commercial app. This SERVICE is provided by Sixty Meters and is intended for use as is.
