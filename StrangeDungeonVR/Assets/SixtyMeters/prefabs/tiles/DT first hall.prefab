@@ -584,8 +584,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5228184808461257624}
-  m_LocalRotation: {x: -0, y: -0.0013216119, z: -0, w: 0.99999917}
-  m_LocalPosition: {x: -8.66423, y: 2.5883613, z: -43.796455}
+  m_LocalRotation: {x: -0, y: -0.0013216096, z: -0, w: 0.99999917}
+  m_LocalPosition: {x: -8.66423, y: 2.5883613, z: -43.796448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -605,8 +605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: -0.000000004656613, y: 2.4016118, z: -4.609582}
-  m_EndPoint: {x: 0.000000004656613, y: -2.4016118, z: 4.609582}
+  m_StartPoint: {x: -0.0000000027939677, y: 2.4016118, z: -4.6095896}
+  m_EndPoint: {x: 0.0000000027939677, y: -2.4016118, z: 4.6095896}
   m_Width: 0
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -956,8 +956,8 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
+    m_Bits: 16384
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -15208,7 +15208,7 @@ PrefabInstance:
     - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}
       propertyPath: m_EndPoint.z
-      value: 2.3025436
+      value: 2.302536
       objectReference: {fileID: 0}
     - target: {fileID: 4135265732256844583, guid: 3323844dec7d54a438d213ca18cf38b8,
         type: 3}

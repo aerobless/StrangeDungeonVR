@@ -9822,10 +9822,10 @@ MonoBehaviour:
     activateOnImpulse: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 4113
+    m_Bits: 20496
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   collisionThreshold: 0.1
   collisionResistance:
     mode: 1

@@ -1908,7 +1908,7 @@ MonoBehaviour:
   InitialHMDAdjustment: 1
   GroundedLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16385
   GroundedDistance: 0.02
   MinHeight: 0.3
   InstantAcceleration: 1
@@ -2004,7 +2004,7 @@ MonoBehaviour:
   CollisionBuffer: 0.05
   LayerMask:
     serializedVersion: 2
-    m_Bits: 4097
+    m_Bits: 20481
   LayerMaskTriggerInteraction: 1
   Speed: 7.5
   TimeStep: 0.01

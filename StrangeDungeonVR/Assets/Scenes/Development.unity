@@ -2412,7 +2412,7 @@ GameObject:
   - component: {fileID: 838087507}
   - component: {fileID: 838087506}
   - component: {fileID: 838087505}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fc970331f1f860f4c9b760865df31b88, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!4 &1313642867 stripped
 Transform:
@@ -8243,12 +8243,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909289159469678223, guid: fe6b7b421e0055c41816888b1e8eadb3,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 4ca0516c450e6194d9256d3a52d71127,
-        type: 2}
     - target: {fileID: 7374032052285292644, guid: fe6b7b421e0055c41816888b1e8eadb3,
         type: 3}
       propertyPath: m_Name
