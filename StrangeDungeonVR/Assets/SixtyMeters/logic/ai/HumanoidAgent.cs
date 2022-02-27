@@ -29,16 +29,19 @@ namespace SixtyMeters.logic.ai
         private WayPoint _currentWaypoint;
         private float _nextMovementCheck;
         private readonly List<IDestructionListener> _destructionListener = new();
+        private Vector3 _moveToLocation;
 
         // Constants
         private const float RateLimit = 1;
         private const float AttackRange = 2;
         private readonly Vector3 _animatedAimDirection = Vector3.forward;
+        private const float DestinationReachedDistance = 2f;
 
         // Settings
         public float playerAggressionRange = 10;
         public float healthPoints = 100;
         public float despawnTimeAfterDeath = 5f;
+        public float maxRandomMovementDistance = 15;
 
         // Indexed animator access
         private static readonly int Forward = Animator.StringToHash("Forward");
@@ -52,6 +55,7 @@ namespace SixtyMeters.logic.ai
             _interactionSystem = GetComponent<InteractionSystem>();
             _aimIK = GetComponent<AimIK>();
             _player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
+            _moveToLocation = transform.position;
 
             // Pickup weapon and enable puppet mode once setup is finished
             Invoke(nameof(PickupWeapon), 2f);
@@ -84,7 +88,7 @@ namespace SixtyMeters.logic.ai
                     else
                     {
                         _animator.SetBool(SwingAttacks, false);
-                        //TODO: wander
+                        RandomMovement();
                     }
 
                     _nextMovementCheck = Time.time + RateLimit;
@@ -94,9 +98,40 @@ namespace SixtyMeters.logic.ai
             }
         }
 
+        private void RandomMovement()
+        {
+            if (HasReachedDestination(DestinationReachedDistance, _moveToLocation))
+            {
+                // Select new wander location
+                var randomDirection = Random.insideUnitSphere * maxRandomMovementDistance;
+                randomDirection += transform.position;
+
+                // So now we've got a Vector3 to run to and we can transfer that to a location on the NavMesh with samplePosition.
+                // -1 means all areas: see https://docs.unity3d.com/Manual/nav-AreasAndCosts.html
+                NavMesh.SamplePosition(randomDirection, out var hit, maxRandomMovementDistance, -1);
+
+                // Check if we can reach the destination
+                NavMeshPath calculatedPath = new NavMeshPath();
+                _navMeshAgent.CalculatePath(hit.position, calculatedPath);
+                if (calculatedPath.status == NavMeshPathStatus.PathComplete)
+                {
+                    _moveToLocation = hit.position;
+                }
+            }
+
+            // Move to wander destination
+            _navMeshAgent.SetDestination(_moveToLocation);
+        }
+
         private float GetDistanceToPlayer()
         {
             return Vector3.Distance(transform.position, _player.gameObject.transform.position);
+        }
+
+
+        private bool HasReachedDestination(float reqDistance, Vector3 destination)
+        {
+            return Vector3.Distance(transform.position, destination) <= reqDistance;
         }
 
         private bool HasReachedCurrentWayPoint(float distance)

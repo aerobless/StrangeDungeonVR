@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Humanoid agents now have a wandering capability when they're not tracking a player. This makes them appear more life-like from the distance.
+* Further improved navmeshes for all tiles. Passing spike traps has now a higher cost so AI will try to avoid them.
+* New lighting system. The players main weapon now provides a spotlight capability. The main directional light was removed. This makes the dungeon more scary and dark.
 * Added ambient sound logic to offset the sound starting point, making e.g. multiple torches sound less uniform
 * Improved HVR teleport/dash ability to properly indicate the teleport destination
 * Updated Unity to latest version, includes various performance fixes for XR

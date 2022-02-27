@@ -77,7 +77,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: R_Trap_ Spike Floor Small Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6072014113712147056, guid: 29f806d200b4f334387dcfabe46845ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7724013909816446905, guid: 29f806d200b4f334387dcfabe46845ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29f806d200b4f334387dcfabe46845ef, type: 3}
 --- !u!1 &5859206317367818962 stripped
 GameObject:

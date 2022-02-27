@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableAgents:
   - agent: {fileID: 7657287064061230799, guid: 84b1dc087ed529f458c803c07215ba80, type: 3}
-    heightOffset: 5
+    heightOffset: 0
   spawnTime: 0
+  maxAliveAgents: 1

@@ -7859,6 +7859,7 @@ MonoBehaviour:
   playerAggressionRange: 10
   healthPoints: 100
   despawnTimeAfterDeath: 20
+  maxRandomMovementDistance: 15
 --- !u!114 &7657287063885149720
 MonoBehaviour:
   m_ObjectHideFlags: 0

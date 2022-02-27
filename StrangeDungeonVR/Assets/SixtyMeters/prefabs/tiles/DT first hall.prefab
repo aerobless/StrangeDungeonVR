@@ -6239,6 +6239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 91644996766416419}
     m_Modifications:
+    - target: {fileID: 2597123080368754241, guid: 87bfe8b7c4cfaf145b0f7fc6dd43bfda,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5044218116672875875, guid: 87bfe8b7c4cfaf145b0f7fc6dd43bfda,
         type: 3}
       propertyPath: possibilities.Array.size
@@ -8048,6 +8053,10 @@ PrefabInstance:
     - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Log_Spike_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21480,6 +21489,10 @@ PrefabInstance:
     - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Log_Spike_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 155442, guid: 82106252abe3a1d4095d86f631d2fbb8, type: 3}
       propertyPath: m_StaticEditorFlags

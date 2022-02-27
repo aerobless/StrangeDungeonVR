@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8166159280673158540}
   - component: {fileID: 8166159280673158543}
   - component: {fileID: 8166159280673158542}
+  - component: {fileID: 9086476024774625970}
   m_Layer: 0
   m_Name: R_D_Bookshelf
   m_TagString: Untagged
@@ -171,3 +172,19 @@ MonoBehaviour:
   LastVelocity: 0
   MaxImpulse: 0
   MaxVelocity: 0
+--- !u!208 &9086476024774625970
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8194467637513482449}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0660001, y: 1.6760001, z: 0.44300002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.2360001, y: 1.6760001, z: 0.439}
+  m_TimeToStationary: 0.5
