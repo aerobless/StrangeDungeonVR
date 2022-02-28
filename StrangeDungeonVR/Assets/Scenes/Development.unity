@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.268
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.005266092, g: 0.0072337217, b: 0.013130392, a: 0.268}
+  m_IndirectSpecularColor: {r: 0.00521175, g: 0.0070765894, b: 0.012116337, a: 0.268}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2521,7 +2521,7 @@ PrefabInstance:
     - target: {fileID: 1467010162564410449, guid: b3f794abff19f9f4bb40855349e2b2fb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 1467010162564410449, guid: b3f794abff19f9f4bb40855349e2b2fb,
         type: 3}
@@ -3123,7 +3123,7 @@ Transform:
   - {fileID: 943697349}
   - {fileID: 558530661}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1030475810 stripped
 Transform:
@@ -3436,7 +3436,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1138543110 stripped
 Transform:
@@ -3859,7 +3859,7 @@ Transform:
   - {fileID: 968007725}
   - {fileID: 838087504}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1297801984
 MonoBehaviour:
@@ -3977,7 +3977,7 @@ PrefabInstance:
     - target: {fileID: 2386591272036507853, guid: 29f806d200b4f334387dcfabe46845ef,
         type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 2386591272036507853, guid: 29f806d200b4f334387dcfabe46845ef,
         type: 3}
@@ -6930,10 +6930,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Tech
       objectReference: {fileID: 0}
+    - target: {fileID: 648360578049832979, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4239573716869861019, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813107796242118537, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
+        type: 3}
+      propertyPath: m_Name
+      value: U Starter Machete
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602362069061174652, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 49.008366
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602362069061174652, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 14.945432
       objectReference: {fileID: 0}
     - target: {fileID: 9099316180684414599, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
         type: 3}
@@ -8208,7 +8228,7 @@ PrefabInstance:
     - target: {fileID: 7767969002860601431, guid: cef5289452adec646ac58bddea01314f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7767969002860601431, guid: cef5289452adec646ac58bddea01314f,
         type: 3}

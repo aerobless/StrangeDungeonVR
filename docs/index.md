@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Enabled holsters. Sword and torch can now be holstered.
+* Added usable torch with point light. Although the sword/flashlight idea looked interesting it was a pain to fight in close quarters when not properly seeing the enemies.
 * Humanoid agents now have a wandering capability when they're not tracking a player. This makes them appear more life-like from the distance.
 * Further improved navmeshes for all tiles. Passing spike traps has now a higher cost so AI will try to avoid them.
 * New lighting system. The players main weapon now provides a spotlight capability. The main directional light was removed. This makes the dungeon more scary and dark.
