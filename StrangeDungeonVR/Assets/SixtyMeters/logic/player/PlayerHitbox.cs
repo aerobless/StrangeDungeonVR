@@ -1,16 +1,15 @@
 using System;
+using SixtyMeters.logic.fighting;
+using SixtyMeters.logic.variability.effects;
 using UnityEngine;
 
-namespace SixtyMeters.logic.fighting
+namespace SixtyMeters.logic.player
 {
-    public class Hitbox : MonoBehaviour
+    public class PlayerHitbox : MonoBehaviour
     {
-        // Internal Settings
-        private readonly float _minVelocityForDamage = 1;
-
         // Internal Dynamics
         private IDamageable _dmgListener;
-        
+
         // Start is called before the first frame update
         void Start()
         {
@@ -28,6 +27,11 @@ namespace SixtyMeters.logic.fighting
             {
                 var baseDmgPoints = other.gameObject.GetComponent<DamageObject>().GetDamagePoints();
                 _dmgListener.ApplyDirectDamage(baseDmgPoints);
+            }
+
+            if (other.gameObject.GetComponent<VariabilityEffect>())
+            {
+                other.gameObject.GetComponent<VariabilityEffect>().ApplyEffect();
             }
         }
     }

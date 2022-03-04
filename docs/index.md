@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Added first iteration of effects system. When a player discovers a effect they can choose to activate it by pulling it towards them.
+* Added VariabilityManager to store difficulty variables in a central location. Effects affect the variables in the VariabilityManager.
+* Added ItemInfo UI panel. Items can now have a UI tooltip that shows up when hovering over and item or gripping it in your hands.
 * Enabled holsters. Sword and torch can now be holstered.
 * Added usable torch with point light. Although the sword/flashlight idea looked interesting it was a pain to fight in close quarters when not properly seeing the enemies.
 * Humanoid agents now have a wandering capability when they're not tracking a player. This makes them appear more life-like from the distance.

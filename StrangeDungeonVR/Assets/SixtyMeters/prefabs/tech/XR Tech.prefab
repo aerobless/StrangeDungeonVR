@@ -8153,7 +8153,7 @@ GameObject:
   - component: {fileID: 7618557669794137123}
   - component: {fileID: 3801839827787545191}
   - component: {fileID: 6859643928069825417}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

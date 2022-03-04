@@ -1,4 +1,5 @@
 using HurricaneVR.Framework.Core;
+using TMPro;
 using UnityEngine;
 
 namespace SixtyMeters.logic.ui
@@ -12,7 +13,10 @@ namespace SixtyMeters.logic.ui
         // Components
         public HVRGrabbable grabbable;
         public Canvas canvas;
-        
+        public TextMeshProUGUI tmpTitle;
+        public TextMeshProUGUI tmpDescription;
+
+
         // Internals
         private Transform _playerCameraTransform;
 
@@ -21,11 +25,7 @@ namespace SixtyMeters.logic.ui
         {
             if (showWhileHovering)
             {
-                grabbable.HoverEnter.AddListener((_, _) =>
-                {
-                    canvas.gameObject.SetActive(true);
-                    Debug.Log("Hover enter");
-                });
+                grabbable.HoverEnter.AddListener((_, _) => { canvas.gameObject.SetActive(true); });
                 grabbable.HoverExit.AddListener((_, _) =>
                 {
                     if (!grabbable.IsHandGrabbed)
@@ -37,18 +37,10 @@ namespace SixtyMeters.logic.ui
 
             if (showWhileHolding)
             {
-                grabbable.Grabbed.AddListener((_, _) =>
-                {
-                    canvas.gameObject.SetActive(true);
-                    Debug.Log("Grab enter");
-                });
-                grabbable.Released.AddListener((_, _) =>
-                {
-                    canvas.gameObject.SetActive(false);
-                    Debug.Log("Grab exit");
-                });
+                grabbable.Grabbed.AddListener((_, _) => { canvas.gameObject.SetActive(true); });
+                grabbable.Released.AddListener((_, _) => { canvas.gameObject.SetActive(false); });
             }
-            
+
             _playerCameraTransform = Camera.main.transform;
         }
 
@@ -57,11 +49,22 @@ namespace SixtyMeters.logic.ui
         {
             RotateTextToFacePlayer();
         }
-        
+
         //TODO: move onto canvas script
         private void RotateTextToFacePlayer()
         {
-            canvas.transform.rotation = Quaternion.LookRotation( canvas.transform.position - _playerCameraTransform.position);
+            canvas.transform.rotation =
+                Quaternion.LookRotation(canvas.transform.position - _playerCameraTransform.position);
+        }
+
+        public void SetTitle(string title)
+        {
+            tmpTitle.text = title;
+        }
+
+        public void SetDescription(string description)
+        {
+            tmpDescription.text = description;
         }
     }
 }
