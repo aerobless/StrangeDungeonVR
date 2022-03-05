@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.door;
 using SixtyMeters.logic.interfaces;
 using UnityEngine;
@@ -16,12 +17,15 @@ namespace SixtyMeters.logic.generator
         // The current center of the game, moves with the player
         private bool _tileIsOccupiedByPlayer = false;
 
+        // Internal components
         private DungeonGenerator _dungeonGenerator;
+        private StatisticsManager _statistics;
 
         // Start is called before the first frame update
         void Start()
         {
             _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
+            _statistics = FindObjectOfType<StatisticsManager>();
 
             var randomizedElements = GetComponentsInChildren<IRandomizeable>();
             foreach (var go in randomizedElements)
@@ -50,6 +54,10 @@ namespace SixtyMeters.logic.generator
                 Debug.Log("Player has entered tile " + gameObject.name);
                 _dungeonGenerator.GenerateNewTilesFor(this);
                 _dungeonGenerator.RemoveExpiredTiles(this);
+
+                // Statistics
+                _statistics.StartTrackingIfNotStartedYet();
+                ++_statistics.roomsDiscovered;
             }
             else
             {

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RootMotion.Dynamics;
 using SixtyMeters.logic.ai;
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.utilities;
 using SixtyMeters.logic.variability;
 using Unity.VisualScripting;
@@ -24,10 +25,12 @@ namespace SixtyMeters.logic.fighting
         private AudioSource _audioSource;
         private GameObject _damageTextObject;
         private VariabilityManager _variabilityManager;
+        private StatisticsManager _statistics;
 
         // Internal settings
         private float _healthPoints;
         private bool _hitLocked;
+        private bool _isDead;
 
         // Start is called before the first frame update
         void Start()
@@ -37,6 +40,7 @@ namespace SixtyMeters.logic.fighting
             _audioSource = _humanoidAgent.audioSource;
             _damageTextObject = Resources.Load("DamageText") as GameObject;
             _variabilityManager = FindObjectOfType<VariabilityManager>();
+            _statistics = FindObjectOfType<StatisticsManager>();
 
             _puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));
@@ -49,8 +53,9 @@ namespace SixtyMeters.logic.fighting
         // Update is called once per frame
         void Update()
         {
-            if (_healthPoints <= 0)
+            if (_healthPoints <= 0 && !_isDead)
             {
+                _isDead = true;
                 _humanoidAgent.Die();
             }
         }
@@ -89,6 +94,7 @@ namespace SixtyMeters.logic.fighting
             Debug.Log("Sustained dmg: " + dmg);
 
             _healthPoints -= dmg;
+            _statistics.totalDamageDealt += dmg;
             Invoke(nameof(ResetHit), 1f);
         }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using RootMotion.Dynamics;
 using RootMotion.FinalIK;
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.player;
@@ -24,6 +25,7 @@ namespace SixtyMeters.logic.ai
         private PlayerActor _player;
         private InteractionSystem _interactionSystem;
         private AimIK _aimIK;
+        private StatisticsManager _statistics;
 
         // Internals dynamic
         private WayPoint _currentWaypoint;
@@ -53,6 +55,7 @@ namespace SixtyMeters.logic.ai
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _animator = GetComponent<Animator>();
             _interactionSystem = GetComponent<InteractionSystem>();
+            _statistics = FindObjectOfType<StatisticsManager>();
             _aimIK = GetComponent<AimIK>();
             _player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
             _moveToLocation = transform.position;
@@ -148,6 +151,7 @@ namespace SixtyMeters.logic.ai
         {
             puppetMaster.Kill();
             _destructionListener.ForEach(listener => listener.ObjectDestroyed(gameObject));
+            ++_statistics.enemiesKilled;
             Destroy(rootObject, despawnTimeAfterDeath);
         }
 

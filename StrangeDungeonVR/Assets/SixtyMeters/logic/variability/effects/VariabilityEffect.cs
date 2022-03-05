@@ -1,6 +1,8 @@
 ﻿using HurricaneVR.Framework.ControllerInput;
 using HurricaneVR.Framework.Core;
 using HurricaneVR.Framework.Shared;
+using SixtyMeters.logic.analytics;
+using SixtyMeters.logic.generator;
 using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.ui;
 using UnityEngine;
@@ -11,6 +13,8 @@ namespace SixtyMeters.logic.variability.effects
     {
         // Internal components
         protected VariabilityManager VariabilityManager;
+        private StatisticsManager _statistics;
+        private DungeonGenerator _dungeonGenerator;
         private ItemInfo _itemInfo;
         private SoulShardHelper _soulShardHelper;
         private HVRGrabbable _grabbable;
@@ -26,10 +30,12 @@ namespace SixtyMeters.logic.variability.effects
         void Start()
         {
             VariabilityManager = FindObjectOfType<VariabilityManager>();
+            _statistics = FindObjectOfType<StatisticsManager>();
             _inputManager = FindObjectOfType<HVRInputManager>();
             _itemInfo = GetComponent<ItemInfo>();
             _soulShardHelper = GetComponent<SoulShardHelper>();
             _grabbable = GetComponent<HVRGrabbable>();
+            _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
 
             if (_itemInfo)
             {
@@ -47,6 +53,11 @@ namespace SixtyMeters.logic.variability.effects
                     }
                 });
             }
+
+            //Re-parent to current center tile to avoid despawning of shards looted from vanishing destructables
+            gameObject.transform.parent = _dungeonGenerator.GetCurrentCenterTile().transform;
+
+            ++_statistics.soulShardsFound;
         }
 
 
@@ -63,6 +74,7 @@ namespace SixtyMeters.logic.variability.effects
             _soulShardHelper.ApplySoulShard();
             ApplyEffectImplementation();
             VariabilityManager.AddAppliedEffect(this);
+            ++_statistics.soulShardsUsed;
 
             // Immediately destroy the visible soul shard
             Destroy(_grabbable);

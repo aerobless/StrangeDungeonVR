@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Fixed various nasty bugs :D
+* Added statistics panel to graveyard. Now you can see how many enemies you've killed, how many coins you collected and so on
 * Loot is now managed via a central LootManager. There's currently a 25% chance for a soul shard to spawn from a small loot bundle.
 * Soul Shards now vibrate when in range for activation.
 * Added consumable system. Consumables can now be added to the game. The first consumable is the soul shard/effect.

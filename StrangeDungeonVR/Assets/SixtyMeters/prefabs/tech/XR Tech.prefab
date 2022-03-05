@@ -10332,12 +10332,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 1524585645867896100, guid: 435f1b08e0f62474baf456e504b11bd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4779085363590329893, guid: 435f1b08e0f62474baf456e504b11bd8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822340545015479242, guid: 435f1b08e0f62474baf456e504b11bd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894702927335961675, guid: 435f1b08e0f62474baf456e504b11bd8,
         type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.door;
 using SixtyMeters.logic.generator.special;
 using SixtyMeters.logic.interfaces;
@@ -12,6 +13,9 @@ namespace SixtyMeters.logic.generator
 {
     public class DungeonGenerator : MonoBehaviour
     {
+        // Internal components
+        private StatisticsManager _statistics;
+
         public List<GameObject> tiles;
         public DungeonTile startTile;
         public DungeonTile restartTile;
@@ -24,6 +28,8 @@ namespace SixtyMeters.logic.generator
         // Start is called before the first frame update
         void Start()
         {
+            _statistics = FindObjectOfType<StatisticsManager>();
+
             // The player starts off in this tile, so we need to set it as occupied manually
             startTile.SetOccupiedByPlayer();
             _currentCenterTile = startTile;
@@ -90,6 +96,8 @@ namespace SixtyMeters.logic.generator
             var randomNextTile = Helper.GETRandomFromList(tiles);
             var newTile = Instantiate(randomNextTile, Vector3.zero, Quaternion.identity);
 
+            ++_statistics.roomsGenerated;
+
             // The tile seed is intended to avoid player decisions (go left or right) messing with the predictable
             // nature of a seeded level. By setting a seed for each door connection point it does not matter what
             // the player decides, the seed will be based on the original random seed
@@ -140,6 +148,11 @@ namespace SixtyMeters.logic.generator
         private void ReverseTile(Transform tile)
         {
             tile.transform.RotateAround(tile.transform.position, transform.up, 180f);
+        }
+
+        public GameObject GetCurrentCenterTile()
+        {
+            return _currentCenterTile.gameObject;
         }
 
         // Update is called once per frame

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using HurricaneVR.Framework.Core.Grabbers;
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.utilities;
@@ -27,12 +28,14 @@ namespace SixtyMeters.logic.player
         // Internals set up at start
         private DungeonGenerator _dungeonGenerator;
         private VariabilityManager _variabilityManager;
+        private StatisticsManager _statistics;
 
         // Start is called before the first frame update
         void Start()
         {
             _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
             _variabilityManager = FindObjectOfType<VariabilityManager>();
+            _statistics = FindObjectOfType<StatisticsManager>();
             if (_variabilityManager)
             {
                 ResetPlayer(false);
@@ -78,6 +81,7 @@ namespace SixtyMeters.logic.player
         private void PlayerDeath()
         {
             Debug.Log("The player has died!");
+            _statistics.StopTracking();
             var respawnTile = _dungeonGenerator.GenerateRespawnTile(gameObject.transform);
             respawnTile.EnableGraveyard();
             gameObject.transform.rotation = respawnTile.GetSpawnPoint().transform.rotation;

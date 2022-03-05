@@ -1,3 +1,4 @@
+using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.item;
 using UnityEngine;
 
@@ -5,9 +6,12 @@ namespace SixtyMeters.logic.player
 {
     public class CoinAttractor : MonoBehaviour
     {
+        private StatisticsManager _statistics;
+
         // Start is called before the first frame update
         void Start()
         {
+            _statistics = FindObjectOfType<StatisticsManager>();
         }
 
         // Update is called once per frame
@@ -27,7 +31,7 @@ namespace SixtyMeters.logic.player
                 if (Vector3.Distance(transform.position, other.transform.position) < 0.3f)
                 {
                     coin.Deposit();
-                    //TODO: count player coins in level manager or somehwere
+                    ++_statistics.coinsCollected;
                 }
             }
         }
