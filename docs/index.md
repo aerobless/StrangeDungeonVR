@@ -4,8 +4,10 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ## Changelog
 
-### 0.2 (next release)
+### 0.3 (next version)
 * ...
+
+### 0.2 (current live version)
 * Fixed various nasty bugs :D
 * Added statistics panel to graveyard. Now you can see how many enemies you've killed, how many coins you collected and so on
 * Loot is now managed via a central LootManager. There's currently a 25% chance for a soul shard to spawn from a small loot bundle.
@@ -23,7 +25,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * Improved HVR teleport/dash ability to properly indicate the teleport destination
 * Updated Unity to latest version, includes various performance fixes for XR
 
-### 0.1.1 (current live version)
+### 0.1.1
 * Integrated unity analytics platform to track player metrics
 * Restricted navmesh creation for walkable/colliding game objects. This improves AI navigation and performance.
 
