@@ -5,6 +5,7 @@ using HurricaneVR.Framework.Core.Grabbers;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.utilities;
+using SixtyMeters.logic.variability;
 using UnityEngine;
 
 namespace SixtyMeters.logic.player
@@ -19,17 +20,36 @@ namespace SixtyMeters.logic.player
         public HVRHandGrabber rightHand;
 
         // Settings
-        public float healthPoints = 100;
+        public float healthPoints;
         public float damageCanvasInitialAlpha = 0.5f;
         public float damageCanvasDuration = 3f;
 
         // Internals set up at start
         private DungeonGenerator _dungeonGenerator;
+        private VariabilityManager _variabilityManager;
 
         // Start is called before the first frame update
         void Start()
         {
-            _dungeonGenerator = GameObject.Find("DungeonGenerator").GetComponent<DungeonGenerator>();
+            _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
+            _variabilityManager = FindObjectOfType<VariabilityManager>();
+            if (_variabilityManager)
+            {
+                ResetPlayer(false);
+            }
+        }
+
+        /// <summary>
+        /// Set all player stats to their base values
+        /// </summary>
+        private void ResetPlayer(bool afterDeath)
+        {
+            if (afterDeath)
+            {
+                _variabilityManager.RestoreInitialVariability();
+            }
+
+            healthPoints = _variabilityManager.player.baseHealth;
         }
 
         // Update is called once per frame
@@ -37,7 +57,7 @@ namespace SixtyMeters.logic.player
         {
             if (healthPoints <= 0)
             {
-                healthPoints = 100;
+                ResetPlayer(true);
                 PlayerDeath();
             }
         }
@@ -66,7 +86,7 @@ namespace SixtyMeters.logic.player
 
         public void ApplyDirectDamage(float incomingDmg)
         {
-            healthPoints -= incomingDmg;
+            healthPoints -= incomingDmg * _variabilityManager.player.damageTakenMultiplier;
             Debug.Log("Player took " + incomingDmg + " dmg and their HP is now " + healthPoints);
             if (dmgCanvas)
             {

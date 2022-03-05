@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -68,6 +71,15 @@ namespace SixtyMeters.logic.utilities
         public static Action NoAction()
         {
             return () => { };
+        }
+        
+        public static T CreateDeepCopy<T>(T obj)
+        {
+            using var ms = new MemoryStream();
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(ms, obj);
+            ms.Seek(0, SeekOrigin.Begin);
+            return (T) formatter.Deserialize(ms);
         }
     }
 }

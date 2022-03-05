@@ -18,14 +18,14 @@ namespace SixtyMeters.logic.variability.effects
 
         protected override void ApplyEffectImplementation()
         {
-            VariabilityManager.damageDealtMultiplier *= 2;
-            VariabilityManager.damageTakenMultiplier *= 2;
+            VariabilityManager.player.damageDealtMultiplier *= 2;
+            VariabilityManager.player.damageTakenMultiplier *= 2;
         }
 
         protected override void RemoveEffectImplementation()
         {
-            VariabilityManager.damageDealtMultiplier %= 2;
-            VariabilityManager.damageTakenMultiplier %= 2;
+            VariabilityManager.player.damageDealtMultiplier %= 2;
+            VariabilityManager.player.damageTakenMultiplier %= 2;
         }
     }
 }

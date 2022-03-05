@@ -8,6 +8,7 @@ namespace SixtyMeters.logic.variability.effects
         // Components
         public AudioSource audioSource;
         public AudioClip soulShardApplied;
+        public GameObject fx;
 
         // Start is called before the first frame update
         void Start()
@@ -21,6 +22,7 @@ namespace SixtyMeters.logic.variability.effects
 
         public void ApplySoulShard()
         {
+            fx.SetActive(false);
             audioSource.Stop();
             audioSource.PlayOneShot(soulShardApplied);
         }

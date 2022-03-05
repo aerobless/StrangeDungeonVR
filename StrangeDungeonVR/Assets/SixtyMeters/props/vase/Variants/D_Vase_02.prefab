@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8439660203244166172}
   - component: {fileID: 8439660203244166175}
   - component: {fileID: 8908285719400383821}
-  - component: {fileID: 5377313230948444672}
   m_Layer: 0
   m_Name: D_Vase_02
   m_TagString: Untagged
@@ -173,19 +172,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6e6ecd815f3c0d04eb40a7cd87af7278, type: 3}
---- !u!114 &5377313230948444672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8439660203245290689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4263698f61dc4414e80f878c39ff6363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loot:
-  - loot: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb, type: 3}
-    minAmount: 3
-    maxAmount: 12

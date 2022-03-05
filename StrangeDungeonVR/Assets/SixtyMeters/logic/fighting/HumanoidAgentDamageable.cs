@@ -3,6 +3,7 @@ using System.Linq;
 using RootMotion.Dynamics;
 using SixtyMeters.logic.ai;
 using SixtyMeters.logic.utilities;
+using SixtyMeters.logic.variability;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace SixtyMeters.logic.fighting
         private PuppetMaster _puppetMaster;
         private AudioSource _audioSource;
         private GameObject _damageTextObject;
+        private VariabilityManager _variabilityManager;
 
         // Internal settings
         private float _healthPoints;
@@ -34,6 +36,7 @@ namespace SixtyMeters.logic.fighting
             _puppetMaster = _humanoidAgent.puppetMaster;
             _audioSource = _humanoidAgent.audioSource;
             _damageTextObject = Resources.Load("DamageText") as GameObject;
+            _variabilityManager = FindObjectOfType<VariabilityManager>();
 
             _puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));
@@ -89,13 +92,14 @@ namespace SixtyMeters.logic.fighting
             Invoke(nameof(ResetHit), 1f);
         }
 
-        private static int CalculateDamage(DamageObject damageObject, float relativeVelocityMagnitude)
+        private int CalculateDamage(DamageObject damageObject, float relativeVelocityMagnitude)
         {
             var baseDmgPoints = damageObject.GetDamagePoints();
             var criticalDamageRng = Random.Range(0, 3); //TODO: determine by weapon
 
             // Base 5 + 2-12 + 0-3 = 5 - 20
-            return (int) (baseDmgPoints + relativeVelocityMagnitude + criticalDamageRng);
+            return (int) (baseDmgPoints + relativeVelocityMagnitude + criticalDamageRng) *
+                   _variabilityManager.player.damageDealtMultiplier;
         }
 
         private void ResetHit()

@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Loot is now managed via a central LootManager. There's currently a 25% chance for a soul shard to spawn from a small loot bundle.
 * Soul Shards now vibrate when in range for activation.
 * Added consumable system. Consumables can now be added to the game. The first consumable is the soul shard/effect.
 * Added first iteration of effects system. When a player discovers a effect they can choose to activate it by pulling it towards them.

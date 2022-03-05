@@ -1,4 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using SixtyMeters.logic.utilities;
 using SixtyMeters.logic.variability.effects;
 using UnityEngine;
 
@@ -15,22 +20,31 @@ namespace SixtyMeters.logic.variability
         // Internals
         private readonly List<VariabilityEffect> _appliedEffects = new();
 
-        // Player
-        [Tooltip("Player health at the start of the game")]
-        public int playerBaseHealth;
+        [Serializable]
+        public struct PlayerVar
+        {
+            [Tooltip("Player health at the start of the game")]
+            public int baseHealth;
 
-        [Tooltip("The base damage of a sword hit")]
-        public int swordBaseDamage;
+            [Tooltip("The base damage of a sword hit")]
+            public int swordBaseDamage;
 
-        [Tooltip("Damage dealt by the player is multiplied by this")]
-        public int damageDealtMultiplier;
+            [Tooltip("Damage dealt by the player is multiplied by this")]
+            public int damageDealtMultiplier;
 
-        [Tooltip("Damage taken by the player is multiplied by this")]
-        public int damageTakenMultiplier;
+            [Tooltip("Damage taken by the player is multiplied by this")]
+            public int damageTakenMultiplier;
+        }
+
+        [SerializeField] public PlayerVar player;
+
+        // Backup Variability when the player needs to be restored to its initial settings
+        private PlayerVar _initialPlayerVar;
 
         // Start is called before the first frame update
         void Start()
         {
+            _initialPlayerVar = Helper.CreateDeepCopy(player);
         }
 
         // Update is called once per frame
@@ -48,6 +62,15 @@ namespace SixtyMeters.logic.variability
         {
             _appliedEffects.Remove(effect);
             Debug.Log("Removed effect " + effect.GetName());
+        }
+
+        /// <summary>
+        /// Restores the variability to the games default values
+        /// </summary>
+        public void RestoreInitialVariability()
+        {
+            player = Helper.CreateDeepCopy(_initialPlayerVar);
+            _appliedEffects.Clear();
         }
     }
 }

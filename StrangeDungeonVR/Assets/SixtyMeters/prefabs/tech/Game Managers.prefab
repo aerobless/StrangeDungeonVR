@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864c21149e3473a4d9bb390291fe52ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseHealth: 100
-  swordBaseDamage: 10
-  damageDealtMultiplier: 1
-  damageTakenMultiplier: 1
+  player:
+    baseHealth: 100
+    swordBaseDamage: 10
+    damageDealtMultiplier: 1
+    damageTakenMultiplier: 1
 --- !u!1 &2124330658881052061
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +146,7 @@ Transform:
   - {fileID: 3080239455616282010}
   - {fileID: 3080239455736660026}
   - {fileID: 5588852709959536450}
+  - {fileID: 7772822003591678123}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,3 +264,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a828868a6d1ef064e98768d6e788579e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4756143968189690465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7772822003591678123}
+  - component: {fileID: 4291800938591113240}
+  m_Layer: 0
+  m_Name: LootManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7772822003591678123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756143968189690465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3080239455570012819}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4291800938591113240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756143968189690465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651607e9677b3c941955bb670af8a98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootBundles:
+  - lootBundleId: smallBundle
+    loot:
+    - lootItem: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb,
+        type: 3}
+      minAmount: 3
+      maxAmount: 12
+      chance: 100
+    - lootItem: {fileID: 2766824668039566606, guid: c7b299ab7d9641c45a3c8b9023630b0a,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 25
