@@ -1,5 +1,4 @@
 using HurricaneVR.Framework.Core;
-using TMPro;
 using UnityEngine;
 
 namespace SixtyMeters.logic.ui
@@ -9,16 +8,11 @@ namespace SixtyMeters.logic.ui
         // Settings
         public bool showWhileHovering;
         public bool showWhileHolding;
+        public bool rotateTooltipToFacePlayer;
 
         // Components
         public HVRGrabbable grabbable;
-        public Canvas canvas;
-        public TextMeshProUGUI tmpTitle;
-        public TextMeshProUGUI tmpDescription;
-
-
-        // Internals
-        private Transform _playerCameraTransform;
+        public ItemInfoCanvas canvas;
 
         // Start is called before the first frame update
         void Start()
@@ -41,30 +35,17 @@ namespace SixtyMeters.logic.ui
                 grabbable.Released.AddListener((_, _) => { canvas.gameObject.SetActive(false); });
             }
 
-            _playerCameraTransform = Camera.main.transform;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            RotateTextToFacePlayer();
-        }
-
-        //TODO: move onto canvas script
-        private void RotateTextToFacePlayer()
-        {
-            canvas.transform.rotation =
-                Quaternion.LookRotation(canvas.transform.position - _playerCameraTransform.position);
+            canvas.rotateCanvasToFacePlayer = rotateTooltipToFacePlayer;
         }
 
         public void SetTitle(string title)
         {
-            tmpTitle.text = title;
+            canvas.SetTitle(title);
         }
 
         public void SetDescription(string description)
         {
-            tmpDescription.text = description;
+            canvas.SetDescription(description);
         }
     }
 }

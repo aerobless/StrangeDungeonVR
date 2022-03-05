@@ -1,5 +1,6 @@
 using System;
 using SixtyMeters.logic.fighting;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.variability.effects;
 using UnityEngine;
 
@@ -29,9 +30,17 @@ namespace SixtyMeters.logic.player
                 _dmgListener.ApplyDirectDamage(baseDmgPoints);
             }
 
-            if (other.gameObject.GetComponent<VariabilityEffect>())
+            if (other.gameObject.GetComponent<IConsumable>() != null)
             {
-                other.gameObject.GetComponent<VariabilityEffect>().ApplyEffect();
+                other.gameObject.GetComponent<IConsumable>().InRangeForConsumption(true);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.GetComponent<IConsumable>() != null)
+            {
+                other.gameObject.GetComponent<IConsumable>().InRangeForConsumption(false);
             }
         }
     }

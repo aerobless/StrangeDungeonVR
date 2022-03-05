@@ -12,7 +12,8 @@ namespace SixtyMeters.logic.variability.effects
         public override string GetDescription()
         {
             return "Invented by Mage Flavorius to deal with invaders.\n\n" +
-                   "<color=green>EFFECT: Damage dealt by the bearer is doubled. Damage taken by the bearer is also doubled.";
+                   "<color=green>EFFECT: Damage dealt by the bearer is doubled. Damage taken by the bearer is also doubled.</color>\n\n" +
+                   "Pull towards your heart to use.";
         }
 
         protected override void ApplyEffectImplementation()

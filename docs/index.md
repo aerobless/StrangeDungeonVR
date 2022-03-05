@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.2 (next release)
 * ...
+* Soul Shards now vibrate when in range for activation.
+* Added consumable system. Consumables can now be added to the game. The first consumable is the soul shard/effect.
 * Added first iteration of effects system. When a player discovers a effect they can choose to activate it by pulling it towards them.
 * Added VariabilityManager to store difficulty variables in a central location. Effects affect the variables in the VariabilityManager.
 * Added ItemInfo UI panel. Items can now have a UI tooltip that shows up when hovering over and item or gripping it in your hands.

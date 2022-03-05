@@ -25,3 +25,7 @@ coin_impact_01.wav: CC BY 3.0 https://freesound.org/people/LittleRobotSoundFacto
 coin_deposit.mp3: CC0 https://freesound.org/people/jact878787/sounds/323809/
 
 small_torch_fire_loop.wav: cc3.0 https://freesound.org/people/PhreaKsAccount/sounds/46273/ by PhreaKsAccount
+
+soul_shard_calling.wav: cc0 https://freesound.org/people/AlonnaAllen/sounds/345695/ by AlonnaAllen
+
+soul_gem_applied_spell.wav: cc0 https://freesound.org/people/deleted_user_3277771/sounds/176741/ by deleted_user_3277771
