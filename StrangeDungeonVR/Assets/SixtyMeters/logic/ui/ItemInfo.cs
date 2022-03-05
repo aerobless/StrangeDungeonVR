@@ -9,6 +9,7 @@ namespace SixtyMeters.logic.ui
         public bool showWhileHovering;
         public bool showWhileHolding;
         public bool rotateTooltipToFacePlayer;
+        public bool floatAboveItem;
 
         // Components
         public HVRGrabbable grabbable;
@@ -17,9 +18,17 @@ namespace SixtyMeters.logic.ui
         // Start is called before the first frame update
         void Start()
         {
+            canvas.gameObject.SetActive(false);
+            
             if (showWhileHovering)
             {
-                grabbable.HoverEnter.AddListener((_, _) => { canvas.gameObject.SetActive(true); });
+                grabbable.HoverEnter.AddListener((_, _) =>
+                {
+                    if (!grabbable.IsHandGrabbed)
+                    {
+                        canvas.gameObject.SetActive(true);
+                    }
+                });
                 grabbable.HoverExit.AddListener((_, _) =>
                 {
                     if (!grabbable.IsHandGrabbed)
@@ -35,6 +44,8 @@ namespace SixtyMeters.logic.ui
                 grabbable.Released.AddListener((_, _) => { canvas.gameObject.SetActive(false); });
             }
 
+            // Delegation
+            canvas.floatAboveItem = floatAboveItem;
             canvas.rotateCanvasToFacePlayer = rotateTooltipToFacePlayer;
         }
 

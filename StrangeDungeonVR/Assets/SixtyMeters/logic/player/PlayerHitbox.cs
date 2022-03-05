@@ -24,9 +24,10 @@ namespace SixtyMeters.logic.player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<DamageObject>())
+            var damageObject = other.gameObject.GetComponent<DamageObject>();
+            if (damageObject && !damageObject.playerWeapon)
             {
-                var baseDmgPoints = other.gameObject.GetComponent<DamageObject>().GetDamagePoints();
+                var baseDmgPoints = damageObject.GetDamagePoints();
                 _dmgListener.ApplyDirectDamage(baseDmgPoints);
             }
 

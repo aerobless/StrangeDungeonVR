@@ -10,7 +10,8 @@ namespace SixtyMeters.logic.ui
 
         // Settings
         public bool rotateCanvasToFacePlayer;
-        
+        public bool floatAboveItem;
+
         // Components
         public TextMeshProUGUI tmpTitle;
         public TextMeshProUGUI tmpDescription;
@@ -37,10 +38,15 @@ namespace SixtyMeters.logic.ui
 
         private void RotateCanvasToFacePlayer()
         {
+            if (floatAboveItem)
+            {
+                _canvas.transform.position = gameObject.transform.parent.position + (Vector3.up * 0.5f);
+            }
+
             _canvas.transform.rotation =
                 Quaternion.LookRotation(_canvas.transform.position - _playerCameraTransform.position);
         }
-        
+
         public void SetTitle(string title)
         {
             tmpTitle.text = title;
