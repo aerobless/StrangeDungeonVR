@@ -29,3 +29,9 @@ small_torch_fire_loop.wav: cc3.0 https://freesound.org/people/PhreaKsAccount/sou
 soul_shard_calling.wav: cc0 https://freesound.org/people/AlonnaAllen/sounds/345695/ by AlonnaAllen
 
 soul_gem_applied_spell.wav: cc0 https://freesound.org/people/deleted_user_3277771/sounds/176741/ by deleted_user_3277771
+
+trap_acceleration_01.wav: cc3.0 mixed https://freesound.org/people/qubodup/sounds/157451 qubodup, https://freesound.org/people/Taira%20Komori/sounds/213690/ Taira Komori
+
+wheel_on_stone_loop.wav: cc3.0 https://freesound.org/people/F.M.Audio/sounds/554070/ F.M.Audio
+
+massive_metal_impact.wav: cc0 https://freesound.org/people/DaveN/sounds/192446/ DaveN

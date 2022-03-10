@@ -7,7 +7,7 @@ namespace SixtyMeters.logic.item
 
         public AudioSource audioSource;
         public AudioClip audioClip;
-        
+
         // Start is called before the first frame update
         void Start()
         {

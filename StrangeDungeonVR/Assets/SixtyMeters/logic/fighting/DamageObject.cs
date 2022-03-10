@@ -21,5 +21,10 @@ namespace SixtyMeters.logic.fighting
         {
             return damagePerHit;
         }
+
+        public void RemoveDamageObject()
+        {
+            Destroy(this);
+        }
     }
 }
