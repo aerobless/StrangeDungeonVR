@@ -6,6 +6,7 @@ namespace SixtyMeters.logic.traps.BladeWheel
     public class BladeWheelTrap : MonoBehaviour, ITrap
     {
         public GameObject projectileBladeWheel;
+        public GameObject projectileSpawnPoint;
         public AudioSource audioSource;
         public AudioClip spawnBladeSound;
 
@@ -28,7 +29,7 @@ namespace SixtyMeters.logic.traps.BladeWheel
         private IEnumerator LaunchProjectile(float timeToWait)
         {
             yield return new WaitForSeconds(timeToWait);
-            Instantiate(projectileBladeWheel, gameObject.transform);
+            Instantiate(projectileBladeWheel, projectileSpawnPoint.transform);
         }
 
         public void ResetTrap()

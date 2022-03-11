@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d60dd28b265fa4b867c88c2c0136c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileBladeWheel: {fileID: 1376310442474359349, guid: 1996c51c839968648b774de946897ca4,
+  projectileBladeWheel: {fileID: 5759406938371268506, guid: edc0bd73a68b3254f8367535bd4e9426,
     type: 3}
+  projectileSpawnPoint: {fileID: 440552056222725424}
   audioSource: {fileID: 5539034729727354407}
   spawnBladeSound: {fileID: 8300000, guid: 4195e820616271f4b83bc43f9fca2c54, type: 3}
 --- !u!1 &440552056222725424
@@ -81,7 +82,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4915104576741529785}
   m_Father: {fileID: 440552054961815937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -175,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440552056677700891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.749997, z: 1.0000167}
+  m_LocalPosition: {x: 0, y: 8.999994, z: 0.9999504}
   m_LocalScale: {x: 2.0910914, y: 1, z: 1.7712}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -351,3 +353,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &5409465788867502714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4915104576741529785}
+  m_Layer: 0
+  m_Name: Blade Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4915104576741529785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409465788867502714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.48, z: -0.307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 440552056222948860}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

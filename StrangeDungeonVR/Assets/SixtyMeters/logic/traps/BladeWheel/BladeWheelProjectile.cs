@@ -1,27 +1,46 @@
 using System.Collections;
+using SixtyMeters.logic.fighting;
 using UnityEngine;
 
 namespace SixtyMeters.logic.traps.BladeWheel
 {
     public class BladeWheelProjectile : MonoBehaviour
     {
+        //Components
+        public new Rigidbody rigidbody;
+        public GameObject bladeWheelBody;
+        public GameObject bladeWheelFxSparks;
+        public DamageObject damageObject;
+
         // Settings
         public float initialTorque;
         public float applyForceTime;
-
-        // Internal
-        private Rigidbody _rigidbody;
+        public float sparksFxVelocityThreshold;
+        public float destroyAfterSeconds;
 
         // Start is called before the first frame update
         void Start()
         {
-            _rigidbody = GetComponent<Rigidbody>();
             StartCoroutine(StopApplyingTorque());
+            Destroy(gameObject, destroyAfterSeconds);
         }
+
 
         // Update is called once per frame
         void Update()
         {
+            if (rigidbody.velocity.magnitude >= sparksFxVelocityThreshold)
+            {
+                bladeWheelFxSparks.SetActive(true);
+
+                bladeWheelFxSparks.transform.position = bladeWheelBody.transform.position + new Vector3(0, -0.8f, 0);
+                damageObject.enabled = true;
+            }
+            else
+            {
+                bladeWheelFxSparks.SetActive(false);
+                damageObject.enabled = false;
+            }
         }
 
         private IEnumerator StopApplyingTorque()
@@ -32,7 +51,7 @@ namespace SixtyMeters.logic.traps.BladeWheel
 
         void FixedUpdate()
         {
-            _rigidbody.AddTorque(new Vector3(initialTorque, 0, 0));
+            rigidbody.AddTorque(transform.right * initialTorque);
         }
     }
 }

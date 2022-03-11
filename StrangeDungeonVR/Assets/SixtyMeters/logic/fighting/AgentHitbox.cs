@@ -31,14 +31,14 @@ namespace SixtyMeters.logic.fighting
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.GetComponent<DamageObject>())
+            var damageObject = other.gameObject.GetComponent<DamageObject>();
+            if (damageObject && damageObject.enabled)
             {
                 //Vector3 collisionForce = other.impulse / Time.fixedDeltaTime;
                 var relativeVelocityMagnitude = other.relativeVelocity.magnitude;
                 if (relativeVelocityMagnitude > _minVelocityForDamage)
                 {
                     var impactPoint = other.GetContact(0).point;
-                    var damageObject = other.gameObject.GetComponent<DamageObject>();
                     _dmgListener.ApplyDamage(damageObject, relativeVelocityMagnitude, impactPoint);
 
                     // Apply force

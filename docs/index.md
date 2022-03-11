@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* New trap type: Blade wheel that accelerates towards the player when triggered
 
 ### 0.2 (current live version)
 * Fixed various nasty bugs :D
