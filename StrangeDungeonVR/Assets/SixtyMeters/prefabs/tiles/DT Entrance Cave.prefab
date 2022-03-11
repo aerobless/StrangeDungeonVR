@@ -854,6 +854,7 @@ MonoBehaviour:
   tileDoors:
   - {fileID: 1087317100761082330}
   tileSeed: 0
+  isStartTile: 1
 --- !u!114 &5161020731728998933
 MonoBehaviour:
   m_ObjectHideFlags: 0

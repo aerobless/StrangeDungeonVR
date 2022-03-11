@@ -3882,6 +3882,7 @@ MonoBehaviour:
   tileDoors:
   - {fileID: 158697684}
   tileSeed: 0
+  isStartTile: 1
 --- !u!4 &1313642867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4979701802269814, guid: 6cf39f6a19d60be4a9e2989aa38e2026,

@@ -48,7 +48,7 @@ namespace SixtyMeters.logic.generator
 
         public void RemoveExpiredTiles(DungeonTile existingTile)
         {
-            if (!existingTile.HasLockedDoors())
+            if (!existingTile.HasLockedDoors() && !existingTile.isStartTile)
             {
                 // Only delete when entering a fresh corridor
                 existingTile.GetAttachedTiles()

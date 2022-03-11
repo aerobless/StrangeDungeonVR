@@ -13,6 +13,7 @@ namespace SixtyMeters.logic.generator
 
         // Set when this tile is instantiated by the generator
         public int tileSeed;
+        public bool isStartTile;
 
         // The current center of the game, moves with the player
         private bool _tileIsOccupiedByPlayer = false;
