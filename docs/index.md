@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Modularized enemy agent AI. 
+* Added logic to register interactive ui panels with game manager. This fixes the bug where the settings menu wouldn't work after dieing the first time.
+* Fixed bug where passing from the first tile back to start would lock off the dungeon
 * New trap type: Blade wheel that accelerates towards the player when triggered
 
 ### 0.2 (current live version)

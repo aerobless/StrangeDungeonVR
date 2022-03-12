@@ -10,7 +10,7 @@ namespace SixtyMeters.logic.fighting
         private readonly float _minVelocityForDamage = 2;
 
         // Internal Dynamics
-        private HumanoidAgentDamageable _dmgListener;
+        private IDamageable _dmgListener;
         private PuppetMaster _puppetMaster;
 
         // Start is called before the first frame update
@@ -23,7 +23,7 @@ namespace SixtyMeters.logic.fighting
         {
         }
 
-        public void SetupHitbox(HumanoidAgentDamageable listener, PuppetMaster puppetMaster)
+        public void SetupHitbox(IDamageable listener, PuppetMaster puppetMaster)
         {
             _dmgListener = listener;
             _puppetMaster = puppetMaster;
@@ -59,8 +59,7 @@ namespace SixtyMeters.logic.fighting
                 }
             }
         }
-
-
+        
         IEnumerator ResetMuscle(int muscle)
         {
             yield return new WaitForSeconds(2);
