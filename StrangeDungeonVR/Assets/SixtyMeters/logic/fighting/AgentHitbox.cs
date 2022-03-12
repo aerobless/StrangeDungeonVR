@@ -13,6 +13,9 @@ namespace SixtyMeters.logic.fighting
         private IDamageable _dmgListener;
         private PuppetMaster _puppetMaster;
 
+        // Settings
+        public bool unpinMuscles;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -41,30 +44,33 @@ namespace SixtyMeters.logic.fighting
                     var impactPoint = other.GetContact(0).point;
                     _dmgListener.ApplyDamage(damageObject, relativeVelocityMagnitude, impactPoint);
 
+                    if (unpinMuscles)
+                    {
+                        //Unpin muscles
+                        var muscle = _puppetMaster.GetMuscleIndex(GetComponent<Rigidbody>());
+                        _puppetMaster.SetMuscleWeightsRecursive(muscle, 0.025f, 0f);
+                        StartCoroutine(ResetMuscle(muscle));
+                        
+                    }
+                    
                     // Apply force
                     Vector3 dir = other.contacts[0].point - transform.position;
                     dir.Normalize();
 
-                    var magnitude = 5000;
+                    // var magnitude = 10;
                     // We then get the opposite (-Vector3) and normalize it
                     //dir = -dir.normalized;
                     // And finally we add force in the direction of dir and multiply it by force. 
                     // This will push back the player
-                    GetComponent<Rigidbody>().AddForce(dir * magnitude);
-
-                    //Unpin muscles
-                    //var muscle = _puppetMaster.GetMuscleIndex(GetComponent<Rigidbody>());
-                    //_puppetMaster.SetMuscleWeightsRecursive(muscle, 0.5f, 0f);
-                    //StartCoroutine(ResetMuscle(muscle));
+                    GetComponent<Rigidbody>().AddForce(dir * relativeVelocityMagnitude * 150);
                 }
             }
         }
-        
+
         IEnumerator ResetMuscle(int muscle)
         {
             yield return new WaitForSeconds(2);
             _puppetMaster.SetMuscleWeightsRecursive(muscle, 0.8f, 0.8f);
-            yield return null;
         }
     }
 }

@@ -1,21 +1,28 @@
-﻿using RootMotion.FinalIK;
+﻿using System;
+using RootMotion.Dynamics;
+using RootMotion.FinalIK;
 
 namespace SixtyMeters.logic.ai.behaviors
 {
     public class PickupWeaponBehavior : UniversalAgentBehavior
     {
-        private bool _canBePickedUpTemp = true; //TODO: handle state, so that weapon can be dropped
-
         public override bool CanBeExecuted()
         {
-            return agent.weapon && _canBePickedUpTemp;
+            return agent.weapon && agent.weapon.transform.parent != agent.rightHand.transform;
         }
 
         public override void ExecuteUpdate()
         {
-            //TODO: add logic to walk to weapon
-            agent.interactionSystem.StartInteraction(FullBodyBipedEffector.RightHand, agent.weapon, true);
-            _canBePickedUpTemp = false;
+            agent.puppetMaster.mode = PuppetMaster.Mode.Kinematic;
+            InvokeActionAndLockForSeconds(AttemptToPickupWeapon(), 2);
+        }
+
+        private Action AttemptToPickupWeapon()
+        {
+            return () =>
+            {
+                agent.interactionSystem.StartInteraction(FullBodyBipedEffector.RightHand, agent.weapon, true);
+            };
         }
 
         public PickupWeaponBehavior(UniversalAgent.BehaviorConfiguration configuration, UniversalAgent agent) : base(

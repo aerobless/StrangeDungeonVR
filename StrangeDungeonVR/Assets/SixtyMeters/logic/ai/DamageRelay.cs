@@ -5,16 +5,21 @@ namespace SixtyMeters.logic.ai
 {
     public class DamageRelay : MonoBehaviour, IDamageable
     {
-        public HumanoidAgentDamageable damageReceiver;
+        private IDamageable _damageReceiver;
+
+        public void Setup(IDamageable damageable)
+        {
+            _damageReceiver = damageable;
+        }
 
         public void ApplyDirectDamage(float incomingDmg)
         {
-            damageReceiver.ApplyDirectDamage(incomingDmg);
+            _damageReceiver.ApplyDirectDamage(incomingDmg);
         }
 
         public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
-            damageReceiver.ApplyDamage(damageObject, relativeVelocityMagnitude, pointOfImpact);
+            _damageReceiver.ApplyDamage(damageObject, relativeVelocityMagnitude, pointOfImpact);
         }
     }
 }

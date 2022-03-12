@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace SixtyMeters.logic.ai.behaviors
 {
@@ -6,6 +8,9 @@ namespace SixtyMeters.logic.ai.behaviors
     {
         private readonly UniversalAgent.BehaviorConfiguration _configuration;
         protected UniversalAgent agent;
+
+        private float _timer = 0f;
+        private readonly List<int> _locks = new();
 
         protected UniversalAgentBehavior(UniversalAgent.BehaviorConfiguration configuration, UniversalAgent agent)
         {
@@ -23,6 +28,41 @@ namespace SixtyMeters.logic.ai.behaviors
             return _configuration.priority;
         }
 
+        protected bool TimerHasReachedSeconds(float waitTimeInSeconds)
+        {
+            _timer += Time.deltaTime;
+
+            var timerHasReachedSeconds = _timer > waitTimeInSeconds;
+            if (timerHasReachedSeconds)
+            {
+                // Reset timer after use
+                _timer -= waitTimeInSeconds;
+            }
+
+            return timerHasReachedSeconds;
+        }
+
+        /// <summary>
+        /// Starts the desired actions and waits for x seconds before trying again.
+        /// </summary>
+        /// <param name="action">the action to be invoked</param>
+        /// <param name="seconds">the time to wait before calling it again</param>
+        protected void InvokeActionAndLockForSeconds(Action action, float seconds)
+        {
+            if (!_locks.Contains(action.GetHashCode()))
+            {
+                _locks.Add(action.GetHashCode());
+                action.Invoke();
+            }
+            else
+            {
+                if (TimerHasReachedSeconds(seconds))
+                {
+                    _locks.Remove(action.GetHashCode());
+                }
+            }
+        }
+
         /// <summary>
         /// Whether the behavior can be executed at this time, e.g. a weapon can only be picked up if it's not
         /// already held.
@@ -34,8 +74,5 @@ namespace SixtyMeters.logic.ai.behaviors
         /// The logic of the behavior that is executed while a behavior has priority.
         /// </summary>
         public abstract void ExecuteUpdate();
-        
-        
-        
     }
 }

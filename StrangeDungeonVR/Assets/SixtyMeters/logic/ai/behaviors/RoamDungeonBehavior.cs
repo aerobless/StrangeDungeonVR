@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RootMotion.Dynamics;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace SixtyMeters.logic.ai.behaviors
@@ -30,6 +31,8 @@ namespace SixtyMeters.logic.ai.behaviors
 
         private void RandomMovement()
         {
+            agent.puppetMaster.mode = PuppetMaster.Mode.Kinematic;
+            
             if (HasReachedDestination(DestinationReachedDistance, _moveToLocation))
             {
                 // Select new wander location

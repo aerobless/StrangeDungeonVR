@@ -1,4 +1,5 @@
-﻿using SixtyMeters.logic.player;
+﻿using RootMotion.Dynamics;
+using SixtyMeters.logic.player;
 using UnityEngine;
 
 namespace SixtyMeters.logic.ai.behaviors
@@ -33,9 +34,11 @@ namespace SixtyMeters.logic.ai.behaviors
                 _player = agent.gameManager.player;
             }
         }
-
+        
         public override void ExecuteUpdate()
         {
+            agent.puppetMaster.mode = PuppetMaster.Mode.Active;
+            
             if (IsPlayerInRange(AttackRange))
             {
                 agent.aimIK.solver.target = _player.head.transform;

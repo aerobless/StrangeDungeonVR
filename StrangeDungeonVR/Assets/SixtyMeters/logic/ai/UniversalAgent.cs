@@ -15,6 +15,8 @@ namespace SixtyMeters.logic.ai
     {
         // Components
         public InteractionObject weapon;
+        public GameObject rightHand;
+        public GameObject leftHand;
         public BehaviourPuppet puppet;
         public PuppetMaster puppetMaster;
         public GameObject rootObject; //Needed for destruction
@@ -43,6 +45,7 @@ namespace SixtyMeters.logic.ai
         private float _healthPoints = 100; //TODO: read from variability manager
         private bool _hitLocked;
         private bool _isDead;
+        private float _startingHeight; // Used to determine if agent is falling out of map
 
         // Settings
         public List<BehaviorConfiguration> behaviorConfigurations;
@@ -69,9 +72,11 @@ namespace SixtyMeters.logic.ai
             aimIK = GetComponent<AimIK>();
             _damageTextObject = Resources.Load("DamageText") as GameObject;
             _originalMaterial = meshRenderer.material;
+            _startingHeight = transform.position.y;
 
             puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, puppetMaster));
+            puppetMaster.GetComponent<DamageRelay>().Setup(this);
 
             SetupBehaviors();
         }
@@ -119,6 +124,8 @@ namespace SixtyMeters.logic.ai
             {
                 Die();
             }
+
+            DetectAndDestroyDefectiveAgent();
         }
 
         public void Die()
@@ -129,6 +136,16 @@ namespace SixtyMeters.logic.ai
             ++gameManager.statisticsManager.enemiesKilled;
 
             Destroy(rootObject, timeUntilCorpseDisappears);
+        }
+
+        private void DetectAndDestroyDefectiveAgent()
+        {
+            var heightDifference = _startingHeight - transform.position.y;
+            if (heightDifference > 100)
+            {
+                Debug.Log("Destroying defective agent because height difference was >100");
+                Destroy(rootObject);
+            }
         }
 
         public void RegisterDestructionListener(IDestructionListener destructionListener)
