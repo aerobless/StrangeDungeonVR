@@ -22,8 +22,10 @@ namespace SixtyMeters.logic.ai
         public GameObject rootObject; //Needed for destruction
         public SkinnedMeshRenderer meshRenderer;
         public AudioSource audioSource;
+        public AudioSource audioSourceFeet;
         public Material dmgMaterial;
         public List<AudioClip> dmgSounds;
+        public List<AudioClip> footStepSounds;
 
         // Internal components
         [HideInInspector] public GameManager gameManager;
@@ -50,6 +52,7 @@ namespace SixtyMeters.logic.ai
         // Settings
         public List<BehaviorConfiguration> behaviorConfigurations;
         public float timeUntilCorpseDisappears;
+        public bool hasFootstepSounds;
 
         // Indexed animator access
         private static readonly int MoveForwardAnimation = Animator.StringToHash("Forward");
@@ -205,6 +208,14 @@ namespace SixtyMeters.logic.ai
         {
             meshRenderer.material = _originalMaterial;
             _hitLocked = false;
+        }
+
+        public void Step()
+        {
+            if (hasFootstepSounds)
+            {
+                audioSourceFeet.PlayOneShot(Helper.GETRandomFromList(footStepSounds));
+            }
         }
     }
 }

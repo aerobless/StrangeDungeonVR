@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Enemies now have footstep sounds. This makes them less likely to sneak up on you.
 * Added soul shard that increases the players base sword damage by 5 permanently.
 * Added soul shard that increases player HP by 10 permanently;
 * Modularized enemy agent AI. 
