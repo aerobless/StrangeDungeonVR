@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added soul shard that increases the players base sword damage by 5 permanently.
+* Added soul shard that increases player HP by 10 permanently;
 * Modularized enemy agent AI. 
 * Added logic to register interactive ui panels with game manager. This fixes the bug where the settings menu wouldn't work after dieing the first time.
 * Fixed bug where passing from the first tile back to start would lock off the dungeon

@@ -121,6 +121,7 @@ MonoBehaviour:
   showWhileHovering: 1
   showWhileHolding: 1
   rotateTooltipToFacePlayer: 1
+  floatAboveItem: 0
   grabbable: {fileID: 2753167260961996441}
   canvas: {fileID: 4887601674257418487}
 --- !u!114 &2753167260961996441
@@ -264,6 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleEffects:
   - {fileID: 2789101321016651764, guid: b3118c137cf85e540a8a30c5c5b0e296, type: 3}
+  - {fileID: 5890475817025840224, guid: dcfbdf402157c6f4ebbe804524bd3e25, type: 3}
+  - {fileID: 8696904611260846451, guid: 2ee6bdadea78d7e4baa39ad8ffac89ba, type: 3}
 --- !u!114 &1614966782581738778
 MonoBehaviour:
   m_ObjectHideFlags: 0

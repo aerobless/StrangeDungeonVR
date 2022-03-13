@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
     baseHealth: 100
-    swordBaseDamage: 10
+    swordBaseDamage: 1
     damageDealtMultiplier: 1
     damageTakenMultiplier: 1
 --- !u!1 &2124330658881052061
@@ -170,6 +170,7 @@ MonoBehaviour:
   lootManager: {fileID: 4291800938591113240}
   statisticsManager: {fileID: 2199993475054413515}
   uiManager: {fileID: 2124330658881052034}
+  player: {fileID: 0}
 --- !u!1 &3080239455616282011
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,42 +1,35 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using HurricaneVR.Framework.Core.Grabbers;
-using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.fighting;
-using SixtyMeters.logic.generator;
 using SixtyMeters.logic.utilities;
-using SixtyMeters.logic.variability;
 using UnityEngine;
 
 namespace SixtyMeters.logic.player
 {
     public class PlayerActor : MonoBehaviour, IDamageable
     {
-        // Public
+        // Components
         public GameObject head;
         public CanvasGroup dmgCanvas;
-        public List<GameObject> teleportWithPlayer;
         public GameObject mainWeapon; //TODO: allow for a binding process later
         public HVRHandGrabber rightHand;
 
+        // Internals components
+        private GameManager _gameManager;
+
         // Settings
-        public float healthPoints;
         public float damageCanvasInitialAlpha = 0.5f;
         public float damageCanvasDuration = 3f;
 
-        // Internals set up at start
-        private DungeonGenerator _dungeonGenerator;
-        private VariabilityManager _variabilityManager;
-        private StatisticsManager _statistics;
+        // Internals
+        private float _damageTaken;
 
         // Start is called before the first frame update
         void Start()
         {
-            _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
-            _variabilityManager = FindObjectOfType<VariabilityManager>();
-            _statistics = FindObjectOfType<StatisticsManager>();
-            if (_variabilityManager)
+            _gameManager = FindObjectOfType<GameManager>();
+            if (_gameManager.variabilityManager)
             {
                 ResetPlayer(false);
             }
@@ -47,18 +40,17 @@ namespace SixtyMeters.logic.player
         /// </summary>
         private void ResetPlayer(bool afterDeath)
         {
+            _damageTaken = 0; // Restores the player to full health
             if (afterDeath)
             {
-                _variabilityManager.RestoreInitialVariability();
+                _gameManager.variabilityManager.RestoreInitialVariability();
             }
-
-            healthPoints = _variabilityManager.player.baseHealth;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (healthPoints <= 0)
+            if (GetHealthPoints() <= 0)
             {
                 ResetPlayer(true);
                 PlayerDeath();
@@ -81,17 +73,16 @@ namespace SixtyMeters.logic.player
         private void PlayerDeath()
         {
             Debug.Log("The player has died!");
-            _statistics.StopTracking();
-            var respawnTile = _dungeonGenerator.GenerateRespawnTile(gameObject.transform);
+            _gameManager.statisticsManager.StopTracking();
+            var respawnTile = _gameManager.dungeonGenerator.GenerateRespawnTile(gameObject.transform);
             respawnTile.EnableGraveyard();
             gameObject.transform.rotation = respawnTile.GetSpawnPoint().transform.rotation;
-            healthPoints = 100;
         }
 
         public void ApplyDirectDamage(float incomingDmg)
         {
-            healthPoints -= incomingDmg * _variabilityManager.player.damageTakenMultiplier;
-            Debug.Log("Player took " + incomingDmg + " dmg and their HP is now " + healthPoints);
+            _damageTaken += incomingDmg * _gameManager.variabilityManager.player.damageTakenMultiplier;
+            Debug.Log("Player took " + incomingDmg + " dmg and their HP is now " + GetHealthPoints());
             if (dmgCanvas)
             {
                 dmgCanvas.alpha = damageCanvasInitialAlpha;
@@ -101,7 +92,7 @@ namespace SixtyMeters.logic.player
 
         public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
-            throw new System.NotImplementedException();
+            ApplyDirectDamage(damageObject.damagePerHit);
         }
 
         private static IEnumerator LerpDamageScreen(CanvasGroup canvas, float targetValue, float duration)
@@ -116,6 +107,17 @@ namespace SixtyMeters.logic.player
             }
 
             canvas.alpha = targetValue;
+        }
+
+        /// <summary>
+        /// Calculates the remaining HP of the player by detracting damage taken from their base health.
+        /// This is done indirectly to allow for increasing the base health during the game.
+        /// </summary>
+        /// <returns>the HP of the player</returns>
+        private float GetHealthPoints()
+        {
+            var playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
+            return playerBaseHealth - _damageTaken;
         }
     }
 }

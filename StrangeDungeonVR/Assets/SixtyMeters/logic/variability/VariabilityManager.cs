@@ -23,7 +23,7 @@ namespace SixtyMeters.logic.variability
         [Serializable]
         public struct PlayerVar
         {
-            [Tooltip("Player health at the start of the game")]
+            [Tooltip("The maximum HP of the player. Damage is detracted from this separately.")]
             public int baseHealth;
 
             [Tooltip("The base damage of a sword hit")]
