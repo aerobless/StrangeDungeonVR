@@ -57,6 +57,22 @@ namespace SixtyMeters.logic.utilities
             return LerpPosition(objectToMove, targetPosition, duration, NoAction());
         }
 
+        public static IEnumerator LerpRotation(Transform objectToRotate, Quaternion targetRotation, float duration,
+            Action doAfter)
+        {
+            float time = 0;
+            var startRotation = objectToRotate.localRotation;
+            while (time < duration)
+            {
+                objectToRotate.localRotation = Quaternion.Lerp(startRotation, targetRotation, time / duration);
+                time += Time.deltaTime;
+                yield return null;
+            }
+
+            objectToRotate.localRotation = targetRotation;
+            doAfter?.Invoke();
+        }
+
         public static IEnumerator Wait(float timeToWait, Action doAfter)
         {
             yield return new WaitForSeconds(timeToWait);
@@ -72,7 +88,7 @@ namespace SixtyMeters.logic.utilities
         {
             return () => { };
         }
-        
+
         public static T CreateDeepCopy<T>(T obj)
         {
             using var ms = new MemoryStream();
