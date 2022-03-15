@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SixtyMeters.logic.item;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
@@ -9,6 +10,11 @@ namespace SixtyMeters.logic.props
         // Components
         public GameObject chestLid;
         public AudioSource audioSource;
+
+        public List<AudioClip> unlockSounds;
+        public List<AudioClip> chestOpenSounds;
+
+        public ParticleSystem lootEffect;
 
         // Start is called before the first frame update
         void Start()
@@ -25,9 +31,14 @@ namespace SixtyMeters.logic.props
             var key = other.GetComponent<Key>();
             if (key)
             {
-                //TODO: verify that it's the right key
-                var targetRotation = Quaternion.Euler(-120, 0, 0);
-                StartCoroutine(Helper.LerpRotation(chestLid.transform, targetRotation, 2f, () => { }));
+                Destroy(key.gameObject);
+                StartCoroutine(Helper.PlaySound(audioSource, unlockSounds, () =>
+                {
+                    audioSource.PlayOneShot(Helper.GETRandomFromList(chestOpenSounds));
+                    var targetRotation = Quaternion.Euler(-120, 0, 0);
+                    StartCoroutine(Helper.LerpRotation(chestLid.transform, targetRotation, 1.7f,
+                        () => { StartCoroutine(Helper.PlayParticles(lootEffect, 1f, () => { })); }));
+                }));
             }
         }
     }

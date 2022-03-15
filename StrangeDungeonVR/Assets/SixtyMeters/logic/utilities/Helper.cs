@@ -73,6 +73,40 @@ namespace SixtyMeters.logic.utilities
             doAfter?.Invoke();
         }
 
+        public static IEnumerator PlaySound(AudioSource audioSource, List<AudioClip> audioClips, Action doAfter)
+        {
+            var randomClip = GETRandomFromList(audioClips);
+            return PlaySound(audioSource, randomClip, randomClip.length, doAfter);
+        }
+
+        public static IEnumerator PlaySound(AudioSource audioSource, AudioClip audioClip, Action doAfter)
+        {
+            return PlaySound(audioSource, audioClip, audioClip.length, doAfter);
+        }
+
+        public static IEnumerator PlaySound(AudioSource audioSource, List<AudioClip> audioClips, float waitDuration,
+            Action doAfter)
+        {
+            var randomClip = GETRandomFromList(audioClips);
+            return PlaySound(audioSource, randomClip, waitDuration, doAfter);
+        }
+
+        public static IEnumerator PlaySound(AudioSource audioSource, AudioClip audioClip, float waitDuration,
+            Action doAfter)
+        {
+            audioSource.PlayOneShot(audioClip);
+            yield return new WaitForSeconds(waitDuration);
+            doAfter?.Invoke();
+        }
+
+        public static IEnumerator PlayParticles(ParticleSystem effect, float duration, Action doAfter)
+        {
+            effect.Play(true);
+            yield return new WaitForSeconds(duration);
+            effect.Stop(true);
+            doAfter?.Invoke();
+        }
+
         public static IEnumerator Wait(float timeToWait, Action doAfter)
         {
             yield return new WaitForSeconds(timeToWait);

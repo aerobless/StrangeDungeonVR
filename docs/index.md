@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added logic for chests that can be opened with a key to find the sweet loot inside.
 * Enemies now have footstep sounds. This makes them less likely to sneak up on you.
 * Added soul shard that increases the players base sword damage by 5 permanently.
 * Added soul shard that increases player HP by 10 permanently;
@@ -43,6 +44,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * Player can respawn on the graveyard of a new starting tile
 * Player can kill skeletons
 * Player can destroy bookshelfs and vases to obtain coins
+* Logic to randomize game objects. E.g. vases spawn as one of 8 vase varients.
+* Logic to randomize props. The reilings in the big hall can change their appearance.
 * Dungeon generates random tiles when player progresses through dungeon
 * Dungeon randomizes tiles with predefined decorations
 * Dungeon tracks created tiles and deletes them when no longer needed
