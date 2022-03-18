@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using SixtyMeters.logic.interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -130,6 +131,19 @@ namespace SixtyMeters.logic.utilities
             formatter.Serialize(ms, obj);
             ms.Seek(0, SeekOrigin.Begin);
             return (T) formatter.Deserialize(ms);
+        }
+
+        public static IChanceTicket GETRandomWinner(List<IChanceTicket> ticketObjects)
+        {
+            List<IChanceTicket> lottery = new();
+            ticketObjects.ForEach(entry =>
+            {
+                for (int i = 0; i < entry.GetTicketCount(); i++)
+                {
+                    lottery.Add(entry);
+                }
+            });
+            return GETRandomFromList(lottery);
         }
     }
 }

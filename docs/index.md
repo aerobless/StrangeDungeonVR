@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added 5 types of chests that can contain loot bundle rewards. Chests types are equally, randomly spawned for now.
 * Added logic for chests that can be opened with a key to find the sweet loot inside.
 * Enemies now have footstep sounds. This makes them less likely to sneak up on you.
 * Added soul shard that increases the players base sword damage by 5 permanently.

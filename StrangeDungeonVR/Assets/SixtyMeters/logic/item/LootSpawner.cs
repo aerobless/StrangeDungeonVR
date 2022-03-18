@@ -12,6 +12,9 @@ namespace SixtyMeters.logic.item
         [Tooltip("The id of the lootBundle that should be spawned. Bundles are defined in the LootManager.")]
         public string lootBundleId;
 
+        [Tooltip("The height at which the items should be spawned")]
+        public float spawnHeight;
+
         // Internals
         private LootManager _lootManager;
         private List<GameObject> _packagedLoot;
@@ -38,7 +41,7 @@ namespace SixtyMeters.logic.item
             {
                 var randomX = Random.Range(-0.2f, 0.2f);
                 var randomZ = Random.Range(-0.2f, 0.2f);
-                var spawnLocation = gameObject.transform.position + new Vector3(randomX, 0.5f, randomZ);
+                var spawnLocation = gameObject.transform.position + new Vector3(randomX, spawnHeight, randomZ);
                 var spawnedItem = Instantiate(lootItem, spawnLocation, Quaternion.identity);
                 spawnedItem.transform.parent = gameObject.transform;
             });
