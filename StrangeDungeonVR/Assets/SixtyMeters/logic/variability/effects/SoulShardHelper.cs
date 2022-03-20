@@ -1,9 +1,10 @@
 using HurricaneVR.Framework.Core;
+using SixtyMeters.logic.item;
 using UnityEngine;
 
 namespace SixtyMeters.logic.variability.effects
 {
-    public class SoulShardHelper : MonoBehaviour
+    public class SoulShardHelper : PlayerItem
     {
         // Components
         public AudioSource audioSource;

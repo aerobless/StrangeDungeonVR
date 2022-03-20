@@ -332,29 +332,29 @@ MonoBehaviour:
   lootBundles:
   - lootBundleId: smallBundle
     loot:
-    - lootItem: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb,
+    - lootItem: {fileID: 6097514823589703378, guid: b3f794abff19f9f4bb40855349e2b2fb,
         type: 3}
       minAmount: 3
       maxAmount: 12
       chance: 100
-    - lootItem: {fileID: 2766824668039566606, guid: c7b299ab7d9641c45a3c8b9023630b0a,
+    - lootItem: {fileID: 1614966782581738778, guid: c7b299ab7d9641c45a3c8b9023630b0a,
         type: 3}
       minAmount: 1
       maxAmount: 1
       chance: 25
-    - lootItem: {fileID: 8324241022249847515, guid: f793e14b68267e141b4ed9ed7396139b,
+    - lootItem: {fileID: 8355347148351158484, guid: f793e14b68267e141b4ed9ed7396139b,
         type: 3}
       minAmount: 1
       maxAmount: 1
       chance: 25
   - lootBundleId: woodenChest
     loot:
-    - lootItem: {fileID: 1467010162564682473, guid: b3f794abff19f9f4bb40855349e2b2fb,
+    - lootItem: {fileID: 6097514823589703378, guid: b3f794abff19f9f4bb40855349e2b2fb,
         type: 3}
       minAmount: 3
       maxAmount: 12
       chance: 100
-    - lootItem: {fileID: 2766824668039566606, guid: c7b299ab7d9641c45a3c8b9023630b0a,
+    - lootItem: {fileID: 1614966782581738778, guid: c7b299ab7d9641c45a3c8b9023630b0a,
         type: 3}
       minAmount: 1
       maxAmount: 1

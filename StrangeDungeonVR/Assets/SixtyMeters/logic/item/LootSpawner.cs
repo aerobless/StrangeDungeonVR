@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SixtyMeters.logic.item
 {
@@ -16,14 +17,14 @@ namespace SixtyMeters.logic.item
         public float spawnHeight;
 
         // Internals
-        private LootManager _lootManager;
-        private List<GameObject> _packagedLoot;
+        private GameManager _gameManager;
+        private List<PlayerItem> _packagedLoot;
 
         // Start is called before the first frame update
         void Start()
         {
-            _lootManager = FindObjectOfType<LootManager>();
-            _packagedLoot = _lootManager.GetPackagedLoot(lootBundleId);
+            _gameManager = FindObjectOfType<GameManager>();
+            _packagedLoot = _gameManager.lootManager.GetPackagedLoot(lootBundleId);
             if (spawnAtStart)
             {
                 Spawn();
@@ -42,9 +43,29 @@ namespace SixtyMeters.logic.item
                 var randomX = Random.Range(-0.2f, 0.2f);
                 var randomZ = Random.Range(-0.2f, 0.2f);
                 var spawnLocation = gameObject.transform.position + new Vector3(randomX, spawnHeight, randomZ);
-                var spawnedItem = Instantiate(lootItem, spawnLocation, Quaternion.identity);
-                spawnedItem.transform.parent = gameObject.transform;
+                var spawnedItem = Instantiate(lootItem.gameObject, spawnLocation, Quaternion.identity);
+
+                SetParentBasedOnPersistenceSetting(lootItem, spawnedItem);
             });
+        }
+
+        private void SetParentBasedOnPersistenceSetting(PlayerItem lootItem, GameObject spawnedItem)
+        {
+            switch (lootItem.itemPersistence)
+            {
+                case ItemPersistence.None:
+                    spawnedItem.transform.parent = gameObject.transform;
+                    break;
+                case ItemPersistence.Room:
+                    spawnedItem.transform.parent = _gameManager.dungeonGenerator.GetCurrentCenterTile().transform;
+                    break;
+                case ItemPersistence.Persistent:
+                    spawnedItem.transform.parent = _gameManager.lootManager.transform;
+                    break;
+                default:
+                    Debug.LogError("No switch case for " + lootItem.itemPersistence);
+                    break;
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.item
@@ -10,7 +9,7 @@ namespace SixtyMeters.logic.item
         public class SpawnableLoot
         {
             [Tooltip("The item to be spawned as reward.")]
-            public GameObject lootItem;
+            public PlayerItem lootItem;
 
             [Tooltip("If the item is spawned (after chance), this determines how many of the item are spawned.")]
             public int minAmount;
@@ -42,10 +41,10 @@ namespace SixtyMeters.logic.item
             return lootBundle;
         }
 
-        public List<GameObject> GetPackagedLoot(string bundleId)
+        public List<PlayerItem> GetPackagedLoot(string bundleId)
         {
             var lootBundle = GetLootBundle(bundleId);
-            List<GameObject> packagedLoot = new();
+            List<PlayerItem> packagedLoot = new();
             lootBundle.loot.ForEach(lootItem =>
             {
                 // Calculate chance (1-100)

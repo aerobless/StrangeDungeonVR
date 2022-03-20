@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SixtyMeters.logic.item
 {
-    public class Coin : MonoBehaviour
+    public class Coin : PlayerItem
     {
         public AudioSource playerAudioSource;
         public AudioClip coinDepositSound;

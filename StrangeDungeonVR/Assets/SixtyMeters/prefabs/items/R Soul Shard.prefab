@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4f3382edae88d45a098e29b9945891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPersistence: 1
   audioSource: {fileID: 5728627867739524620}
   soulShardApplied: {fileID: 8300000, guid: bb3afcb2fd29c384fb1ba9bbd92d2c97, type: 3}
   fx: {fileID: 8941458089722738714}
