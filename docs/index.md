@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added mini skybox to starting tile. Removed the main skybox and set camera background to black. This improves performance and reduces visbility of geometry placement errors.
+* Added lockable doors. The doors in the prison room can now be opened with a key.
 * Added 5 types of chests that can contain loot bundle rewards. Chests types are equally, randomly spawned for now.
 * Added logic for chests that can be opened with a key to find the sweet loot inside.
 * Enemies now have footstep sounds. This makes them less likely to sneak up on you.
