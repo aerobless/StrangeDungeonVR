@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added logic for dynamic lights that emulates a flickering flame. First use is a interactable candle stand.
+* The prison tile now has two additional doors & changing prison cell interiors.
 * Added persistence information to player items. Valueable loot will now no longer disappear so quickly.
 * Added mini skybox to starting tile. Removed the main skybox and set camera background to black. This improves performance and reduces visbility of geometry placement errors.
 * Added lockable doors. The doors in the prison room can now be opened with a key.
