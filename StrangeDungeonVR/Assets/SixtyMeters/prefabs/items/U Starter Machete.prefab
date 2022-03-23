@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 7264134997234485423}
   - component: {fileID: 7264134997234485416}
   - component: {fileID: 4960688423108433161}
+  - component: {fileID: 5938861582301439557}
   m_Layer: 0
   m_Name: U Starter Machete
   m_TagString: Untagged
@@ -752,6 +753,23 @@ MonoBehaviour:
   floatAboveItem: 1
   grabbable: {fileID: 4217383716309051033}
   canvas: {fileID: 8032955852504626344}
+--- !u!114 &5938861582301439557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264134997233376789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54901b8af17fac45b8350434543e220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 7219520524054304527}
+  audioClip: {fileID: 0}
+  audioClips: []
+  playOnlyPassiveSound: 1
+  collisionInputMaterial: 1
 --- !u!1001 &2732140420997402137
 PrefabInstance:
   m_ObjectHideFlags: 0

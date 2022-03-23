@@ -4,6 +4,7 @@ using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.item;
 using SixtyMeters.logic.player;
+using SixtyMeters.logic.sound;
 using SixtyMeters.logic.variability;
 using UnityEngine;
 
@@ -20,9 +21,10 @@ namespace SixtyMeters.logic.utilities
         public LootManager lootManager;
         public StatisticsManager statisticsManager;
         public HVRInputModule uiManager;
+        public CollisionSoundManager collisionSoundManager;
 
         [HideInInspector] public PlayerActor player;
-        
+
         private void Start()
         {
             player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
