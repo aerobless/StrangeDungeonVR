@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 9114278966345365713}
   - component: {fileID: 9122353677725358317}
   - component: {fileID: 5308286815040367683}
+  - component: {fileID: 8682082672505989993}
   m_Layer: 0
   m_Name: Wall Torch
   m_TagString: Untagged
@@ -245,6 +246,19 @@ MonoBehaviour:
   ambientSounds:
   - {fileID: 8300000, guid: 3b961e163090328479b1437cd2eaa7b8, type: 3}
   maxRandomDelayInSeconds: 15
+--- !u!114 &8682082672505989993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9114278966347453039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc84e483e032f4f89ce1e9a10c1b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 3
 --- !u!1001 &3731139583516475585
 PrefabInstance:
   m_ObjectHideFlags: 0

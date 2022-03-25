@@ -3,6 +3,6 @@
     public enum CollisionInputVariant
     {
         Any,
-        Sword
+        Metal
     }
 }

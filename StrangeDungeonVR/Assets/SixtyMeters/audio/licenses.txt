@@ -37,3 +37,5 @@ wheel_on_stone_loop.wav: cc3.0 https://freesound.org/people/F.M.Audio/sounds/554
 massive_metal_impact.wav: cc0 https://freesound.org/people/DaveN/sounds/192446/ DaveN
 
 rusty_door_creaking_01.wav: cc3.0 https://freesound.org/people/MattRuthSound/sounds/381963/ by MattRuthSound
+
+potion_shake.mp3: cc3.0 https://freesound.org/people/JakLocke/sounds/261386/ by JakLocke

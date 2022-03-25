@@ -6,6 +6,8 @@
         Stone,
         Wood,
         Metal,
-        Flesh
+        Flesh,
+        Foliage,
+        Bone
     }
 }

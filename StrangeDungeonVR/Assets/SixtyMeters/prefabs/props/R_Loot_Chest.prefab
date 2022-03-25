@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3249984401266136778}
   - component: {fileID: 3249984401267136304}
   - component: {fileID: 7419675539337803246}
+  - component: {fileID: 3759887377539529996}
   m_Layer: 0
   m_Name: R_Loot_Chest
   m_TagString: Untagged
@@ -198,3 +199,19 @@ MonoBehaviour:
     chanceTickets: 1
   replacementSet: []
   appearanceChance: 100
+--- !u!208 &3759887377539529996
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249984401269324248}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.637, y: 0.20700002, z: 0.36200002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.20700002, z: -0.001}
+  m_TimeToStationary: 0.5
