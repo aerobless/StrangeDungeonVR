@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8355347148351158313}
   - component: {fileID: 8355347148351158314}
   - component: {fileID: 9215630206399625254}
+  - component: {fileID: 207341213701345871}
   m_Layer: 0
   m_Name: Key_ Chest
   m_TagString: Untagged
@@ -420,6 +421,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7b867799078cada40a74dba988b128b2, type: 3}
   - {fileID: 8300000, guid: 1c37f8e5ae7180849ba93d611a95fa8f, type: 3}
   - {fileID: 8300000, guid: a8cbbfbf85e857a4382950473c0fdd8b, type: 3}
+  playOnlyPassiveSound: 0
+  playOnlyActiveSound: 0
+  collisionInputMaterial: 0
 --- !u!114 &9215630206399625254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +442,28 @@ MonoBehaviour:
   floatAboveItem: 1
   grabbable: {fileID: 8355347148351158315}
   canvas: {fileID: 2661363588516576932}
+--- !u!114 &207341213701345871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324241022249847515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10345b4efa150014fb756a02715a4231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SocketOrientation: {fileID: 0}
+  SocketScale: 0.5
+  CounterScale: {x: 1, y: 1, z: 1}
+  ScaleOverride: {fileID: 0}
+  SocketedClip: {fileID: 0}
+  UnsocketedClip: {fileID: 0}
+  LinkedGrabbables: []
+  Tags:
+    Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
+    _data: 2
 --- !u!1001 &2541020914470691439
 PrefabInstance:
   m_ObjectHideFlags: 0

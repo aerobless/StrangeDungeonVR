@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SixtyMeters.logic.utilities
@@ -21,6 +22,16 @@ namespace SixtyMeters.logic.utilities
         [Tooltip("Stop playing the audio if on the next update the velocity drops below the threshold")]
         public bool stopIfVelocityDrops;
 
+        [Tooltip("The next sound effect is only played after a reset has occured. Prevents chaining of sounds.")]
+        public bool resetIfVelocityDrops;
+
+        [Tooltip("Audioclips to be played, if none are defined the default clip of the audio source is used.")]
+        public List<AudioClip> audioClips;
+
+
+        // Internals
+        private bool _isLocked = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -40,15 +51,30 @@ namespace SixtyMeters.logic.utilities
                 audioSource.volume = audioLevel;
             }
 
-            if (_rigidbody.velocity.magnitude >= velocityThreshold && !audioSource.isPlaying)
+            if (_rigidbody.velocity.magnitude >= velocityThreshold && !audioSource.isPlaying && !_isLocked)
             {
+                if (audioClips.Count > 0)
+                {
+                    audioSource.clip = Helper.GETRandomFromList(audioClips);
+                }
+
+                if (resetIfVelocityDrops)
+                {
+                    _isLocked = true;
+                }
+
                 audioSource.Play();
             }
 
-            if (audioSource.isPlaying && stopIfVelocityDrops && _rigidbody.velocity.magnitude < velocityThreshold)
+            if (_rigidbody.velocity.magnitude < velocityThreshold)
             {
-                // e.g. stops a door from creaking when it's no longer being moved
-                audioSource.Stop();
+                _isLocked = false;
+
+                if (stopIfVelocityDrops)
+                {
+                    // e.g. stops a door from creaking when it's no longer being moved
+                    audioSource.Stop();
+                }
             }
         }
     }

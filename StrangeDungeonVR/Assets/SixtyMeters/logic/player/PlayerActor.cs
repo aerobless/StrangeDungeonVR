@@ -121,6 +121,17 @@ namespace SixtyMeters.logic.player
         }
 
         /// <summary>
+        /// Returns the current HP on a scale of 0..1. Used to display a health bar in the player HUD.
+        /// </summary>
+        /// <returns>the players current HP on a normalized scale</returns>
+        public float GetNormalizedHp()
+        {
+            float playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
+            float actualHealth = GetHealthPoints();
+            return 1 / playerBaseHealth * actualHealth;
+        }
+
+        /// <summary>
         /// Heals the player for the specified amount of HP.
         /// </summary>
         /// <param name="hpToBeRestored"> the amount of HP to be restored</param>

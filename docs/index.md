@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Health is now displayed in a small HUD on the "stump" of the players left hand.. we'll have to see if that works or if players find it too unsetteling :P
+* Added collision information to most of the environment. Walls, floors and various objects now have impact sounds.
+* Wood table and chairs are now destructible.
 * Added system for edible items. Health potions are now in the game.
 * Added logic for dynamic lights that emulates a flickering flame. First use is a interactable candle stand.
 * The prison tile now has two additional doors & changing prison cell interiors.

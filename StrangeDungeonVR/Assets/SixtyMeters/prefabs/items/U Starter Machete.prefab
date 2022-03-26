@@ -513,6 +513,8 @@ MonoBehaviour:
   audioSource: {fileID: 7219520524054304527}
   dynamicBehavior: 1
   stopIfVelocityDrops: 0
+  resetIfVelocityDrops: 0
+  audioClips: []
 --- !u!114 &4217383716309051033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +771,7 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   audioClips: []
   playOnlyPassiveSound: 1
+  playOnlyActiveSound: 0
   collisionInputMaterial: 1
 --- !u!1001 &2732140420997402137
 PrefabInstance:

@@ -187,7 +187,6 @@ namespace SixtyMeters.logic.ai
             // Damage Text
             var damageText = Instantiate(_damageTextObject, pointOfImpact, Quaternion.identity);
             damageText.GetComponent<DamageText>().SetDamageText(dmg);
-            Debug.Log("Sustained dmg: " + dmg);
 
             _healthPoints -= dmg;
             gameManager.statisticsManager.totalDamageDealt += dmg;
