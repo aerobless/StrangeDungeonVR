@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fdc2b2c00006c4fbb43376af9cd772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPersistence: 0
   playerAudioSource: {fileID: 9209388722127717823}
   coinDepositSound: {fileID: 8300000, guid: ad8db4f4db31bce4ebd8b0818cd7d6ee, type: 3}
   isCollectible: 0
@@ -147,6 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 9209388722127717823}
   audioClip: {fileID: 8300000, guid: 753d21f254d9c244aaf9aca3bc6397e4, type: 3}
+  audioClips: []
+  playOnlyPassiveSound: 0
+  playOnlyActiveSound: 1
+  collisionInputMaterial: 0
 --- !u!1 &4102103590581038205
 GameObject:
   m_ObjectHideFlags: 0

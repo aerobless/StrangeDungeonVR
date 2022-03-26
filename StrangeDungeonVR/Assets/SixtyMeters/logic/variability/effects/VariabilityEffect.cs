@@ -1,10 +1,10 @@
 ﻿using HurricaneVR.Framework.ControllerInput;
 using HurricaneVR.Framework.Core;
-using HurricaneVR.Framework.Shared;
 using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.ui;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.variability.effects
@@ -18,11 +18,7 @@ namespace SixtyMeters.logic.variability.effects
         private ItemInfo _itemInfo;
         private SoulShardHelper _soulShardHelper;
         private HVRGrabbable _grabbable;
-
-        private HVRInputManager _inputManager;
-
-        private readonly HapticData _inRangeVibration = new() {Amplitude = 0.2f, Duration = 10f, Frequency = 0.8f};
-        private readonly HapticData _outOfRangeVibration = new() {Amplitude = 0.8f, Duration = 0.2f, Frequency = 0.8f};
+        private VibrationHelper _vibrationHelper;
 
         // Internals
         private bool _inRangeForConsumption;
@@ -31,7 +27,7 @@ namespace SixtyMeters.logic.variability.effects
         {
             VariabilityManager = FindObjectOfType<VariabilityManager>();
             _statistics = FindObjectOfType<StatisticsManager>();
-            _inputManager = FindObjectOfType<HVRInputManager>();
+            _vibrationHelper = new VibrationHelper(FindObjectOfType<HVRInputManager>());
             _itemInfo = GetComponent<ItemInfo>();
             _soulShardHelper = GetComponent<SoulShardHelper>();
             _grabbable = GetComponent<HVRGrabbable>();
@@ -94,19 +90,12 @@ namespace SixtyMeters.logic.variability.effects
         public void InRangeForConsumption(bool inRange)
         {
             _inRangeForConsumption = inRange;
-            VibrateHand(inRange ? _inRangeVibration : _outOfRangeVibration);
-        }
 
-        private void VibrateHand(HapticData haptics)
-        {
-            if (_grabbable.IsLeftHandGrabbed)
+            _grabbable.HandGrabbers.ForEach(grabber =>
             {
-                _inputManager.LeftController.Vibrate(haptics);
-            }
-            else
-            {
-                _inputManager.RightController.Vibrate(haptics);
-            }
+                _vibrationHelper.VibrateHand(grabber.HandSide,
+                    inRange ? VibrationHelper.InRangeVibration : VibrationHelper.OutOfRangeVibration);
+            });
         }
     }
 }

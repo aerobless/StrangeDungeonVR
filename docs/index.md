@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Added system for edible items. Health potions are now in the game.
 * Added logic for dynamic lights that emulates a flickering flame. First use is a interactable candle stand.
 * The prison tile now has two additional doors & changing prison cell interiors.
 * Added persistence information to player items. Valueable loot will now no longer disappear so quickly.

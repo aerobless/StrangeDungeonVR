@@ -20,6 +20,9 @@ namespace SixtyMeters.logic.item
                  "Automatically enabled if no audioClips are provided.")]
         public bool playOnlyPassiveSound;
 
+        [Tooltip("Play only the active sound of this object and ignore passive sound information.")]
+        public bool playOnlyActiveSound;
+
         [Tooltip("The type of object/material that is making the impact. E.g. a sword")]
         public CollisionInputVariant collisionInputMaterial = CollisionInputVariant.Any;
 
@@ -51,20 +54,20 @@ namespace SixtyMeters.logic.item
         {
             if (collision.relativeVelocity.magnitude > 0.2)
             {
+                float audioLevel = collision.relativeVelocity.magnitude / 10.0f;
                 if (!playOnlyPassiveSound)
                 {
-                    float audioLevel = collision.relativeVelocity.magnitude / 10.0f;
                     audioSource.PlayOneShot(Helper.GETRandomFromList(audioClips), audioLevel);
                 }
 
                 var collisionInfo = collision.gameObject.GetComponent<PassiveCollisionInformation>();
-                if (collisionInfo)
+                if (!playOnlyActiveSound && collisionInfo)
                 {
                     var collisionAudioClips =
                         _collisionSoundManager.GetAudioClipsForMaterial(collisionInfo.material, collisionInputMaterial);
                     if (collisionAudioClips.Count > 0)
                     {
-                        audioSource.PlayOneShot(Helper.GETRandomFromList(collisionAudioClips));
+                        audioSource.PlayOneShot(Helper.GETRandomFromList(collisionAudioClips), audioLevel);
                     }
                 }
             }

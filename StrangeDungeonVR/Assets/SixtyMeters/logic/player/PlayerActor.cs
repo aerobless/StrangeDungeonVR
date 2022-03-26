@@ -119,5 +119,20 @@ namespace SixtyMeters.logic.player
             var playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
             return playerBaseHealth - _damageTaken;
         }
+
+        /// <summary>
+        /// Heals the player for the specified amount of HP.
+        /// </summary>
+        /// <param name="hpToBeRestored"> the amount of HP to be restored</param>
+        public void Heal(int hpToBeRestored)
+        {
+            _damageTaken -= hpToBeRestored;
+
+            // Prevent overhealing.
+            if (_damageTaken < 0)
+            {
+                _damageTaken = 0;
+            }
+        }
     }
 }

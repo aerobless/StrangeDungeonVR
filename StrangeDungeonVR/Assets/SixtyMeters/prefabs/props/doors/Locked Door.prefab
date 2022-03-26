@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3367577189530100305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7900682045203678869}
+  - component: {fileID: 3247662219923703948}
+  m_Layer: 0
+  m_Name: Audio Source Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7900682045203678869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367577189530100305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.791, y: 0.738, z: 0.579}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3696419021344873051}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3247662219923703948
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367577189530100305}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3696419021345168797
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,6 +145,7 @@ GameObject:
   - component: {fileID: 3696419021347302776}
   - component: {fileID: 3696419021347302780}
   - component: {fileID: 3696419021347302723}
+  - component: {fileID: 1922733299960794778}
   m_Layer: 0
   m_Name: Locked Door
   m_TagString: Untagged
@@ -39,6 +168,7 @@ Transform:
   - {fileID: 3696419021381991757}
   - {fileID: 6167021262588878957}
   - {fileID: 6167021262115708579}
+  - {fileID: 7900682045203678869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -161,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presentationKey: {fileID: 6167021262115708254}
   door: {fileID: 3696419021382347177}
-  audioSource: {fileID: 6167021262588878958}
+  audioSource: {fileID: 3247662219923703948}
   unlockSounds:
   - {fileID: 8300000, guid: 71a16303d1be8ee4eaacbbe0c7a0fad9, type: 3}
   - {fileID: 8300000, guid: 63ba775690d113347a60942af232392b, type: 3}
@@ -183,6 +313,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.17460632, y: 0.22375333, z: 0.16857338}
   m_Center: {x: 0.58004284, y: 0.9394403, z: -0.09467833}
+--- !u!114 &1922733299960794778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696419021345168797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc84e483e032f4f89ce1e9a10c1b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 1
 --- !u!1 &3696419021382347177
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +350,7 @@ GameObject:
   - component: {fileID: 3696419021381991762}
   - component: {fileID: 3696419021381991763}
   - component: {fileID: 3696419021381991775}
+  - component: {fileID: 445001003851724329}
   m_Layer: 14
   m_Name: SM_Env_Door_Bars_09
   m_TagString: Untagged
@@ -477,6 +621,19 @@ MonoBehaviour:
   audioSource: {fileID: 6167021262588878958}
   dynamicBehavior: 0
   stopIfVelocityDrops: 1
+--- !u!114 &445001003851724329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696419021382347177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc84e483e032f4f89ce1e9a10c1b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 3
 --- !u!1 &6167021262115708254
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +728,7 @@ GameObject:
   - component: {fileID: 6167021262588878957}
   - component: {fileID: 6167021262588878958}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Audio Source Creak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
