@@ -20,6 +20,7 @@ namespace SixtyMeters.logic.utilities
         public VariabilityManager variabilityManager;
         public LootManager lootManager;
         public StatisticsManager statisticsManager;
+        public AnalyticsManager analyticsManager;
         public HVRInputModule uiManager;
         public CollisionSoundManager collisionSoundManager;
 

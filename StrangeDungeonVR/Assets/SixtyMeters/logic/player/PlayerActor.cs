@@ -77,6 +77,7 @@ namespace SixtyMeters.logic.player
             var respawnTile = _gameManager.dungeonGenerator.GenerateRespawnTile(gameObject.transform);
             respawnTile.EnableGraveyard();
             gameObject.transform.rotation = respawnTile.GetSpawnPoint().transform.rotation;
+            _gameManager.analyticsManager.FlushEvents();
         }
 
         public void ApplyDirectDamage(float incomingDmg)
@@ -114,7 +115,7 @@ namespace SixtyMeters.logic.player
         /// This is done indirectly to allow for increasing the base health during the game.
         /// </summary>
         /// <returns>the HP of the player</returns>
-        private float GetHealthPoints()
+        public float GetHealthPoints()
         {
             var playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
             return playerBaseHealth - _damageTaken;

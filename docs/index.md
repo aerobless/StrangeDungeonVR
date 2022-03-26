@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.3 (next version)
 * ...
+* Improved analytics. Implemented custom unity event that tracks users progress during a dungeon run.
 * Health is now displayed in a small HUD on the "stump" of the players left hand.. we'll have to see if that works or if players find it too unsetteling :P
 * Added collision information to most of the environment. Walls, floors and various objects now have impact sounds.
 * Wood table and chairs are now destructible.

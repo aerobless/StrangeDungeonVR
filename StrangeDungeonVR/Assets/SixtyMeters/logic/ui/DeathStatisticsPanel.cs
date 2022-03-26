@@ -28,8 +28,8 @@ namespace SixtyMeters.logic.ui
                 SetTimeInDungeon(_statistics.GetLastDungeonRunTimeInMinutes());
                 SetTotalScore(_statistics.CalculateTotalScore());
                 SetEnemyStats(_statistics.enemiesKilled, _statistics.totalDamageDealt, _statistics.bossBattles);
-                SetDungeonStats(_statistics.roomsDiscovered, _statistics.totalTrapsInMap - _statistics.trapTriggered,
-                    _statistics.trapTriggered);
+                SetDungeonStats(_statistics.roomsDiscovered, _statistics.totalTrapsInMap - _statistics.trapsTriggered,
+                    _statistics.trapsTriggered);
                 SetTreasureStats(_statistics.coinsCollected, _statistics.soulShardsFound, _statistics.soulShardsUsed,
                     _statistics.potionsUsed);
             }

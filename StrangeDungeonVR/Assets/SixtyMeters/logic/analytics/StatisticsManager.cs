@@ -1,10 +1,12 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SixtyMeters.logic.analytics
 {
     public class StatisticsManager : MonoBehaviour
     {
+        //Dungeon Run stats (resets for every run)
         private DateTime _dungeonRunStartTime;
         private DateTime _dungeonRunEndTime;
         private bool _isTracking = false;
@@ -15,7 +17,7 @@ namespace SixtyMeters.logic.analytics
 
         public int roomsGenerated = 0;
         public int roomsDiscovered = 0;
-        public int trapTriggered = 0;
+        public int trapsTriggered = 0;
         public int totalTrapsInMap = 0;
 
         public int coinsCollected = 0;
@@ -23,10 +25,15 @@ namespace SixtyMeters.logic.analytics
         public int soulShardsUsed = 0;
         public int potionsUsed = 0;
 
+        // Permanent Session Stats
+        private DateTime _gameStartTime;
+        public int sessionDeaths = 0;
+
 
         // Start is called before the first frame update
         void Start()
         {
+            _gameStartTime = DateTime.Now;
         }
 
         // Update is called once per frame
@@ -51,12 +58,22 @@ namespace SixtyMeters.logic.analytics
 
         public int GetLastDungeonRunTimeInMinutes()
         {
+            if (_isTracking)
+            {
+                _dungeonRunEndTime = DateTime.Now;
+            }
+
             return (_dungeonRunEndTime - _dungeonRunStartTime).Minutes;
+        }
+
+        public int TotalTimePlayedInCurrentSession()
+        {
+            return (DateTime.Now - _gameStartTime).Minutes;
         }
 
         public int CalculateTotalScore()
         {
-            return enemiesKilled + trapTriggered + totalTrapsInMap + roomsGenerated + roomsDiscovered +
+            return enemiesKilled + trapsTriggered + totalTrapsInMap + roomsGenerated + roomsDiscovered +
                    coinsCollected + soulShardsFound + soulShardsUsed + potionsUsed;
         }
     }

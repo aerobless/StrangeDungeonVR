@@ -49,6 +49,50 @@ MonoBehaviour:
     swordBaseDamage: 1
     damageDealtMultiplier: 1
     damageTakenMultiplier: 1
+--- !u!1 &1087002887275175255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771052080503702957}
+  - component: {fileID: 5570888692641227529}
+  m_Layer: 0
+  m_Name: AnalyticsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771052080503702957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087002887275175255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3080239455570012819}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5570888692641227529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087002887275175255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a828868a6d1ef064e98768d6e788579e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2124330658881052061
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3080239455570012819}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6205460013878630811
 MonoBehaviour:
@@ -289,6 +333,7 @@ Transform:
   - {fileID: 3080239455736660026}
   - {fileID: 5588852709959536450}
   - {fileID: 7772822003591678123}
+  - {fileID: 1771052080503702957}
   - {fileID: 6829140697165749938}
   - {fileID: 319473221355767524}
   m_Father: {fileID: 0}
@@ -311,6 +356,7 @@ MonoBehaviour:
   variabilityManager: {fileID: 8402471246403949835}
   lootManager: {fileID: 4291800938591113240}
   statisticsManager: {fileID: 2199993475054413515}
+  analyticsManager: {fileID: 5570888692641227529}
   uiManager: {fileID: 2124330658881052034}
   collisionSoundManager: {fileID: 6205460013878630811}
   player: {fileID: 0}
@@ -379,7 +425,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3080239455736660026}
   - component: {fileID: 3080239455736660025}
-  - component: {fileID: 5505979581742823334}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -416,18 +461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomizeSeed: 1
   seed: 42
---- !u!114 &5505979581742823334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3080239455736660027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a828868a6d1ef064e98768d6e788579e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4756143968189690465
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +575,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3080239455570012819}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2199993475054413515
 MonoBehaviour:
@@ -561,9 +594,10 @@ MonoBehaviour:
   bossBattles: 0
   roomsGenerated: 0
   roomsDiscovered: 0
-  trapTriggered: 0
+  trapsTriggered: 0
   totalTrapsInMap: 0
   coinsCollected: 0
   soulShardsFound: 0
   soulShardsUsed: 0
   potionsUsed: 0
+  sessionDeaths: 0

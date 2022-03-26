@@ -40,6 +40,7 @@ Pull towards your mouth to drink.";
         protected override void ApplyEffectImplementation()
         {
             GameManager.player.Heal(_hpRestoredPerUse);
+            GameManager.statisticsManager.potionsUsed++;
         }
 
         private int CalculateRestorationPower(int baseHealth, int restorationPercentage)
