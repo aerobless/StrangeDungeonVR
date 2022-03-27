@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1141871460817640724}
   - component: {fileID: 8632078419217373536}
   m_Layer: 0
-  m_Name: OculusPlatform
+  m_Name: MetaPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2600da10584d2aba70401f0d8c3e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applicationScopedOculusId: 1337
+  oculusUsernameId: no data
 --- !u!1 &1087002887275175255
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +406,7 @@ MonoBehaviour:
   analyticsManager: {fileID: 5570888692641227529}
   uiManager: {fileID: 2124330658881052034}
   collisionSoundManager: {fileID: 6205460013878630811}
+  platformManager: {fileID: 8632078419217373536}
   player: {fileID: 0}
 --- !u!1 &3080239455616282011
 GameObject:
@@ -558,17 +561,22 @@ MonoBehaviour:
       minAmount: 3
       maxAmount: 12
       chance: 100
-    - lootItem: {fileID: 1614966782581738778, guid: c7b299ab7d9641c45a3c8b9023630b0a,
-        type: 3}
-      minAmount: 1
-      maxAmount: 1
-      chance: 25
     - lootItem: {fileID: 8355347148351158484, guid: f793e14b68267e141b4ed9ed7396139b,
         type: 3}
       minAmount: 1
       maxAmount: 1
       chance: 25
     - lootItem: {fileID: 102648489920002335, guid: 7768e3f6795b4434591a82a105128474,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 10
+    - lootItem: {fileID: 1614966782581738778, guid: 02284a545c9ad8f4fa7ad649fd87d489,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 10
+    - lootItem: {fileID: 1614966782581738778, guid: 465212ea45ffd5146a79df8198bc3005,
         type: 3}
       minAmount: 1
       maxAmount: 1
@@ -590,6 +598,21 @@ MonoBehaviour:
       minAmount: 1
       maxAmount: 2
       chance: 50
+    - lootItem: {fileID: 1614966782581738778, guid: 02284a545c9ad8f4fa7ad649fd87d489,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 15
+    - lootItem: {fileID: 1614966782581738778, guid: 465212ea45ffd5146a79df8198bc3005,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 15
+    - lootItem: {fileID: 1614966782581738778, guid: c7b299ab7d9641c45a3c8b9023630b0a,
+        type: 3}
+      minAmount: 1
+      maxAmount: 1
+      chance: 10
 --- !u!1 &6530995520470891100
 GameObject:
   m_ObjectHideFlags: 0

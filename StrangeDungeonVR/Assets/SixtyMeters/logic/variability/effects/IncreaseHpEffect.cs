@@ -2,11 +2,6 @@ namespace SixtyMeters.logic.variability.effects
 {
     public class IncreaseHpEffect : VariabilityEffect
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
-
         public override string GetName()
         {
             return "Fortune of the Brave";

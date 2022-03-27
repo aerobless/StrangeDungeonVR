@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using Oculus.Platform;
+using Oculus.Platform.Models;
 
 namespace SixtyMeters.logic.social
 {
-    public class AppEntitlementCheck : MonoBehaviour
+    public class MetaPlatformManager : MonoBehaviour
     {
+        public const string NoStringData = "no data";
+        public const ulong NoUlongData = 1337;
+
+        public ulong applicationScopedOculusId = NoUlongData;
+        public string oculusUsernameId = NoStringData;
+
         void Awake()
         {
             try
@@ -35,7 +42,22 @@ namespace SixtyMeters.logic.social
             {
                 // Log the succeeded entitlement check for debugging.
                 Debug.Log("You are entitled to use this app.");
+
+                // Next get the identity of the user that launched the Application.
+                Users.GetLoggedInUser().OnComplete(GetLoggedInUserCallback);
             }
+        }
+
+        void GetLoggedInUserCallback(Message<User> msg)
+        {
+            if (msg.IsError)
+            {
+                Debug.Log("Unable to get currently logged in user via Meta Platform");
+                return;
+            }
+
+            applicationScopedOculusId = msg.Data.ID;
+            oculusUsernameId = msg.Data.OculusID;
         }
     }
 }

@@ -4,6 +4,7 @@ using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.item;
 using SixtyMeters.logic.player;
+using SixtyMeters.logic.social;
 using SixtyMeters.logic.sound;
 using SixtyMeters.logic.variability;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace SixtyMeters.logic.utilities
         public AnalyticsManager analyticsManager;
         public HVRInputModule uiManager;
         public CollisionSoundManager collisionSoundManager;
+        public MetaPlatformManager platformManager;
 
         [HideInInspector] public PlayerActor player;
 

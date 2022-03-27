@@ -23,6 +23,7 @@ namespace SixtyMeters.logic.variability.effects
         // Internals
         private bool _inRangeForConsumption;
 
+        //BEWARE: Actual implementations of Variability Effect may not have a Start() method or they must call super!
         void Start()
         {
             VariabilityManager = FindObjectOfType<VariabilityManager>();

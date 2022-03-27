@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 2753167260961996443}
   - component: {fileID: 2753167260961996441}
   - component: {fileID: 2753167260961996440}
-  - component: {fileID: 2753167260961996442}
   - component: {fileID: 1614966782581738778}
+  - component: {fileID: 6695725442657850859}
   m_Layer: 0
-  m_Name: R Soul Shard
+  m_Name: MinorDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,22 +251,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2753167260961996442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2766824668039566606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3756d2b7da7a964d97aeaec295e26ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleEffects:
-  - {fileID: 2789101321016651764, guid: b3118c137cf85e540a8a30c5c5b0e296, type: 3}
-  - {fileID: 5890475817025840224, guid: dcfbdf402157c6f4ebbe804524bd3e25, type: 3}
-  - {fileID: 8696904611260846451, guid: 2ee6bdadea78d7e4baa39ad8ffac89ba, type: 3}
 --- !u!114 &1614966782581738778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +267,18 @@ MonoBehaviour:
   audioSource: {fileID: 5728627867739524620}
   soulShardApplied: {fileID: 8300000, guid: bb3afcb2fd29c384fb1ba9bbd92d2c97, type: 3}
   fx: {fileID: 8941458089722738714}
+--- !u!114 &6695725442657850859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766824668039566606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766183d87031e0a499bfec39b7996b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7555266550222300062
 GameObject:
   m_ObjectHideFlags: 0
