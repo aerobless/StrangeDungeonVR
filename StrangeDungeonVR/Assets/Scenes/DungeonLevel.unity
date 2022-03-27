@@ -465,6 +465,28 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 30.26
       objectReference: {fileID: 0}
+    - target: {fileID: 3466086979797435217, guid: 73e224d9728ebb54f9777242e6a67f88,
+        type: 3}
+      propertyPath: m_text
+      value: '* Pick up items:  Left/Right Grip
+
+        * Summon sword:   Right
+        A
+
+        * Dash:           Pull back right joystick
+
+
+
+
+
+        Version
+        0.3: Chests, keys, doors, potions, leaderboard, a secret passageway in the
+        jail and more :D
+
+
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5161020730123377112, guid: 73e224d9728ebb54f9777242e6a67f88,
         type: 3}
       propertyPath: testWaypoint1

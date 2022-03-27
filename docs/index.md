@@ -4,8 +4,10 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ## Changelog
 
-### 0.3 (next version)
+### 0.4 (next version)
 * ...
+
+### 0.3 (current live version)
 * Implemented leaderboard. Your best score is now recorded when you end a dungeon run.
 * Improved analytics. Implemented custom unity event that tracks users progress during a dungeon run.
 * Health is now displayed in a small HUD on the "stump" of the players left hand.. we'll have to see if that works or if players find it too unsetteling :P
@@ -27,7 +29,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * Fixed bug where passing from the first tile back to start would lock off the dungeon
 * New trap type: Blade wheel that accelerates towards the player when triggered
 
-### 0.2 (current live version)
+### 0.2
 * Fixed various nasty bugs :D
 * Added statistics panel to graveyard. Now you can see how many enemies you've killed, how many coins you collected and so on
 * Loot is now managed via a central LootManager. There's currently a 25% chance for a soul shard to spawn from a small loot bundle.

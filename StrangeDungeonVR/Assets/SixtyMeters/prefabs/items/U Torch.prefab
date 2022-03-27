@@ -5654,7 +5654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5ed0827167e554988c04b914002469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityThreshold: 5
+  velocityThreshold: 7
   audioSource: {fileID: 3887712654686814323}
   dynamicBehavior: 1
   stopIfVelocityDrops: 0
