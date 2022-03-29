@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Jail cell tile got some destructible torture instrument variants.
 
 ### 0.3 (current live version)
 * Implemented leaderboard. Your best score is now recorded when you end a dungeon run.
