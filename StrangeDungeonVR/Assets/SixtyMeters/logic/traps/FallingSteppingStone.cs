@@ -48,7 +48,7 @@ namespace SixtyMeters.logic.traps
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!_fallLock)
+            if (!_fallLock && other.GetComponent<TriggerCollider>())
             {
                 TriggerTrap();
             }
@@ -56,7 +56,7 @@ namespace SixtyMeters.logic.traps
 
         private void OnTriggerExit(Collider other)
         {
-            if (!_resetLock)
+            if (!_resetLock && other.GetComponent<TriggerCollider>())
             {
                 ResetTrap();
             }
