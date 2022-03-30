@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using HurricaneVR.Framework.Core.Utils;
 using SixtyMeters.logic.interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,6 +19,18 @@ namespace SixtyMeters.logic.utilities
         public static T GETRandomFromList<T>(IReadOnlyList<T> list)
         {
             return list[Random.Range(0, list.Count)];
+        }
+
+        public static IEnumerator MovePosition(GameObject objectToMove, Vector3 targetPosition, float duration)
+        {
+            float time = 0;
+            var startPosition = objectToMove.transform.position;
+            while (time < duration)
+            {
+                objectToMove.GetRigidbody().MovePosition(Vector3.Lerp(startPosition, targetPosition, time / duration));
+                time += Time.deltaTime;
+                yield return null;
+            }
         }
 
         // Lerp stuff
@@ -73,6 +86,7 @@ namespace SixtyMeters.logic.utilities
             objectToRotate.localRotation = targetRotation;
             doAfter?.Invoke();
         }
+        
 
         public static IEnumerator PlaySound(AudioSource audioSource, List<AudioClip> audioClips, Action doAfter)
         {

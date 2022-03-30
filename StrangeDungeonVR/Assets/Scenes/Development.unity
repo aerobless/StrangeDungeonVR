@@ -1857,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 6060182494806808328, guid: 3a8a1fe2bc15b6f46a9312a9859e5743,
         type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6060182494806808328, guid: 3a8a1fe2bc15b6f46a9312a9859e5743,
         type: 3}
@@ -3903,7 +3903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445098, guid: 4277b7dfb488f614f8e5efff603e78da, type: 3}
       propertyPath: m_RootOrder
-      value: 95
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 445098, guid: 4277b7dfb488f614f8e5efff603e78da, type: 3}
       propertyPath: m_LocalScale.x
@@ -4889,7 +4889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 92
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1138543110 stripped
 Transform:
@@ -7497,7 +7497,7 @@ Transform:
   - {fileID: 561001733}
   - {fileID: 1195146747}
   m_Father: {fileID: 0}
-  m_RootOrder: 94
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1617023030
 PrefabInstance:
@@ -9617,6 +9617,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39214142465876613, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
+        type: 3}
+      propertyPath: PoseNames.Array.data[0]
+      value: 'Primary: pose_fist'
+      objectReference: {fileID: 0}
     - target: {fileID: 105636663323255540, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -9972,7 +9977,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1046634655320519092
 SphereCollider:
@@ -10557,7 +10562,7 @@ PrefabInstance:
     - target: {fileID: 826547059000699763, guid: 7d28a026547cbff44889e68f2072e92f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 93
+      value: 92
       objectReference: {fileID: 0}
     - target: {fileID: 826547059000699763, guid: 7d28a026547cbff44889e68f2072e92f,
         type: 3}
@@ -10613,6 +10618,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DT Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843377198707197808, guid: 7d28a026547cbff44889e68f2072e92f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -201.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843377198707197808, guid: 7d28a026547cbff44889e68f2072e92f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 275.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050505604705902791, guid: 7d28a026547cbff44889e68f2072e92f,
+        type: 3}
+      propertyPath: route.Array.data[0].movementTime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d28a026547cbff44889e68f2072e92f, type: 3}
