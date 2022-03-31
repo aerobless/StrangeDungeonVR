@@ -14,6 +14,8 @@ namespace SixtyMeters.logic.player
         public CanvasGroup dmgCanvas;
         public GameObject mainWeapon; //TODO: allow for a binding process later
         public HVRHandGrabber rightHand;
+        public GameObject xrRig;
+        public GameObject xrTech;
 
         // Internals components
         private GameManager _gameManager;
@@ -145,6 +147,26 @@ namespace SixtyMeters.logic.player
             {
                 _damageTaken = 0;
             }
+        }
+
+        /// <summary>
+        /// Attaches the players XR-Rig to the given gameObject. This applies all forces that interact with the given
+        /// game object to the player as well. E.g. useful for moving elevators, platforms etc.
+        /// </summary>
+        /// <param name="newAttachment">the gameObject to which the player should be attached temporarily</param>
+        public void AttachPlayerToGameObject(GameObject newAttachment)
+        {
+            xrRig.transform.parent = newAttachment.transform;
+        }
+
+        /// <summary>
+        /// Re-Attaches the players XR-Rig to the XR-Tech gameObject. This restores the default state in which no
+        /// special forces have a direct impact upon the player. Call after the player moves off a moving platform or
+        /// elevator etc.
+        /// </summary>
+        public void RestorePlayerAttachmentToDefault()
+        {
+            xrRig.transform.parent = xrTech.transform;
         }
     }
 }

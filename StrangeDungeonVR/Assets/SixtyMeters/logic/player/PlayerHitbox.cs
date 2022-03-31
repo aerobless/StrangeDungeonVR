@@ -22,7 +22,7 @@ namespace SixtyMeters.logic.player
         {
         }
 
-        private void OnTriggerEnter(Collider other)
+        /*private void OnTriggerEnter(Collider other)
         {
             var damageObject = other.gameObject.GetComponent<DamageObject>();
             if (damageObject && !damageObject.playerWeapon && damageObject.enabled)
@@ -43,6 +43,6 @@ namespace SixtyMeters.logic.player
             {
                 other.gameObject.GetComponent<IConsumable>().InRangeForConsumption(false);
             }
-        }
+        }*/
     }
 }

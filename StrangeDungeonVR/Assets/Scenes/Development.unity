@@ -10619,16 +10619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DT Cave
       objectReference: {fileID: 0}
-    - target: {fileID: 3843377198707197808, guid: 7d28a026547cbff44889e68f2072e92f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -201.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843377198707197808, guid: 7d28a026547cbff44889e68f2072e92f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 275.09
-      objectReference: {fileID: 0}
     - target: {fileID: 7050505604705902791, guid: 7d28a026547cbff44889e68f2072e92f,
         type: 3}
       propertyPath: route.Array.data[0].movementTime

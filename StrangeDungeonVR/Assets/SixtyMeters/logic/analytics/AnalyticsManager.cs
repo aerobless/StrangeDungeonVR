@@ -70,6 +70,7 @@ namespace SixtyMeters.logic.analytics
             }
             catch (ConsentCheckException e)
             {
+                Debug.Log(e.Reason);
                 // Handle the exception by checking e.Reason
             }
         }

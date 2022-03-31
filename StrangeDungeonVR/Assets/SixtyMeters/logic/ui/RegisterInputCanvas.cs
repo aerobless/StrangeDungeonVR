@@ -19,7 +19,6 @@ namespace SixtyMeters.logic.ui
 
         private void OnDestroy()
         {
-            Debug.Log("OnDestroy called on RegisterInputCanvas !!");
             _inputModule.RemoveCanvas(_canvas);
         }
     }

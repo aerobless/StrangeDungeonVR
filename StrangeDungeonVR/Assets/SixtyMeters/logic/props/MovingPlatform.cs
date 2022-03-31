@@ -87,24 +87,19 @@ namespace SixtyMeters.logic.props
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void AttachPlayerToPlatform(Collider other)
         {
-            if (other.GetComponent<PlayerHitbox>())
+            if (other.GetComponent<TriggerCollider>())
             {
-                var xrRig = other.GetComponentInParent<CharacterController>().gameObject.transform.parent.gameObject;
-                _realPlayerParent = xrRig.transform.parent.gameObject;
-                Debug.Log("Trigger enter"+_realPlayerParent.name);
-                xrRig.transform.parent = gameObject.transform;
+                other.GetComponentInParent<PlayerActor>().AttachPlayerToGameObject(gameObject);
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        public void DetachPlayerFromPlatform(Collider other)
         {
-            if (other.GetComponent<PlayerHitbox>())
+            if (other.GetComponent<TriggerCollider>())
             {
-                Debug.Log("Restoring parent"+ _realPlayerParent.name);
-                var xrRig = other.GetComponentInParent<CharacterController>().gameObject.transform.parent.gameObject;
-                xrRig.transform.parent = _realPlayerParent.transform;
+                other.GetComponentInParent<PlayerActor>().RestorePlayerAttachmentToDefault();
             }
         }
     }

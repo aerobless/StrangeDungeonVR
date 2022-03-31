@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Added support for moving platforms (this was painful). A first implementation of a moving platform is used in the Goblin Cave.
 * New tile: Goblin Cave
 * New trap: Falling stepping stone. This trap triggers when the player stands on a stone for to long, causing them to fall to their death.
 * Jail cell tile got some destructible torture instrument variants.

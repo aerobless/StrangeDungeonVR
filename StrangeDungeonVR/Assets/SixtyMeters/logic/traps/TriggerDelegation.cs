@@ -6,6 +6,8 @@ namespace SixtyMeters.logic.traps
     public class TriggerDelegation : MonoBehaviour
     {
         public UnityEvent<Collider> doOnTriggerEnter = new();
+        
+        public UnityEvent<Collider> doOnTriggerExit = new();
 
         // Start is called before the first frame update
         void Start()
@@ -22,6 +24,14 @@ namespace SixtyMeters.logic.traps
             if (other.GetComponent<TriggerCollider>())
             {
                 doOnTriggerEnter.Invoke(other);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.GetComponent<TriggerCollider>())
+            {
+                doOnTriggerExit.Invoke(other);
             }
         }
     }
