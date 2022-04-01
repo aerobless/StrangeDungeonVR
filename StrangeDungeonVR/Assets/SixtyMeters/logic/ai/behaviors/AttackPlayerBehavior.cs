@@ -1,4 +1,6 @@
-﻿using RootMotion.Dynamics;
+﻿using System;
+using RootMotion.Dynamics;
+using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.player;
 using UnityEngine;
 
@@ -34,21 +36,31 @@ namespace SixtyMeters.logic.ai.behaviors
                 _player = agent.gameManager.player;
             }
         }
-        
+
         public override void ExecuteUpdate()
         {
             agent.puppetMaster.mode = PuppetMaster.Mode.Active;
-            
+
             if (IsPlayerInRange(AttackRange))
             {
                 agent.aimIK.solver.target = _player.head.transform;
                 agent.animator.SetBool(SwingAttacks, true);
+                InvokeActionAndLockForSeconds(AttackPlayer(), 5);
             }
             else
             {
                 agent.animator.SetBool(SwingAttacks, false);
                 agent.navMeshAgent.SetDestination(_player.gameObject.transform.position);
             }
+        }
+
+        private Action AttackPlayer()
+        {
+            return () =>
+            {
+                //TODO: handle multiple attacks etc.
+                _player.combatMarkerDisplay.ActivateCombatMove(CombatMarkerMove.SingleBlockDefense, 25);
+            };
         }
 
         private bool IsPlayerInRange(float range)

@@ -34,6 +34,9 @@ namespace SixtyMeters.logic.variability
 
             [Tooltip("Damage taken by the player is multiplied by this")]
             public int damageTakenMultiplier;
+
+            [Tooltip("How much time the player has to comply with a combat marker")]
+            public float timeToRespondToCombatMarker;
         }
 
         [SerializeField] public PlayerVar player;

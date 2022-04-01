@@ -16,6 +16,7 @@ namespace SixtyMeters.logic.player
         public HVRHandGrabber rightHand;
         public GameObject xrRig;
         public GameObject xrTech;
+        public CombatMarkerDisplay combatMarkerDisplay;
 
         // Internals components
         private GameManager _gameManager;

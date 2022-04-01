@@ -5,6 +5,7 @@
         PickUpWeapon,
         RoamDungeon,
         AttackPlayer,
+        Idle,
         //Hide,
     }
 }

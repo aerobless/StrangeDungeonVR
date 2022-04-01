@@ -102,6 +102,11 @@ namespace SixtyMeters.logic.ai
                 {
                     _behaviors.Add(new AttackPlayerBehavior(config, this));
                 }
+
+                if (config.behavior == UniversalAgentBehaviorType.Idle)
+                {
+                    _behaviors.Add(new IdleBehavior(config, this));
+                }
             });
         }
 

@@ -49,6 +49,7 @@ MonoBehaviour:
     swordBaseDamage: 1
     damageDealtMultiplier: 1
     damageTakenMultiplier: 1
+    timeToRespondToCombatMarker: 4
 --- !u!1 &653216278844980259
 GameObject:
   m_ObjectHideFlags: 0
