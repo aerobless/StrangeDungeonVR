@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Created system to configure appearance of agents. This will allow to add different kinds of enemies more easily
+* AI Agent improvements: agents now turn more realistically, movement is now animation based
+* Combat system overhaul. The player now has to block incomming attacks actively.
 * Added support for moving platforms (this was painful). A first implementation of a moving platform is used in the Goblin Cave.
 * New tile: Goblin Cave
 * New trap: Falling stepping stone. This trap triggers when the player stands on a stone for to long, causing them to fall to their death.

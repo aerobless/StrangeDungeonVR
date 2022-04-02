@@ -1,5 +1,6 @@
 using System;
 using HurricaneVR.Framework.Core.UI;
+using SixtyMeters.logic.ai;
 using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.item;
@@ -25,6 +26,7 @@ namespace SixtyMeters.logic.utilities
         public HVRInputModule uiManager;
         public CollisionSoundManager collisionSoundManager;
         public MetaPlatformManager platformManager;
+        public AgentManager agentManager;
 
         [HideInInspector] public PlayerActor player;
 

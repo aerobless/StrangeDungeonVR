@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RootMotion.Dynamics;
 using RootMotion.FinalIK;
+using SixtyMeters.logic.ai.appearance;
 using SixtyMeters.logic.ai.behaviors;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.interfaces.lifecycle;
@@ -39,6 +40,7 @@ namespace SixtyMeters.logic.ai
         [HideInInspector] public AimIK aimIK;
 
         private GameObject _damageTextObject;
+        private UniversalAgentAppearance _appearance;
 
         // Internals
         private readonly List<UniversalAgentBehavior> _behaviors = new();
@@ -50,12 +52,15 @@ namespace SixtyMeters.logic.ai
         private float _startingHeight; // Used to determine if agent is falling out of map
 
         // Settings
+        public string agentTemplateId;
         public List<BehaviorConfiguration> behaviorConfigurations;
         public float timeUntilCorpseDisappears;
         public bool hasFootstepSounds;
 
         // Indexed animator access
-        private static readonly int MoveForwardAnimation = Animator.StringToHash("Forward");
+        private static readonly int ForwardAnimationParam = Animator.StringToHash("Forward");
+        private static readonly int TurnAnimationParam = Animator.StringToHash("Turn");
+        private static readonly int MoveSet = Animator.StringToHash("moveSet");
 
         // Configuration classes
         [System.Serializable]
@@ -73,6 +78,7 @@ namespace SixtyMeters.logic.ai
             animator = GetComponent<Animator>();
             interactionSystem = GetComponent<InteractionSystem>();
             aimIK = GetComponent<AimIK>();
+            _appearance = GetComponent<UniversalAgentAppearance>();
             _damageTextObject = Resources.Load("DamageText") as GameObject;
             _originalMaterial = meshRenderer.material;
             _startingHeight = transform.position.y;
@@ -81,14 +87,35 @@ namespace SixtyMeters.logic.ai
                 .ForEach(hitbox => hitbox.SetupHitbox(this, puppetMaster));
             puppetMaster.GetComponent<DamageRelay>().Setup(this);
 
-            SetupBehaviors();
+            var agentTemplate = gameManager.agentManager.GetTemplate(agentTemplateId);
+            SetupAgentBasedOnTemplate(agentTemplate);
+
+            SetupBehaviors(agentTemplate);
+
+            navMeshAgent.updatePosition = false;
         }
 
-        private void SetupBehaviors()
+        private void SetupAgentBasedOnTemplate(AgentManager.AgentTemplate template)
+        {
+            navMeshAgent.speed = template.agentMaxSpeed;
+            _appearance.SetAppearance(template.skin);
+            animator.SetInteger(MoveSet, (int) template.moveSet);
+
+            if (!template.hasWeapon)
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            else
+            {
+                weapon.gameObject.SetActive(true);
+            }
+        }
+
+        private void SetupBehaviors(AgentManager.AgentTemplate template)
         {
             behaviorConfigurations.ForEach(config =>
             {
-                if (config.behavior == UniversalAgentBehaviorType.PickUpWeapon)
+                if (config.behavior == UniversalAgentBehaviorType.PickUpWeapon && template.hasWeapon)
                 {
                     _behaviors.Add(new PickupWeaponBehavior(config, this));
                 }
@@ -125,7 +152,17 @@ namespace SixtyMeters.logic.ai
                     executableBehaviorsByPriority[0].ExecuteUpdate();
                 }
 
-                animator.SetFloat(MoveForwardAnimation, navMeshAgent.velocity.magnitude * 0.25f);
+                var localVelocity = transform.InverseTransformDirection(navMeshAgent.velocity);
+                animator.SetFloat(ForwardAnimationParam, localVelocity.z);
+                animator.SetFloat(TurnAnimationParam, localVelocity.x);
+
+                // Fix positioning if character moves out of bounds, this can happen due to root-motion animations being
+                // less accurate than what the navMesh agent predicts.
+                Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
+                if (worldDeltaPosition.magnitude > navMeshAgent.radius)
+                {
+                    transform.position = navMeshAgent.nextPosition - 0.9f * worldDeltaPosition;
+                }
             }
 
             if (_healthPoints <= 0 && !_isDead)
@@ -134,6 +171,14 @@ namespace SixtyMeters.logic.ai
             }
 
             DetectAndDestroyDefectiveAgent();
+        }
+
+        void OnAnimatorMove()
+        {
+            var position = animator.rootPosition;
+            position.y = navMeshAgent.nextPosition.y;
+            transform.position = position;
+            navMeshAgent.nextPosition = transform.position;
         }
 
         public void Die()
