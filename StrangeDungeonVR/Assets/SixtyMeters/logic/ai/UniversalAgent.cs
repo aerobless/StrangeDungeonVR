@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RootMotion.Dynamics;
@@ -9,6 +10,9 @@ using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 using UnityEngine.AI;
+using static SixtyMeters.logic.fighting.CombatMarkerMove;
+using AnimationInfo = SixtyMeters.logic.ai.appearance.AnimationInfo;
+using Random = UnityEngine.Random;
 
 namespace SixtyMeters.logic.ai
 {
@@ -27,6 +31,7 @@ namespace SixtyMeters.logic.ai
         public Material dmgMaterial;
         public List<AudioClip> dmgSounds;
         public List<AudioClip> footStepSounds;
+        public List<AudioClip> battleCry;
 
         // Internal components
         [HideInInspector] public GameManager gameManager;
@@ -45,11 +50,13 @@ namespace SixtyMeters.logic.ai
         // Internals
         private readonly List<UniversalAgentBehavior> _behaviors = new();
         private readonly List<IDestructionListener> _destructionListener = new();
+        private List<AnimationInfo> _dmgReactionAnimations = new();
         private Material _originalMaterial;
-        private float _healthPoints = 100; //TODO: read from variability manager
+        private float _healthPoints;
         private bool _hitLocked;
         private bool _isDead;
         private float _startingHeight; // Used to determine if agent is falling out of map
+        private bool _executeBehavior = true;
 
         // Settings
         public string agentTemplateId;
@@ -83,7 +90,10 @@ namespace SixtyMeters.logic.ai
             _originalMaterial = meshRenderer.material;
             _startingHeight = transform.position.y;
 
-            puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
+            _dmgReactionAnimations.Add(AnimationIndex.ImpactHeadHit);
+            _dmgReactionAnimations.Add(AnimationIndex.ImpactCenterSwordHit);
+
+            puppetMaster.GetComponentsInChildren<PhysicalAgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, puppetMaster));
             puppetMaster.GetComponent<DamageRelay>().Setup(this);
 
@@ -100,6 +110,7 @@ namespace SixtyMeters.logic.ai
             navMeshAgent.speed = template.agentMaxSpeed;
             _appearance.SetAppearance(template.skin);
             animator.SetInteger(MoveSet, (int) template.moveSet);
+            _healthPoints = template.healthPoints;
 
             if (!template.hasWeapon)
             {
@@ -125,9 +136,9 @@ namespace SixtyMeters.logic.ai
                     _behaviors.Add(new RoamDungeonBehavior(config, this));
                 }
 
-                if (config.behavior == UniversalAgentBehaviorType.AttackPlayer)
+                if (config.behavior == UniversalAgentBehaviorType.UnarmedCombatBehavior && !template.hasWeapon)
                 {
-                    _behaviors.Add(new AttackPlayerBehavior(config, this));
+                    _behaviors.Add(new UnarmedCombatBehavior(config, this));
                 }
 
                 if (config.behavior == UniversalAgentBehaviorType.Idle)
@@ -145,11 +156,14 @@ namespace SixtyMeters.logic.ai
 
             if (navMeshAgent.enabled)
             {
-                var executableBehaviorsByPriority = _behaviors.Where(behavior => behavior.CanBeExecuted()).ToList()
-                    .OrderByDescending(behavior => behavior.GetPriority()).ToList();
-                if (executableBehaviorsByPriority.Count > 0)
+                if (_executeBehavior)
                 {
-                    executableBehaviorsByPriority[0].ExecuteUpdate();
+                    var executableBehaviorsByPriority = _behaviors.Where(behavior => behavior.CanBeExecuted()).ToList()
+                        .OrderByDescending(behavior => behavior.GetPriority()).ToList();
+                    if (executableBehaviorsByPriority.Count > 0)
+                    {
+                        executableBehaviorsByPriority[0].ExecuteUpdate();
+                    }
                 }
 
                 var localVelocity = transform.InverseTransformDirection(navMeshAgent.velocity);
@@ -215,14 +229,14 @@ namespace SixtyMeters.logic.ai
             }
         }
 
-        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        public void ApplyDamage(float incomingDmg, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
             if (!_hitLocked)
             {
                 _hitLocked = true;
 
                 // Calculate damage
-                var calculatedDmg = CalculateDamage(damageObject, relativeVelocityMagnitude);
+                var calculatedDmg = CalculateDamage(incomingDmg, relativeVelocityMagnitude);
 
                 ApplyDamageAndUnlock(calculatedDmg, pointOfImpact);
             }
@@ -230,7 +244,9 @@ namespace SixtyMeters.logic.ai
 
         private void ApplyDamageAndUnlock(int dmg, Vector3 pointOfImpact)
         {
-            audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
+            //audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
+
+            animator.SetTrigger(Helper.GETRandomFromList(_dmgReactionAnimations).Id);
 
             meshRenderer.material = dmgMaterial;
 
@@ -243,13 +259,12 @@ namespace SixtyMeters.logic.ai
             Invoke(nameof(ResetHit), 1f);
         }
 
-        private int CalculateDamage(DamageObject damageObject, float relativeVelocityMagnitude)
+        private int CalculateDamage(float incomingDmg, float relativeVelocityMagnitude)
         {
-            var baseDmgPoints = damageObject.GetDamagePoints();
             var criticalDamageRng = Random.Range(0, 3); //TODO: determine by weapon
 
             // Base 5 + 2-12 + 0-3 = 5 - 20
-            return (int) (baseDmgPoints + relativeVelocityMagnitude + criticalDamageRng) *
+            return (int) (incomingDmg + relativeVelocityMagnitude + criticalDamageRng) *
                    gameManager.variabilityManager.player.damageDealtMultiplier;
         }
 
@@ -264,6 +279,33 @@ namespace SixtyMeters.logic.ai
             if (hasFootstepSounds)
             {
                 audioSourceFeet.PlayOneShot(Helper.GETRandomFromList(footStepSounds));
+            }
+        }
+
+        internal void LockBehaviorExecution(float timeToLock)
+        {
+            _executeBehavior = false;
+            StartCoroutine(Helper.Wait(timeToLock, () => { _executeBehavior = true; }));
+        }
+
+        public void AnimationEvent(AnimationEvent animationEvent)
+        {
+            switch ((AnimationEventType) animationEvent.intParameter)
+            {
+                case AnimationEventType.BattleCry:
+                    audioSource.PlayOneShot(Helper.GETRandomFromList(battleCry));
+                    break;
+                case AnimationEventType.BlockRight:
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, 25);
+                    break;
+                case AnimationEventType.BlockTop:
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense, 25);
+                    break;
+                case AnimationEventType.BlockLeft:
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense, 25);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

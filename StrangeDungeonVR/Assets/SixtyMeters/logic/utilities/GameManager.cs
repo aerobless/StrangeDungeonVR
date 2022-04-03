@@ -1,4 +1,5 @@
 using System;
+using HurricaneVR.Framework.ControllerInput;
 using HurricaneVR.Framework.Core.UI;
 using SixtyMeters.logic.ai;
 using SixtyMeters.logic.analytics;
@@ -28,11 +29,13 @@ namespace SixtyMeters.logic.utilities
         public MetaPlatformManager platformManager;
         public AgentManager agentManager;
 
+        [HideInInspector] public ControllerFeedbackHelper controllerFeedback;
         [HideInInspector] public PlayerActor player;
 
         private void Start()
         {
             player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
+            controllerFeedback = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
         }
     }
 }

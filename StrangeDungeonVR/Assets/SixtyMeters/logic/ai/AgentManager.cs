@@ -14,6 +14,12 @@ namespace SixtyMeters.logic.ai
             public MoveSet moveSet;
             public float agentMaxSpeed;
             public bool hasWeapon;
+            public int healthPoints;
+        }
+
+        [System.Serializable]
+        public class AttackTemplate
+        {
         }
 
         public List<AgentTemplate> agentTemplates = new();

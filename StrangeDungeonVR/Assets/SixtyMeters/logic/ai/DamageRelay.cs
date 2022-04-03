@@ -17,9 +17,9 @@ namespace SixtyMeters.logic.ai
             _damageReceiver.ApplyDirectDamage(incomingDmg);
         }
 
-        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        public void ApplyDamage(float incomingDmg, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
-            _damageReceiver.ApplyDamage(damageObject, relativeVelocityMagnitude, pointOfImpact);
+            _damageReceiver.ApplyDamage(incomingDmg, relativeVelocityMagnitude, pointOfImpact);
         }
     }
 }

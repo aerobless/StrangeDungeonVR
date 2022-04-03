@@ -335,6 +335,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c729c6168df1444accbc748fb69e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4866625476673608632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6196407597996215211}
+  - component: {fileID: 3888365653702112303}
+  - component: {fileID: 2483402945020778420}
+  m_Layer: 0
+  m_Name: EnemyTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6196407597996215211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866625476673608632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7264134997233159985}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3888365653702112303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866625476673608632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.041925445, y: 0.9820262, z: 0.0972484}
+  m_Center: {x: -0.0041552936, y: 0.62152255, z: 0.0032370877}
+--- !u!114 &2483402945020778420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866625476673608632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467003633533113552}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.fighting.PlayerWeapon, Assembly-CSharp
+        m_MethodName: SwordImpactEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5939638903282507285
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,9 +598,7 @@ GameObject:
   - component: {fileID: 2417306979441148122}
   - component: {fileID: 467003633533113552}
   - component: {fileID: 4217383716309051033}
-  - component: {fileID: 1099517425751518567}
   - component: {fileID: 7264134997234485422}
-  - component: {fileID: 7264134997234485423}
   - component: {fileID: 7264134997234485416}
   - component: {fileID: 4960688423108433161}
   - component: {fileID: 5938861582301439557}
@@ -555,6 +629,7 @@ Transform:
   - {fileID: 8032955852504626348}
   - {fileID: 3333233913049969395}
   - {fileID: 5196635150270728996}
+  - {fileID: 6196407597996215211}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -652,6 +727,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3825c67be47a3e40a6553905464f075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 5
+  dmgTextImpactPoint: {fileID: 8741391215342666211}
+  slashImpactSounds:
+  - {fileID: 8300000, guid: 810a75598b6eb7247b086650a866f249, type: 3}
+  - {fileID: 8300000, guid: e475a647af0378a458de12d5dd8328a0, type: 3}
+  - {fileID: 8300000, guid: 6e4765b1d93f08f4397e998110785498, type: 3}
+  - {fileID: 8300000, guid: aa70f70c687c1914db7bb99f8f1aa378, type: 3}
+  - {fileID: 8300000, guid: fbf2c4d403124cf47b6cba36e5be935e, type: 3}
+  - {fileID: 8300000, guid: f0749d4fa60891944b7d087723e7dfe1, type: 3}
+  - {fileID: 8300000, guid: 9c92a9835e42bc446bac8f5f8b704a0b, type: 3}
+  - {fileID: 8300000, guid: bbd44ffae7c02314e96b2e529cc10410, type: 3}
+  audioSource: {fileID: 7219520524054304527}
   validationPoints:
   - {fileID: 4495399772946807973}
   - {fileID: 7352718032435318893}
@@ -779,20 +866,6 @@ MonoBehaviour:
   HandGrabbers: []
   Stabbers: []
   Stabbable: {fileID: 0}
---- !u!114 &1099517425751518567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264134997233376789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462aebc5252344b4caf628db765936de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerHit: 5
-  playerWeapon: 1
 --- !u!54 &7264134997234485422
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -805,57 +878,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &7264134997234485423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264134997233376789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9721aece59afa174eb1650e061723bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tip: {fileID: 2505842217216282325}
-  Base: {fileID: 2505842216600750501}
-  Settings: {fileID: 0}
-  StabAnything: 0
-  IgnoreVelocityCheck: 0
-  FallbackSettings: {fileID: 0}
-  ProjectionMode: 1
-  ProjectionDistance: 0.01
-  ProjectionAngle: 20
-  IsDualStabber: 0
-  CanRunThrough: 1
-  CollidersToIgnore: []
-  StabbingColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  ContactOffset: 0.001
-  DrawGizmos: 0
-  VerboseDebugging: 0
-  LogFailedAngle: 0
-  LogFailedVelocity: 0
-  LogJointLock: 0
-  LogJointUnlock: 0
-  LogJointForce: 0
-  LogJointForceThreshold: 100
-  Depth: 0
-  DepthPercent: 0
-  Stabbed:
-    m_PersistentCalls:
-      m_Calls: []
-  UnStabbed:
-    m_PersistentCalls:
-      m_Calls: []
-  FullStabbed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7264134997234485416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1052,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordTrailStandard
       objectReference: {fileID: 0}
+    - target: {fileID: 840068294263815403, guid: 2539beaae4ed94b42a9b806431b5d255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722500944029434679, guid: 2539beaae4ed94b42a9b806431b5d255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2539beaae4ed94b42a9b806431b5d255, type: 3}
 --- !u!4 &3333233913049969395 stripped
@@ -1054,15 +1090,35 @@ PrefabInstance:
         Hint: Can be summoned by pressing the
         B button on your right controller.'
       objectReference: {fileID: 0}
+    - target: {fileID: 552980793654179503, guid: aeed102ee249c8f439a8626caea1e996,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 552980793851020048, guid: aeed102ee249c8f439a8626caea1e996,
         type: 3}
       propertyPath: m_text
       value: Rusty machete
       objectReference: {fileID: 0}
+    - target: {fileID: 552980793851020054, guid: aeed102ee249c8f439a8626caea1e996,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552980794084857713, guid: aeed102ee249c8f439a8626caea1e996,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 552980794275880140, guid: aeed102ee249c8f439a8626caea1e996,
         type: 3}
       propertyPath: m_Name
       value: Item Info Tooltip Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 552980794275880140, guid: aeed102ee249c8f439a8626caea1e996,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552980794275880143, guid: aeed102ee249c8f439a8626caea1e996,
         type: 3}
@@ -1183,6 +1239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 552980794749600801, guid: aeed102ee249c8f439a8626caea1e996,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeed102ee249c8f439a8626caea1e996, type: 3}

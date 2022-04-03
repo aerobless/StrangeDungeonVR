@@ -42,7 +42,7 @@ namespace SixtyMeters.logic.fighting
             _variabilityManager = FindObjectOfType<VariabilityManager>();
             _statistics = FindObjectOfType<StatisticsManager>();
 
-            _puppetMaster.GetComponentsInChildren<AgentHitbox>().ToList()
+            _puppetMaster.GetComponentsInChildren<PhysicalAgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));
             _originalMaterial = meshRenderer.material;
 
@@ -69,7 +69,7 @@ namespace SixtyMeters.logic.fighting
             }
         }
 
-        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        public void ApplyDamage(float damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
             if (!_hitLocked)
             {
@@ -98,13 +98,12 @@ namespace SixtyMeters.logic.fighting
             Invoke(nameof(ResetHit), 1f);
         }
 
-        private int CalculateDamage(DamageObject damageObject, float relativeVelocityMagnitude)
+        private int CalculateDamage(float damageObject, float relativeVelocityMagnitude)
         {
-            var baseDmgPoints = damageObject.GetDamagePoints();
             var criticalDamageRng = Random.Range(0, 3); //TODO: determine by weapon
 
             // Base 5 + 2-12 + 0-3 = 5 - 20
-            return (int) (baseDmgPoints + relativeVelocityMagnitude + criticalDamageRng) *
+            return (int) (damageObject + relativeVelocityMagnitude + criticalDamageRng) *
                    _variabilityManager.player.damageDealtMultiplier;
         }
 

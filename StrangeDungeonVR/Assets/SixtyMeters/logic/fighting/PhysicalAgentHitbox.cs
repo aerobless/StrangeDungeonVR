@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SixtyMeters.logic.fighting
 {
-    public class AgentHitbox : MonoBehaviour
+    public class PhysicalAgentHitbox : MonoBehaviour
     {
         // Internal Settings
         private readonly float _minVelocityForDamage = 2;
@@ -32,6 +32,7 @@ namespace SixtyMeters.logic.fighting
             _puppetMaster = puppetMaster;
         }
 
+        // Used for detecting damage by traps etc.
         private void OnCollisionEnter(Collision other)
         {
             var damageObject = other.gameObject.GetComponent<DamageObject>();
@@ -42,7 +43,7 @@ namespace SixtyMeters.logic.fighting
                 if (relativeVelocityMagnitude > _minVelocityForDamage)
                 {
                     var impactPoint = other.GetContact(0).point;
-                    _dmgListener.ApplyDamage(damageObject, relativeVelocityMagnitude, impactPoint);
+                    _dmgListener.ApplyDamage(damageObject.GetDamagePoints(), relativeVelocityMagnitude, impactPoint);
 
                     if (unpinMuscles)
                     {

@@ -2,6 +2,8 @@
 {
     public enum CombatMarkerMove
     {
-        SingleBlockDefense,
+        SingleBlockTopDefense,
+        SingleBlockLeftDefense,
+        SingleBlockRightDefense
     }
 }

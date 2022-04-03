@@ -4,7 +4,7 @@
     {
         PickUpWeapon,
         RoamDungeon,
-        AttackPlayer,
+        UnarmedCombatBehavior,
         Idle,
         //Hide,
     }

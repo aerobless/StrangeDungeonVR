@@ -6,6 +6,6 @@ namespace SixtyMeters.logic.fighting
     {
         public void ApplyDirectDamage(float incomingDmg);
 
-        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact);
+        public void ApplyDamage(float incomingDmg, float relativeVelocityMagnitude, Vector3 pointOfImpact);
     }
 }

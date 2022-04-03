@@ -24,7 +24,6 @@ namespace SixtyMeters.logic.item
 
         // Internal components
         private HVRGrabbable _grabbable;
-        private VibrationHelper _vibrationHelper;
         protected GameManager GameManager;
         private ItemInfo _itemInfo;
 
@@ -34,7 +33,6 @@ namespace SixtyMeters.logic.item
         // Start is called before the first frame update
         void Start()
         {
-            _vibrationHelper = new VibrationHelper(FindObjectOfType<HVRInputManager>());
             _grabbable = GetComponent<HVRGrabbable>();
             _itemInfo = GetComponent<ItemInfo>();
             GameManager = FindObjectOfType<GameManager>();
@@ -84,11 +82,9 @@ namespace SixtyMeters.logic.item
 
             if (usesLeft > 0)
             {
-                _grabbable.HandGrabbers.ForEach(grabber =>
-                {
-                    _vibrationHelper.VibrateHand(grabber.HandSide,
-                        inRange ? VibrationHelper.InRangeVibration : VibrationHelper.OutOfRangeVibration);
-                });
+                GameManager.controllerFeedback.VibrateHand(_grabbable, inRange
+                    ? ControllerFeedbackHelper.InRangeVibration
+                    : ControllerFeedbackHelper.OutOfRangeVibration);
 
                 ApplyEffect();
             }

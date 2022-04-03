@@ -18,7 +18,7 @@ namespace SixtyMeters.logic.variability.effects
         private ItemInfo _itemInfo;
         private SoulShardHelper _soulShardHelper;
         private HVRGrabbable _grabbable;
-        private VibrationHelper _vibrationHelper;
+        private ControllerFeedbackHelper _controllerFeedbackHelper;
 
         // Internals
         private bool _inRangeForConsumption;
@@ -28,7 +28,7 @@ namespace SixtyMeters.logic.variability.effects
         {
             VariabilityManager = FindObjectOfType<VariabilityManager>();
             _statistics = FindObjectOfType<StatisticsManager>();
-            _vibrationHelper = new VibrationHelper(FindObjectOfType<HVRInputManager>());
+            _controllerFeedbackHelper = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
             _itemInfo = GetComponent<ItemInfo>();
             _soulShardHelper = GetComponent<SoulShardHelper>();
             _grabbable = GetComponent<HVRGrabbable>();
@@ -94,8 +94,8 @@ namespace SixtyMeters.logic.variability.effects
 
             _grabbable.HandGrabbers.ForEach(grabber =>
             {
-                _vibrationHelper.VibrateHand(grabber.HandSide,
-                    inRange ? VibrationHelper.InRangeVibration : VibrationHelper.OutOfRangeVibration);
+                _controllerFeedbackHelper.VibrateHand(grabber.HandSide,
+                    inRange ? ControllerFeedbackHelper.InRangeVibration : ControllerFeedbackHelper.OutOfRangeVibration);
             });
         }
     }

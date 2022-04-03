@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using AnimationInfo = SixtyMeters.logic.ai.appearance.AnimationInfo;
 
 namespace SixtyMeters.logic.ai.behaviors
 {
@@ -28,7 +29,7 @@ namespace SixtyMeters.logic.ai.behaviors
             return _configuration.priority;
         }
 
-        protected bool TimerHasReachedSeconds(float waitTimeInSeconds)
+        private bool TimerHasReachedSeconds(float waitTimeInSeconds)
         {
             _timer += Time.deltaTime;
 
@@ -61,6 +62,12 @@ namespace SixtyMeters.logic.ai.behaviors
                     _locks.Remove(action.GetHashCode());
                 }
             }
+        }
+
+        protected void PlayAnimationAndLock(AnimationInfo animationInfo)
+        {
+            agent.animator.SetTrigger(animationInfo.Id);
+            agent.LockBehaviorExecution(animationInfo.Length);
         }
 
         /// <summary>

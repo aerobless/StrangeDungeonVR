@@ -94,9 +94,9 @@ namespace SixtyMeters.logic.player
             }
         }
 
-        public void ApplyDamage(DamageObject damageObject, float relativeVelocityMagnitude, Vector3 pointOfImpact)
+        public void ApplyDamage(float incomingDmg, float relativeVelocityMagnitude, Vector3 pointOfImpact)
         {
-            ApplyDirectDamage(damageObject.damagePerHit);
+            ApplyDirectDamage(incomingDmg);
         }
 
         private static IEnumerator LerpDamageScreen(CanvasGroup canvas, float targetValue, float duration)
