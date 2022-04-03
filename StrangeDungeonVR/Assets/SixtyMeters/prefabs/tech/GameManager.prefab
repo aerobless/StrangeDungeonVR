@@ -100,7 +100,7 @@ MonoBehaviour:
     moveSet: 1
     agentMaxSpeed: 0.5
     hasWeapon: 0
-    healthPoints: 1000
+    healthPoints: 100
 --- !u!1 &653216278844980259
 GameObject:
   m_ObjectHideFlags: 0

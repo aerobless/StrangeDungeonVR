@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using HurricaneVR.Framework.Core;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 
@@ -5,26 +7,49 @@ namespace SixtyMeters.logic.fighting
 {
     public class CombatMarker : MonoBehaviour
     {
+        // Components
+        public Material ghostMaterial;
+        public Material successMaterial;
+        public Material failureMaterial;
+
+        public AudioSource audioSource;
+        public List<AudioClip> successSounds;
+        public List<AudioClip> failureSounds;
+
         // Internal components
         private GameManager _gameManager;
         private BoxCollider _collider;
+        private MeshRenderer _renderer;
 
         // Internals
-        private PlayerWeapon _complyingPlayerWeapon;
+        private PlayerWeapon _respondingPlayerWeapon;
+        private bool _isCompliant;
 
         // Start is called before the first frame update
         void Start()
         {
             _gameManager = FindObjectOfType<GameManager>();
             _collider = GetComponent<BoxCollider>();
+            _renderer = GetComponent<MeshRenderer>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (!_isCompliant && WeaponIsInComplyingPosition(_respondingPlayerWeapon))
+            {
+                // fireworks because compliance was reached
+                _isCompliant = true;
+                var grabbable = _respondingPlayerWeapon.GetComponent<HVRGrabbable>();
+                _gameManager.controllerFeedback.VibrateHand(grabbable, ControllerFeedbackHelper.CombatMarkerSuccess);
+                _renderer.material = successMaterial;
+                audioSource.PlayOneShot(Helper.GETRandomFromList(successSounds));
+                StartCoroutine(Helper.Wait(0.2f, Reset));
+            }
+
+            //TODO: Make player hold position instead of just complying once
         }
         
-        //TODO: change green colors when valid
         //TODO: show timer to player
         //TODO: show effect on success
         //TODO: sound effect on fit/success etc.
@@ -34,12 +59,14 @@ namespace SixtyMeters.logic.fighting
             gameObject.SetActive(true);
             StartCoroutine(Helper.Wait(timeToRespond, () =>
             {
-                if (!WeaponIsInComplyingPosition(_complyingPlayerWeapon))
+                if (!_isCompliant)
                 {
+                    _renderer.material = failureMaterial;
+                    audioSource.PlayOneShot(Helper.GETRandomFromList(failureSounds));
                     _gameManager.player.ApplyDirectDamage(damageOnFailure);
                 }
 
-                Reset();
+                StartCoroutine(Helper.Wait(0.2f, Reset));
             }));
         }
 
@@ -66,7 +93,9 @@ namespace SixtyMeters.logic.fighting
         public void Reset()
         {
             gameObject.SetActive(false);
-            _complyingPlayerWeapon = null;
+            _respondingPlayerWeapon = null;
+            _isCompliant = false;
+            _renderer.material = ghostMaterial;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -74,7 +103,7 @@ namespace SixtyMeters.logic.fighting
             var complyingPlayerWeapon = other.GetComponent<PlayerWeapon>();
             if (complyingPlayerWeapon)
             {
-                _complyingPlayerWeapon = complyingPlayerWeapon;
+                _respondingPlayerWeapon = complyingPlayerWeapon;
             }
         }
 
@@ -82,7 +111,7 @@ namespace SixtyMeters.logic.fighting
         {
             if (other.GetComponent<PlayerWeapon>())
             {
-                _complyingPlayerWeapon = null;
+                _respondingPlayerWeapon = null;
             }
         }
     }

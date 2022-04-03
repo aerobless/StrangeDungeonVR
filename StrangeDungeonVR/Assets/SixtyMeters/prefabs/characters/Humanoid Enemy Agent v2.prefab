@@ -4474,7 +4474,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &9032008855660292782
@@ -5086,7 +5086,7 @@ MonoBehaviour:
   - behavior: 1
     priority: 10
   - behavior: 3
-    priority: 99
+    priority: 0
   timeUntilCorpseDisappears: 10
   hasFootstepSounds: 1
 --- !u!114 &7794063180287849924

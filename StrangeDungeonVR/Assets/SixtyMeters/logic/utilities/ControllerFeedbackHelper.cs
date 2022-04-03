@@ -21,6 +21,9 @@ namespace SixtyMeters.logic.utilities
         
         public static readonly HapticData ImpactVibration =
             new() {Amplitude = 0.9f, Duration = 0.3f, Frequency = 0.4f};
+        
+        public static readonly HapticData CombatMarkerSuccess =
+            new() {Amplitude = 0.9f, Duration = 0.5f, Frequency = 0.7f};
 
 
         /// <summary>
