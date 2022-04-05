@@ -10,7 +10,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * AI Agent improvements: agents now turn more realistically, movement is now animation based
 * Combat system overhaul. The player now has to block incomming attacks actively.
 * Added support for moving platforms (this was painful). A first implementation of a moving platform is used in the Goblin Cave.
-* New tile: Goblin Cave
+* New dungeon tile: Dark Goblin Cave. A large cave with weird falling stones & ancient moving platforms. Maybe a treasure chest or two as well..
 * New trap: Falling stepping stone. This trap triggers when the player stands on a stone for to long, causing them to fall to their death.
 * Jail cell tile got some destructible torture instrument variants.
 
