@@ -514,7 +514,7 @@ MonoBehaviour:
   - {fileID: 3097439307577789033, guid: 17011365d576f72479a07dcf7d6a447a, type: 3}
   - {fileID: 3394606602145008732, guid: 7d28a026547cbff44889e68f2072e92f, type: 3}
   startTile: {fileID: 0}
-  restartTile: {fileID: 5161020731728998932, guid: 73e224d9728ebb54f9777242e6a67f88,
+  restartTile: {fileID: 8176125771423721272, guid: 7c075ef20b5413c4fb088c65cea2042a,
     type: 3}
   deathTile: {fileID: 6321153529344916789, guid: c314a803a9d995148a3afb9a6305316c,
     type: 3}
