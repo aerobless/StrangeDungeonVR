@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Added controller explanation to startup UI.
 * Implemented sitting/standing calibration menu on game load. The player is now forced to choose a setting.
 * New starting tile: Undertown. The mage Flavorius (the not so great) accidentally merged his hometown of Derpshire with a dungeon deep underground. The inhabitants of the town are resigned to their fate and have renamed their village "Undertown".
 * Created system to configure appearance of agents. This will allow to add different kinds of enemies more easily

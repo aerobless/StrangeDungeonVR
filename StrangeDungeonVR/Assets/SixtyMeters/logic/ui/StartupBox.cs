@@ -11,25 +11,39 @@ namespace SixtyMeters.logic.ui
         // Components
         public AudioSource audioSource;
         public AudioClip clickButton;
+        public AudioClip spawnButton;
+
+        public GameObject heightCalibrationPage;
+        public GameObject controllerExplanationPage;
+        public GameObject boxContent;
 
         // Start is called before the first frame update
         void Start()
         {
             _gameManager = FindObjectOfType<GameManager>();
+            heightCalibrationPage.SetActive(true);
+            controllerExplanationPage.SetActive(false);
         }
 
         public void PlaySitting()
         {
             var hvrCameraRig = GetCameraRig();
             hvrCameraRig.SetSitStandMode(HVRSitStand.Sitting);
-            CalibrateAndDestroy(hvrCameraRig);
+            Calibrate(hvrCameraRig);
         }
 
         public void PlayStanding()
         {
             var hvrCameraRig = GetCameraRig();
             hvrCameraRig.SetSitStandMode(HVRSitStand.Standing);
-            CalibrateAndDestroy(hvrCameraRig);
+            Calibrate(hvrCameraRig);
+        }
+
+        public void EndStartupBox()
+        {
+            audioSource.PlayOneShot(spawnButton);
+            boxContent.SetActive(false);
+            Destroy(gameObject, 3f);
         }
 
         private HVRCameraRig GetCameraRig()
@@ -37,11 +51,12 @@ namespace SixtyMeters.logic.ui
             return _gameManager.player.GetComponentInChildren<HVRCameraRig>();
         }
 
-        private void CalibrateAndDestroy(HVRCameraRig cameraRig)
+        private void Calibrate(HVRCameraRig cameraRig)
         {
             cameraRig.Calibrate();
             audioSource.PlayOneShot(clickButton);
-            Destroy(gameObject, 1f);
+            heightCalibrationPage.SetActive(false);
+            controllerExplanationPage.SetActive(true);
         }
     }
 }
