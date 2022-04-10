@@ -24,6 +24,16 @@ namespace SixtyMeters.logic.lighting
         {
             _smoothQueue = new Queue<float>(smoothing);
             InvokeRepeating(nameof(Flicker), 0, 0.1f);
+
+            if (!lightSource)
+            {
+                lightSource = GetComponent<Light>();
+                if (!lightSource)
+                {
+                    Debug.LogError("Light source for DynamicLight on " + gameObject.name + " was not assigned! FIXME");
+                    Destroy(this);
+                }
+            }
         }
 
         // Update is called once per frame

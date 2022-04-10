@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 
@@ -29,12 +30,12 @@ namespace SixtyMeters.logic.fighting
         {
         }
 
-        public void ActivateCombatMove(CombatMarkerMove move, float baseDamageOnFailure)
+        public void ActivateCombatMove(CombatMarkerMove move, float baseDamageOnFailure, IEnemy target)
         {
             var config = combatMarkerConfig.Find(conf => conf.move.Equals(move));
             var ttr = _gameManager.variabilityManager.player.timeToRespondToCombatMarker;
             //TODO: logic to handle multiple combat markers
-            config.markers[0].Activate(ttr, baseDamageOnFailure);
+            config.markers[0].Activate(ttr, baseDamageOnFailure, target);
         }
     }
 }

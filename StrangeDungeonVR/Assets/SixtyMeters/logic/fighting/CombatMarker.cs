@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using HurricaneVR.Framework.Core;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace SixtyMeters.logic.fighting
         public AudioSource audioSource;
         public List<AudioClip> successSounds;
         public List<AudioClip> failureSounds;
+        public AudioClip activateWarnSound;
 
         // Internal components
         private GameManager _gameManager;
@@ -24,6 +26,10 @@ namespace SixtyMeters.logic.fighting
         // Internals
         private PlayerWeapon _respondingPlayerWeapon;
         private bool _isCompliant;
+        private IEnemy _target;
+
+        // Settings
+        public float avoidDistance;
 
         // Start is called before the first frame update
         void Start()
@@ -47,16 +53,32 @@ namespace SixtyMeters.logic.fighting
                 StartCoroutine(Helper.Wait(0.2f, Reset));
             }
 
+            if (IsOutOfRangeOrDead())
+            {
+                Reset();
+            }
+
             //TODO: Make player hold position instead of just complying once
         }
-        
+
+        private bool IsOutOfRangeOrDead()
+        {
+            if (_target != null && _target.IsAlive())
+            {
+                return Vector3.Distance(gameObject.transform.position, _target.GetPosition()) >= avoidDistance;
+            }
+
+            return true;
+        }
+
         //TODO: show timer to player
         //TODO: show effect on success
-        //TODO: sound effect on fit/success etc.
 
-        public void Activate(float timeToRespond, float damageOnFailure)
+        public void Activate(float timeToRespond, float damageOnFailure, IEnemy target)
         {
             gameObject.SetActive(true);
+            _target = target;
+            audioSource.PlayOneShot(activateWarnSound);
             StartCoroutine(Helper.Wait(timeToRespond, () =>
             {
                 if (!_isCompliant)
@@ -93,6 +115,7 @@ namespace SixtyMeters.logic.fighting
         public void Reset()
         {
             gameObject.SetActive(false);
+            _target = null;
             _respondingPlayerWeapon = null;
             _isCompliant = false;
             _renderer.material = ghostMaterial;

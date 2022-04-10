@@ -6,6 +6,7 @@ using RootMotion.FinalIK;
 using SixtyMeters.logic.ai.appearance;
 using SixtyMeters.logic.ai.behaviors;
 using SixtyMeters.logic.fighting;
+using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
@@ -16,7 +17,7 @@ using Random = UnityEngine.Random;
 
 namespace SixtyMeters.logic.ai
 {
-    public class UniversalAgent : MonoBehaviour, ITrackedLifecycle, IDamageable
+    public class UniversalAgent : MonoBehaviour, ITrackedLifecycle, IDamageable, IEnemy
     {
         // Components
         public InteractionObject weapon;
@@ -296,17 +297,27 @@ namespace SixtyMeters.logic.ai
                     audioSource.PlayOneShot(Helper.GETRandomFromList(battleCry));
                     break;
                 case AnimationEventType.BlockRight:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, 25);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, 25, this);
                     break;
                 case AnimationEventType.BlockTop:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense, 25);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense, 25, this);
                     break;
                 case AnimationEventType.BlockLeft:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense, 25);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense, 25, this);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public bool IsAlive()
+        {
+            return _healthPoints > 0;
+        }
+
+        public Vector3 GetPosition()
+        {
+            return transform.position;
         }
     }
 }

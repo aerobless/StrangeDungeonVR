@@ -6,6 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Combat markers now make a sound when they appear to notify the player that they have to block.
+* Combat moves are now cancelled if the player moves out of range or the enemy dies.
+* Improved peripheral combat display to always be in sight of player.
 * Added controller explanation to startup UI.
 * Implemented sitting/standing calibration menu on game load. The player is now forced to choose a setting.
 * New starting tile: Undertown. The mage Flavorius (the not so great) accidentally merged his hometown of Derpshire with a dungeon deep underground. The inhabitants of the town are resigned to their fate and have renamed their village "Undertown".

@@ -105,6 +105,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ba6f6a876a3f8c04ab4a2a044d8820cb, type: 3}
   failureSounds:
   - {fileID: 8300000, guid: b7cdd803aced5db44b3282bda325f937, type: 3}
+  activateWarnSound: {fileID: 8300000, guid: 7c14cff916bc6464db054ff12b142c3a, type: 3}
+  avoidDistance: 5
 --- !u!65 &1187830371022710701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,5 +118,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.42611796, y: 2.1583354, z: 0.33739492}
-  m_Center: {x: 0.017680457, y: 0.4506802, z: 0.018346813}
+  m_Size: {x: 0.18791, y: 1.6478065, z: 0.15854166}
+  m_Center: {x: -0.0023401692, y: 0.4789068, z: -0.006296186}

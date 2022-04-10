@@ -8767,7 +8767,7 @@ MonoBehaviour:
   PlayerController: {fileID: 3964216359257493501}
   Camera: {fileID: 3964216359629682751}
   CameraOffset: 0.6
-  WaistAngleThreshold: 70
+  WaistAngleThreshold: 20
   WaistSpeed: 90
 --- !u!1 &5212289549320614432
 GameObject:
@@ -13443,12 +13443,12 @@ PrefabInstance:
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.20852163
+      value: 0.2085216
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20852168
+      value: 0.20852171
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
@@ -13458,17 +13458,17 @@ PrefabInstance:
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.004300095
+      value: 0.0043001175
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00089997053
+      value: -0.00090008974
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1459992
+      value: -0.14599991
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
@@ -13478,7 +13478,7 @@ PrefabInstance:
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.037948277
+      value: 0.03794827
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
@@ -13488,7 +13488,7 @@ PrefabInstance:
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0025122764
+      value: 0.002512276
       objectReference: {fileID: 0}
     - target: {fileID: 7901864651080486490, guid: 1d98aa20f27067c4e8b3aa22849ce072,
         type: 3}

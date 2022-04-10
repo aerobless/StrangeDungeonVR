@@ -3583,7 +3583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56abb6f038fadc46b11cdaac2e30a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSource: {fileID: 0}
+  lightSource: {fileID: 575681119580054953}
   minIntensity: 8
   maxIntensity: 3
   smoothing: 5
