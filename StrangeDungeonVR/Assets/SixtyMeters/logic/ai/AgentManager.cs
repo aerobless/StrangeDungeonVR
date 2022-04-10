@@ -12,7 +12,9 @@ namespace SixtyMeters.logic.ai
             public string agentConfigurationId;
             public Skin skin;
             public MoveSet moveSet;
-            public float agentMaxSpeed;
+            public float agentRoamMaxMovementSpeed;
+            public float agentAttackMaxMovementSpeed;
+            public float damagePerHit; //TODO: make attacks configurable and assign damage per attack instead
             public bool hasWeapon;
             public int healthPoints;
         }

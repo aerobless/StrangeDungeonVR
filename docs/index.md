@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Player highscore is now automatically updated every minute instead of just on death. This will also put players on the highscore that didn't die.
+* Fixed bug where the statistics weren't reset for every new dungeon run.
 * Combat markers now make a sound when they appear to notify the player that they have to block.
 * Combat moves are now cancelled if the player moves out of range or the enemy dies.
 * Improved peripheral combat display to always be in sight of player.

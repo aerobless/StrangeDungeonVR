@@ -7,8 +7,6 @@ namespace SixtyMeters.logic.social
 {
     public class LeaderboardManager : MonoBehaviour
     {
-        private const string HighScoreLeaderboard = "strange-dungeon-highscore-leaderboard";
-
         // Components
         public GameObject leaderboardContent;
         public LeaderboardEntry entryTemplate;
@@ -20,17 +18,13 @@ namespace SixtyMeters.logic.social
         void Start()
         {
             _gameManager = FindObjectOfType<GameManager>();
-
-            //TODO: add extra data, e.g. stage or level
-            // The entry is only updated if its higher then a already recorded score
-            Leaderboards.WriteEntry(HighScoreLeaderboard, _gameManager.statisticsManager.CalculateTotalScore())
-                .OnComplete(_ => { UpdateLeaderboard(); });
+            InvokeRepeating(nameof(UpdateLeaderboard), 1f, 5f);
         }
 
         private void UpdateLeaderboard()
         {
             ClearLeaderboard();
-            Leaderboards.GetEntries(HighScoreLeaderboard, 10, LeaderboardFilterType.None,
+            Leaderboards.GetEntries(MetaPlatformManager.HighScoreLeaderboard, 10, LeaderboardFilterType.None,
                 LeaderboardStartAt.CenteredOnViewerOrTop).OnComplete(callback =>
             {
                 if (!callback.IsError)

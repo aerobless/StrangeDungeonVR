@@ -46,7 +46,7 @@ namespace SixtyMeters.logic.analytics
             if (!_isTracking)
             {
                 _isTracking = true;
-                _dungeonRunStartTime = DateTime.Now;
+                Reset();
             }
         }
 
@@ -75,6 +75,24 @@ namespace SixtyMeters.logic.analytics
         {
             return enemiesKilled + trapsTriggered + totalTrapsInMap + roomsGenerated + roomsDiscovered +
                    coinsCollected + soulShardsFound + soulShardsUsed + potionsUsed;
+        }
+
+        public void Reset()
+        {
+            _dungeonRunStartTime = DateTime.Now;
+            enemiesKilled = 0;
+            totalDamageDealt = 0;
+            bossBattles = 0;
+
+            roomsGenerated = 0;
+            roomsDiscovered = 0;
+            trapsTriggered = 0;
+            totalTrapsInMap = 0;
+
+            coinsCollected = 0;
+            soulShardsFound = 0;
+            soulShardsUsed = 0;
+            potionsUsed = 0;
         }
     }
 }

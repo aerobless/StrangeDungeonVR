@@ -3,6 +3,7 @@
     public enum CollisionInputVariant
     {
         Any,
-        Metal
+        Metal,
+        LightStepWalking,
     }
 }

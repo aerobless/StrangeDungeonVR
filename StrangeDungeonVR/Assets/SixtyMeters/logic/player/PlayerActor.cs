@@ -80,6 +80,7 @@ namespace SixtyMeters.logic.player
             var respawnTile = _gameManager.dungeonGenerator.GenerateRespawnTile(gameObject.transform);
             respawnTile.EnableGraveyard();
             gameObject.transform.rotation = respawnTile.GetSpawnPoint().transform.rotation;
+            _gameManager.platformManager.UpdatePlayerScore();
             _gameManager.analyticsManager.FlushEvents();
         }
 

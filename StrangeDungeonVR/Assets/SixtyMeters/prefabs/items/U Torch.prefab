@@ -5413,6 +5413,7 @@ GameObject:
   - component: {fileID: 5364183757143306895}
   - component: {fileID: 7070242853951930571}
   - component: {fileID: 5565288623457452910}
+  - component: {fileID: 7684261672309230618}
   m_Layer: 0
   m_Name: U Torch
   m_TagString: Untagged
@@ -5783,6 +5784,19 @@ MonoBehaviour:
   playOnlyPassiveSound: 1
   playOnlyActiveSound: 0
   collisionInputMaterial: 1
+--- !u!114 &7684261672309230618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988618173591431998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc84e483e032f4f89ce1e9a10c1b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &5346715296628520178
 GameObject:
   m_ObjectHideFlags: 0

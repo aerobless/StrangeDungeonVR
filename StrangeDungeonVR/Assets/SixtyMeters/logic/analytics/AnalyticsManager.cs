@@ -49,7 +49,7 @@ namespace SixtyMeters.logic.analytics
 
             // Update the data for the dungeon progress event every 10 seconds
             // The data is only uploaded every minute though
-            InvokeRepeating(nameof(UpdateDungeonProgressEvent), 100, 100);
+            InvokeRepeating(nameof(UpdateDungeonProgressEvent), 10, 10);
         }
 
         // TODO: to be compliant with GDPR I will probably have to offer an opt-out at least.. 

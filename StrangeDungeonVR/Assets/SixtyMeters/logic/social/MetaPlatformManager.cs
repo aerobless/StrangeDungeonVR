@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Oculus.Platform;
 using Oculus.Platform.Models;
+using SixtyMeters.logic.utilities;
 
 namespace SixtyMeters.logic.social
 {
@@ -11,6 +12,19 @@ namespace SixtyMeters.logic.social
 
         public ulong applicationScopedOculusId = NoUlongData;
         public string oculusUsernameId = NoStringData;
+
+        // Leaderboards
+        public const string HighScoreLeaderboard = "strange-dungeon-highscore-leaderboard";
+
+        // Internals
+        private GameManager _gameManager;
+
+        private void Start()
+        {
+            _gameManager = FindObjectOfType<GameManager>();
+            InvokeRepeating(nameof(UpdatePlayerScore), 60, 60);
+        }
+
 
         void Awake()
         {
@@ -58,6 +72,11 @@ namespace SixtyMeters.logic.social
 
             applicationScopedOculusId = msg.Data.ID;
             oculusUsernameId = msg.Data.OculusID;
+        }
+
+        public void UpdatePlayerScore()
+        {
+            Leaderboards.WriteEntry(HighScoreLeaderboard, _gameManager.statisticsManager.CalculateTotalScore());
         }
     }
 }

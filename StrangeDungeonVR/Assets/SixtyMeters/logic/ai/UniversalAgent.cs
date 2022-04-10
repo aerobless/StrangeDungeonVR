@@ -45,6 +45,8 @@ namespace SixtyMeters.logic.ai
 
         [HideInInspector] public AimIK aimIK;
 
+        [HideInInspector] public AgentManager.AgentTemplate template;
+
         private GameObject _damageTextObject;
         private UniversalAgentAppearance _appearance;
 
@@ -71,7 +73,7 @@ namespace SixtyMeters.logic.ai
         private static readonly int MoveSet = Animator.StringToHash("moveSet");
 
         // Configuration classes
-        [System.Serializable]
+        [Serializable]
         public class BehaviorConfiguration
         {
             public UniversalAgentBehaviorType behavior;
@@ -98,17 +100,17 @@ namespace SixtyMeters.logic.ai
                 .ForEach(hitbox => hitbox.SetupHitbox(this, puppetMaster));
             puppetMaster.GetComponent<DamageRelay>().Setup(this);
 
-            var agentTemplate = gameManager.agentManager.GetTemplate(agentTemplateId);
-            SetupAgentBasedOnTemplate(agentTemplate);
+            template = gameManager.agentManager.GetTemplate(agentTemplateId);
+            SetupAgentBasedOnTemplate(template);
 
-            SetupBehaviors(agentTemplate);
+            SetupBehaviors(template);
 
             navMeshAgent.updatePosition = false;
         }
 
         private void SetupAgentBasedOnTemplate(AgentManager.AgentTemplate template)
         {
-            navMeshAgent.speed = template.agentMaxSpeed;
+            navMeshAgent.speed = template.agentRoamMaxMovementSpeed;
             _appearance.SetAppearance(template.skin);
             animator.SetInteger(MoveSet, (int) template.moveSet);
             _healthPoints = template.healthPoints;
@@ -297,13 +299,13 @@ namespace SixtyMeters.logic.ai
                     audioSource.PlayOneShot(Helper.GETRandomFromList(battleCry));
                     break;
                 case AnimationEventType.BlockRight:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, 25, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, template.damagePerHit, this);
                     break;
                 case AnimationEventType.BlockTop:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense, 25, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense,  template.damagePerHit, this);
                     break;
                 case AnimationEventType.BlockLeft:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense, 25, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense,  template.damagePerHit, this);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

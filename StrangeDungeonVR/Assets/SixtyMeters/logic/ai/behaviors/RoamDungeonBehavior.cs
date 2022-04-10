@@ -31,6 +31,7 @@ namespace SixtyMeters.logic.ai.behaviors
 
         private void RandomMovement()
         {
+            agent.navMeshAgent.speed = agent.template.agentRoamMaxMovementSpeed;
             agent.puppetMaster.mode = PuppetMaster.Mode.Kinematic;
             
             if (HasReachedDestination(DestinationReachedDistance, _moveToLocation))

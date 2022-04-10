@@ -98,7 +98,9 @@ MonoBehaviour:
   - agentConfigurationId: skeletonSlave
     skin: 13
     moveSet: 1
-    agentMaxSpeed: 0.5
+    agentRoamMaxMovementSpeed: 0.5
+    agentAttackMaxMovementSpeed: 1
+    damagePerHit: 10
     hasWeapon: 0
     healthPoints: 100
 --- !u!1 &653216278844980259
@@ -321,6 +323,17 @@ MonoBehaviour:
   - materialType: 1
     collisionVariants:
     - inputVariant: 0
+      audioClips:
+      - {fileID: 8300000, guid: 8a189be53bd22ed42a03fba1331771d8, type: 3}
+      - {fileID: 8300000, guid: ff78435d5f19b584895c64b2805c06ea, type: 3}
+      - {fileID: 8300000, guid: c6e8ff4521a537249ae7897c6e70fbca, type: 3}
+      - {fileID: 8300000, guid: b4a8cb28e18c00c4a97fa6bee8b3c146, type: 3}
+      - {fileID: 8300000, guid: e42cd97538bcdb347942bf7e8c20a22e, type: 3}
+      - {fileID: 8300000, guid: 10ef6e90fc51d7b4b82bfc156e987480, type: 3}
+      - {fileID: 8300000, guid: e817751533a4f6a4a9a23a49bb0c0dde, type: 3}
+      - {fileID: 8300000, guid: da3e2c35b3ecc4943a899ee1f804eabf, type: 3}
+      - {fileID: 8300000, guid: 569d4be3beebe774ab4dbd52e22e6eb9, type: 3}
+    - inputVariant: 2
       audioClips:
       - {fileID: 8300000, guid: 8a189be53bd22ed42a03fba1331771d8, type: 3}
       - {fileID: 8300000, guid: ff78435d5f19b584895c64b2805c06ea, type: 3}

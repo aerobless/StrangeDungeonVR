@@ -13,7 +13,7 @@ namespace SixtyMeters.logic.ai.behaviors
     public class UnarmedCombatBehavior : UniversalAgentBehavior
     {
         // Settings
-        private const float AttackRange = 2;
+        private const float AttackRange = 1.5f;
         private const float AggressionRange = 10; //TODO: read from variabilityManager
 
         // Internals
@@ -54,6 +54,8 @@ namespace SixtyMeters.logic.ai.behaviors
 
         public override void ExecuteUpdate()
         {
+            agent.navMeshAgent.speed = agent.template.agentAttackMaxMovementSpeed;
+
             if (_freshEngagement)
             {
                 _freshEngagement = false;
@@ -64,6 +66,7 @@ namespace SixtyMeters.logic.ai.behaviors
             //TODO: set aimIK for unarmed combat?
             agent.aimIK.solver.target = _player.head.transform;
 
+            agent.navMeshAgent.SetDestination(_player.gameObject.transform.position);
             if (IsPlayerInRange(AttackRange))
             {
                 PlayAnimationAndLock(Helper.GETRandomFromList(_attackAnimations));
