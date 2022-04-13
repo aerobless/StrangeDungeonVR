@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* NPC Enemies now have nametags showing their level, name and health
 * Added dev note system. This allows me to let players know what's still missing/planned.
 * Player highscore is now automatically updated every minute instead of just on death. This will also put players on the highscore that didn't die.
 * Fixed bug where the statistics weren't reset for every new dungeon run.

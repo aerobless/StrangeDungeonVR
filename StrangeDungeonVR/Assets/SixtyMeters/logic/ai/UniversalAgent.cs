@@ -8,6 +8,7 @@ using SixtyMeters.logic.ai.behaviors;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.interfaces.lifecycle;
+using SixtyMeters.logic.ui;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,6 +31,8 @@ namespace SixtyMeters.logic.ai
         public AudioSource audioSource;
         public AudioSource audioSourceFeet;
         public Material dmgMaterial;
+        public NameTag nameTag;
+
         public List<AudioClip> dmgSounds;
         public List<AudioClip> footStepSounds;
         public List<AudioClip> battleCry;
@@ -53,7 +56,7 @@ namespace SixtyMeters.logic.ai
         // Internals
         private readonly List<UniversalAgentBehavior> _behaviors = new();
         private readonly List<IDestructionListener> _destructionListener = new();
-        private List<AnimationInfo> _dmgReactionAnimations = new();
+        private readonly List<AnimationInfo> _dmgReactionAnimations = new();
         private Material _originalMaterial;
         private float _healthPoints;
         private bool _hitLocked;
@@ -114,6 +117,7 @@ namespace SixtyMeters.logic.ai
             _appearance.SetAppearance(template.skin);
             animator.SetInteger(MoveSet, (int) template.moveSet);
             _healthPoints = template.healthPoints;
+            nameTag.Setup(template.level, template.name, template.initialHealthPercentage);
 
             if (!template.hasWeapon)
             {
@@ -258,6 +262,9 @@ namespace SixtyMeters.logic.ai
             damageText.GetComponent<DamageText>().SetDamageText(dmg);
 
             _healthPoints -= dmg;
+            var newNormalizedHealth = 1 / (float) template.healthPoints * _healthPoints;
+            nameTag.SetHealthPercentage(newNormalizedHealth, 0.5f);
+
             gameManager.statisticsManager.totalDamageDealt += dmg;
             Invoke(nameof(ResetHit), 1f);
         }
@@ -299,13 +306,16 @@ namespace SixtyMeters.logic.ai
                     audioSource.PlayOneShot(Helper.GETRandomFromList(battleCry));
                     break;
                 case AnimationEventType.BlockRight:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense, template.damagePerHit, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockRightDefense,
+                        template.damagePerHit, this);
                     break;
                 case AnimationEventType.BlockTop:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense,  template.damagePerHit, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockTopDefense,
+                        template.damagePerHit, this);
                     break;
                 case AnimationEventType.BlockLeft:
-                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense,  template.damagePerHit, this);
+                    gameManager.player.combatMarkerDisplay.ActivateCombatMove(SingleBlockLeftDefense,
+                        template.damagePerHit, this);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

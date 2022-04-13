@@ -10,6 +10,8 @@ namespace SixtyMeters.logic.ai
         public class AgentTemplate
         {
             public string agentConfigurationId;
+            public string name;
+            public int level;
             public Skin skin;
             public MoveSet moveSet;
             public float agentRoamMaxMovementSpeed;
@@ -17,6 +19,7 @@ namespace SixtyMeters.logic.ai
             public float damagePerHit; //TODO: make attacks configurable and assign damage per attack instead
             public bool hasWeapon;
             public int healthPoints;
+            public float initialHealthPercentage; // 0 - 1
         }
 
         [System.Serializable]
