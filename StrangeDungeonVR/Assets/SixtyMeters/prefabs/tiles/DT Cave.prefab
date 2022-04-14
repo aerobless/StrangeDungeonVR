@@ -1,5 +1,93 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &77126249124987945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157358374098362377}
+  - component: {fileID: 1665413085110740966}
+  - component: {fileID: 8422199022796709726}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &157358374098362377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77126249124987945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630982549193132331}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1665413085110740966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77126249124987945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &8422199022796709726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77126249124987945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8231929159235089080}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8231929159235089080}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &167304191849890243
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +101,6 @@ GameObject:
   - component: {fileID: 83497508884080332}
   - component: {fileID: 1798367224455409517}
   - component: {fileID: 2420222696914015552}
-  - component: {fileID: 9082396295636638244}
   - component: {fileID: 9071947089818784505}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (6)
@@ -35,6 +122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8015605548973174659}
+  - {fileID: 1526005036787740114}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,19 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &9082396295636638244
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167304191849890243}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &9071947089818784505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +250,6 @@ GameObject:
   - component: {fileID: 2296653623201920969}
   - component: {fileID: 1691693281354394243}
   - component: {fileID: 8458613308895365287}
-  - component: {fileID: 7418734899229803898}
   - component: {fileID: 4815301848118495177}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (2)
@@ -197,6 +271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 906223714393399102}
+  - {fileID: 5854717990815374522}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -276,19 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &7418734899229803898
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295534714932318748}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &4815301848118495177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +399,6 @@ GameObject:
   - component: {fileID: 2036302899708530560}
   - component: {fileID: 3369800250351546451}
   - component: {fileID: 5278634173942774519}
-  - component: {fileID: 7246624999398961315}
   - component: {fileID: 3417839858871255846}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (10)
@@ -359,6 +420,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8903017166359534293}
+  - {fileID: 647642029335386310}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -438,19 +500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &7246624999398961315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513023968224251731}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &3417839858871255846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +804,6 @@ GameObject:
   - component: {fileID: 4572854548273220448}
   - component: {fileID: 7663194976234801048}
   - component: {fileID: 5487192840184184831}
-  - component: {fileID: 8528998083247111045}
   - component: {fileID: 1031844953534254838}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (12)
@@ -777,6 +825,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3668790762297951895}
+  - {fileID: 1219253833527763018}
   m_Father: {fileID: 423170641564074614}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -856,19 +905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &8528998083247111045
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994626221765620849}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &1031844953534254838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +1036,6 @@ GameObject:
   - component: {fileID: 4139016558954211560}
   - component: {fileID: 1369108283172677372}
   - component: {fileID: 8191017864558500396}
-  - component: {fileID: 438522580287737166}
   - component: {fileID: 3678403546013847294}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (11)
@@ -1022,6 +1057,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3050838467663015014}
+  - {fileID: 2700201138156948064}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1101,19 +1137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &438522580287737166
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143758304721475330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &3678403546013847294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,6 +1172,94 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &1302802675276397980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3639976986045723388}
+  - component: {fileID: 4223992525284496320}
+  - component: {fileID: 6849284456262012707}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3639976986045723388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302802675276397980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2243265071998763457}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4223992525284496320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302802675276397980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &6849284456262012707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302802675276397980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 527212022316281892}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 527212022316281892}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1497050178278715299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1273,6 @@ GameObject:
   - component: {fileID: 2318001443272957218}
   - component: {fileID: 8811105332971947836}
   - component: {fileID: 258131299034678737}
-  - component: {fileID: 4680370287250658047}
   - component: {fileID: 3452059802877003768}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (17)
@@ -1184,8 +1294,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3251939783394764827}
+  - {fileID: 1702100348934677997}
   m_Father: {fileID: 423170641564074614}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &706672106791710180
 MeshFilter:
@@ -1263,19 +1374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &4680370287250658047
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497050178278715299}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &3452059802877003768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,7 +1849,6 @@ GameObject:
   - component: {fileID: 5214245809785441447}
   - component: {fileID: 5888277677853845360}
   - component: {fileID: 1360530543811986461}
-  - component: {fileID: 5966508568330340960}
   - component: {fileID: 5351112695619540636}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (15)
@@ -1773,6 +1870,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2454706070750606402}
+  - {fileID: 5396150330632720694}
   m_Father: {fileID: 423170641564074614}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1852,19 +1950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &5966508568330340960
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979593209298002881}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &5351112695619540636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,6 +1985,94 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &1983370539763096837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219253833527763018}
+  - component: {fileID: 9195325537251738840}
+  - component: {fileID: 4365956821053304752}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219253833527763018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983370539763096837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5317197546434294527}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9195325537251738840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983370539763096837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &4365956821053304752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983370539763096837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1031844953534254838}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1031844953534254838}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2017900335720385790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4066026473958081350}
+  - {fileID: 8048447464911870220}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2190,6 +2364,182 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &2174678322062749007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835852445475094451}
+  - component: {fileID: 7404016205612249216}
+  - component: {fileID: 1000169208645847088}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835852445475094451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174678322062749007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9087834098370371711}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7404016205612249216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174678322062749007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &1000169208645847088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174678322062749007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3468701250284828232}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3468701250284828232}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &2242280593000977647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8165899107011392335}
+  - component: {fileID: 8580829099549994171}
+  - component: {fileID: 4356787556757371513}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8165899107011392335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242280593000977647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3668420469085797688}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8580829099549994171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242280593000977647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &4356787556757371513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242280593000977647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6176198872689539187}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6176198872689539187}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2489343556268179066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,7 +2553,6 @@ GameObject:
   - component: {fileID: 7597436039940884429}
   - component: {fileID: 1524000284249771650}
   - component: {fileID: 660102539653175812}
-  - component: {fileID: 643142758808387631}
   - component: {fileID: 4536434377264289447}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (1)
@@ -2225,6 +2574,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7320039061401330373}
+  - {fileID: 3713072901834546368}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2304,19 +2654,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &643142758808387631
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2489343556268179066}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &4536434377264289447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2759,7 +3096,6 @@ GameObject:
   - component: {fileID: 8420458656717695209}
   - component: {fileID: 1678394028646081795}
   - component: {fileID: 5851881686328469388}
-  - component: {fileID: 6656460162436560882}
   - component: {fileID: 8231929159235089080}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (8)
@@ -2781,6 +3117,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8379463274903560112}
+  - {fileID: 157358374098362377}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2860,19 +3197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &6656460162436560882
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3529253377020578133}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &8231929159235089080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2908,6 +3232,94 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &3534202955100704149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5396150330632720694}
+  - component: {fileID: 7688698409085977553}
+  - component: {fileID: 3404884376025567603}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5396150330632720694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534202955100704149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1342040752449819198}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7688698409085977553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534202955100704149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &3404884376025567603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534202955100704149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5351112695619540636}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5351112695619540636}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3848507772435386517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,6 +3448,182 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3856751402418003987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8280881275842412757}
+  - component: {fileID: 7182655694391939794}
+  - component: {fileID: 6242986080823655210}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8280881275842412757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856751402418003987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6911035459035600469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7182655694391939794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856751402418003987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &6242986080823655210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856751402418003987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8520243065680201813}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8520243065680201813}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &3887086057388709051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5247449056974472864}
+  - component: {fileID: 4721053777941031714}
+  - component: {fileID: 776620857274909296}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5247449056974472864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887086057388709051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2990240168800974729}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4721053777941031714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887086057388709051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &776620857274909296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887086057388709051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5081008308730126899}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5081008308730126899}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4206361296631266757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3752,94 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4468715279014886380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684508413285841741}
+  - component: {fileID: 7905883354196411591}
+  - component: {fileID: 8458729578997243150}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684508413285841741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468715279014886380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3637962146513133077}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7905883354196411591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468715279014886380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &8458729578997243150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468715279014886380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 744779181857889905}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 744779181857889905}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4622755360368908384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,7 +3853,6 @@ GameObject:
   - component: {fileID: 7789050157055596989}
   - component: {fileID: 1864977931119930432}
   - component: {fileID: 3814586653498423115}
-  - component: {fileID: 6490189314468894053}
   - component: {fileID: 3468701250284828232}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (16)
@@ -3199,8 +3874,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7365502380808696732}
+  - {fileID: 1835852445475094451}
   m_Father: {fileID: 423170641564074614}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &8164333294143164110
 MeshFilter:
@@ -3278,19 +3954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &6490189314468894053
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622755360368908384}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &3468701250284828232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3326,6 +3989,94 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &4905922721230978972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 517000413417613911}
+  - component: {fileID: 7508235838132494259}
+  - component: {fileID: 358739850959475492}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &517000413417613911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905922721230978972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6890912434025647799}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7508235838132494259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905922721230978972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &358739850959475492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905922721230978972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2748301581739867013}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2748301581739867013}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5118842676888985739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +4157,94 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SixtyMeters.logic.props.MovingPlatform, Assembly-CSharp
         m_MethodName: DetachPlayerFromPlatform
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &5199467998665913648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526005036787740114}
+  - component: {fileID: 7410009446320626187}
+  - component: {fileID: 2360662699579717056}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526005036787740114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199467998665913648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5682251269672475918}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7410009446320626187
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199467998665913648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &2360662699579717056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199467998665913648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9071947089818784505}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9071947089818784505}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3657,6 +4496,94 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &5576093088118716105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702100348934677997}
+  - component: {fileID: 1257689066175708307}
+  - component: {fileID: 2639751695703064538}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702100348934677997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5576093088118716105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7415156233588557736}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1257689066175708307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5576093088118716105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &2639751695703064538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5576093088118716105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3452059802877003768}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3452059802877003768}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5613176491165190858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,7 +4597,6 @@ GameObject:
   - component: {fileID: 8500642062332700862}
   - component: {fileID: 5047650373423453415}
   - component: {fileID: 6182860980140702994}
-  - component: {fileID: 44698142539563681}
   - component: {fileID: 8520243065680201813}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (3)
@@ -3692,6 +4618,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3802149262018366582}
+  - {fileID: 8280881275842412757}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -3771,19 +4698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &44698142539563681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613176491165190858}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &8520243065680201813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3964,7 +4878,6 @@ GameObject:
   - component: {fileID: 4455023088573258202}
   - component: {fileID: 5243599313668365385}
   - component: {fileID: 7315424256626102969}
-  - component: {fileID: 2689221293142066547}
   - component: {fileID: 6176198872689539187}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (5)
@@ -3986,6 +4899,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2315971082784382842}
+  - {fileID: 8165899107011392335}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -4065,19 +4979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &2689221293142066547
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873659078306821847}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &6176198872689539187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,6 +5014,94 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &5881906705909627467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647642029335386310}
+  - component: {fileID: 6342516212941599949}
+  - component: {fileID: 5876857697748523055}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647642029335386310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881906705909627467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4888559869949928935}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6342516212941599949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881906705909627467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &5876857697748523055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5881906705909627467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3417839858871255846}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3417839858871255846}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5923872560258287288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,6 +5230,94 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6575794104081616705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4971881603469735154}
+  - component: {fileID: 4343201588277749915}
+  - component: {fileID: 7506622240425255860}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4971881603469735154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575794104081616705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015994061901772745}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4343201588277749915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575794104081616705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &7506622240425255860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575794104081616705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 619402543753335222}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 619402543753335222}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6890912434025882961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,7 +5331,6 @@ GameObject:
   - component: {fileID: 6890912434023381015}
   - component: {fileID: 6865599285643966765}
   - component: {fileID: 8096026103118244322}
-  - component: {fileID: 4036875402805302517}
   - component: {fileID: 2748301581739867013}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05
@@ -4276,6 +5352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 672579330342322903}
+  - {fileID: 517000413417613911}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4355,19 +5432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &4036875402805302517
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6890912434025882961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &2748301581739867013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4403,6 +5467,182 @@ MonoBehaviour:
   deathFallTime: 1
   timeBeforeReset: 2
   resetTime: 3
+--- !u!1 &7165003118072510902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8048447464911870220}
+  - component: {fileID: 3575873434142382330}
+  - component: {fileID: 3036075546721033646}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8048447464911870220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165003118072510902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6860239555874784015}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3575873434142382330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165003118072510902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &3036075546721033646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165003118072510902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5009942533076339966}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5009942533076339966}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &7340048476914832981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2700201138156948064}
+  - component: {fileID: 8114007009376193370}
+  - component: {fileID: 8585266804646156898}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2700201138156948064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340048476914832981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1513654680591723539}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8114007009376193370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340048476914832981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &8585266804646156898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340048476914832981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3678403546013847294}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3678403546013847294}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7448347634434168952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,6 +5854,94 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7530505191851477939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3713072901834546368}
+  - component: {fileID: 5749537785284455230}
+  - component: {fileID: 5404021830821935290}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3713072901834546368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530505191851477939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6374549420919293661}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5749537785284455230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530505191851477939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &5404021830821935290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530505191851477939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4536434377264289447}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4536434377264289447}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7633844658012098773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,7 +6467,6 @@ GameObject:
   - component: {fileID: 8698585955296025096}
   - component: {fileID: 7565299464709677589}
   - component: {fileID: 694688253320237871}
-  - component: {fileID: 3065608422421879888}
   - component: {fileID: 527212022316281892}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (4)
@@ -5161,6 +6488,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2004308826731660300}
+  - {fileID: 3639976986045723388}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -5240,19 +6568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &3065608422421879888
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008589956901123660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &527212022316281892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5301,7 +6616,6 @@ GameObject:
   - component: {fileID: 5372138011561577960}
   - component: {fileID: 249333011256337699}
   - component: {fileID: 6468413891854374388}
-  - component: {fileID: 8182518099163793588}
   - component: {fileID: 5081008308730126899}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (9)
@@ -5323,6 +6637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7561382323613970813}
+  - {fileID: 5247449056974472864}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5402,19 +6717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &8182518099163793588
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201380373705364778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &5081008308730126899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5578,6 +6880,94 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8255080398034676267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5854717990815374522}
+  - component: {fileID: 4314049818180322513}
+  - component: {fileID: 4322783301947457803}
+  m_Layer: 31
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5854717990815374522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255080398034676267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3378193597211674950}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4314049818180322513
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255080398034676267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
+  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+--- !u!114 &4322783301947457803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255080398034676267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4815301848118495177}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4815301848118495177}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.FallingSteppingStone, Assembly-CSharp
+        m_MethodName: TriggerExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8299936332546412704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,7 +6981,6 @@ GameObject:
   - component: {fileID: 3196159758745072373}
   - component: {fileID: 1339742418963438868}
   - component: {fileID: 5200357061001461915}
-  - component: {fileID: 1248118662727214156}
   - component: {fileID: 744779181857889905}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (14)
@@ -5613,6 +7002,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6281953820458941045}
+  - {fileID: 684508413285841741}
   m_Father: {fileID: 423170641564074614}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5692,19 +7082,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &1248118662727214156
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8299936332546412704}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &744779181857889905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5772,8 +7149,8 @@ Transform:
   - {fileID: 1015994061901772745}
   - {fileID: 3637962146513133077}
   - {fileID: 1342040752449819198}
-  - {fileID: 9087834098370371711}
   - {fileID: 7415156233588557736}
+  - {fileID: 9087834098370371711}
   m_Father: {fileID: 826547059000699763}
   m_RootOrder: 119
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -5918,7 +7295,6 @@ GameObject:
   - component: {fileID: 2995262656433915008}
   - component: {fileID: 8033272005184018557}
   - component: {fileID: 4493406282418672379}
-  - component: {fileID: 6884759425356855556}
   - component: {fileID: 619402543753335222}
   m_Layer: 14
   m_Name: SM_Env_Rock_Brick_Simple_05 (13)
@@ -5940,6 +7316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 107735248762476699}
+  - {fileID: 4971881603469735154}
   m_Father: {fileID: 423170641564074614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6019,19 +7396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 1
---- !u!65 &6884759425356855556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8955831039652664385}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6147557, y: 0.25305656, z: 0.36316016}
-  m_Center: {x: -0.00000094828994, y: 0.09809282, z: -0.00000047331662}
 --- !u!114 &619402543753335222
 MonoBehaviour:
   m_ObjectHideFlags: 0

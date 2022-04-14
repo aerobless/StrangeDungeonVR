@@ -6,7 +6,9 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
-* NPC Enemies now have nametags showing their level, name and health
+* Improved tile doorways. Detecting if a player enters or leaves a tile has been improved. It's now less likely to fail if the player decides to go back half way through a door.
+* Improved dungeon generator. Old tiles are now deactived instead of deleted. The player can now backtrack and is no longer impeded by a shut off corridor.
+* NPC Enemies now have nametags showing their level, name and health.
 * Added dev note system. This allows me to let players know what's still missing/planned.
 * Player highscore is now automatically updated every minute instead of just on death. This will also put players on the highscore that didn't die.
 * Fixed bug where the statistics weren't reset for every new dungeon run.
@@ -16,8 +18,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * Added controller explanation to startup UI.
 * Implemented sitting/standing calibration menu on game load. The player is now forced to choose a setting.
 * New starting tile: Undertown. The mage Flavorius (the not so great) accidentally merged his hometown of Derpshire with a dungeon deep underground. The inhabitants of the town are resigned to their fate and have renamed their village "Undertown".
-* Created system to configure appearance of agents. This will allow to add different kinds of enemies more easily
-* AI Agent improvements: agents now turn more realistically, movement is now animation based
+* Created system to configure appearance of agents. This will allow to add different kinds of enemies more easily.
+* AI Agent improvements: agents now turn more realistically, movement is now animation based.
 * Combat system overhaul. The player now has to block incomming attacks actively.
 * Added support for moving platforms (this was painful). A first implementation of a moving platform is used in the Goblin Cave.
 * New dungeon tile: Dark Goblin Cave. A large cave with weird falling stones & ancient moving platforms. Maybe a treasure chest or two as well..

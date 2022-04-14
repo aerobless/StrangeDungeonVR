@@ -47,23 +47,28 @@ namespace SixtyMeters.logic.generator
                 .ToList();
         }
 
-        public void NotifyPlayerEnterOrExit()
+        public void NotifyPlayerEnter()
         {
-            _tileIsOccupiedByPlayer = !_tileIsOccupiedByPlayer;
-            if (_tileIsOccupiedByPlayer)
+            if (!_tileIsOccupiedByPlayer)
             {
                 Debug.Log("Player has entered tile " + gameObject.name);
-                _dungeonGenerator.GenerateNewTilesFor(this);
-                _dungeonGenerator.RemoveExpiredTiles(this);
+                _tileIsOccupiedByPlayer = true;
+                _dungeonGenerator.TileEntered(this);
 
                 // Statistics
                 _statistics.StartTrackingIfNotStartedYet();
                 ++_statistics.roomsDiscovered;
             }
-            else
+        }
+
+        public void NotifyPlayerExit()
+        {
+            if (_tileIsOccupiedByPlayer)
             {
                 Debug.Log("Player has left tile " + gameObject.name);
             }
+
+            _tileIsOccupiedByPlayer = false;
         }
 
         public List<DungeonTileConnection> GetAttachedDoors()
@@ -83,10 +88,19 @@ namespace SixtyMeters.logic.generator
             return tileDoors.Any(door => door.IsLocked());
         }
 
-        public void Remove(float destructionTime = 1f)
+        public void DestroyTile()
         {
-            GetAttachedDoors().ForEach(door => door.Lock());
-            Destroy(gameObject, destructionTime);
+            Destroy(gameObject);
+        }
+
+        public void DeactivateTile()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void ReactivateTile()
+        {
+            gameObject.SetActive(true);
         }
     }
 }

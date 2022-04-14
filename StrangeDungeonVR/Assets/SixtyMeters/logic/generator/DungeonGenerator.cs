@@ -38,15 +38,29 @@ namespace SixtyMeters.logic.generator
             GenerateNewTilesFor(startTile);
         }
 
-        public void GenerateNewTilesFor(DungeonTile existingTile)
+        public void TileEntered(DungeonTile tile)
         {
-            _currentCenterTile = existingTile;
+            _currentCenterTile = tile;
+            ReactivateSurroundingTiles(tile);
+            GenerateNewTilesFor(tile);
+            DeactivateTilesOutOfRange(tile);
+        }
+
+        private static void ReactivateSurroundingTiles(DungeonTile existingTile)
+        {
+            existingTile.tileDoors
+                .Where(door => door.IsAttached())
+                .ToList().ForEach(doorInExistingTile => doorInExistingTile.GetAttachedTile().ReactivateTile());
+        }
+
+        private void GenerateNewTilesFor(DungeonTile existingTile)
+        {
             existingTile.tileDoors
                 .Where(door => door.IsUnattached())
                 .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
         }
 
-        public void RemoveExpiredTiles(DungeonTile existingTile)
+        private void DeactivateTilesOutOfRange(DungeonTile existingTile)
         {
             if (!existingTile.HasLockedDoors() && !existingTile.isStartTile)
             {
@@ -55,11 +69,7 @@ namespace SixtyMeters.logic.generator
                     .SelectMany(tile => tile.GetAttachedTiles())
                     .Distinct()
                     .Where(tile => tile != existingTile)
-                    .ToList().ForEach(tileToBeRemoved =>
-                    {
-                        _activeTiles.Remove(tileToBeRemoved);
-                        tileToBeRemoved.Remove();
-                    });
+                    .ToList().ForEach(tileToBeRemoved => { tileToBeRemoved.DeactivateTile(); });
             }
         }
 
@@ -70,7 +80,7 @@ namespace SixtyMeters.logic.generator
             AlignTileToPlayer(playerTransform, respawnTile.gameObject);
 
             // Destroy all remaining dungeon tiles & add this one to the list
-            _activeTiles.ForEach(tile => tile.Remove(0f));
+            _activeTiles.ForEach(tile => tile.DestroyTile());
             _activeTiles.Clear();
             _activeTiles.Add(respawnTile);
 

@@ -1,5 +1,7 @@
+using System;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.player;
+using SixtyMeters.logic.traps;
 using UnityEngine;
 
 namespace SixtyMeters.logic.door
@@ -13,6 +15,9 @@ namespace SixtyMeters.logic.door
         private TileConnectionState _state = TileConnectionState.UNATTACHED;
         private DungeonTile _parentTile;
         private DungeonTileConnection _connectedDoor;
+        
+        // Internals
+        private bool _handshakeOccured;
 
         // Start is called before the first frame update
         void Start()
@@ -87,13 +92,15 @@ namespace SixtyMeters.logic.door
             Gizmos.color = Color.red;
             Gizmos.DrawCube(Vector3.zero + new Vector3(0, 0, -3f), new Vector3(0.1f, 0.1f, 3f));
         }
-
-        private void OnTriggerEnter(Collider other)
+        
+        public void EnterTile()
         {
-            if (other.GetComponent<PlayerBodyCollider>())
-            {
-                _parentTile.NotifyPlayerEnterOrExit();
-            }
+            _parentTile.NotifyPlayerEnter();
+        }
+
+        public void ExitTile()
+        {
+            _parentTile.NotifyPlayerExit();
         }
 
         /// <summary>
