@@ -5,6 +5,7 @@
         PickUpWeapon,
         RoamDungeon,
         UnarmedCombatBehavior,
+        ArmedCombatBehavior,
         Idle,
         //Hide,
     }

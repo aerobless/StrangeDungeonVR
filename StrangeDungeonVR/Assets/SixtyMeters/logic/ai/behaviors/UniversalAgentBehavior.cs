@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SixtyMeters.logic.ai.appearance;
 using UnityEngine;
 using AnimationInfo = SixtyMeters.logic.ai.appearance.AnimationInfo;
 
@@ -66,7 +67,8 @@ namespace SixtyMeters.logic.ai.behaviors
 
         protected void PlayAnimationAndLock(AnimationInfo animationInfo)
         {
-            agent.animator.SetTrigger(animationInfo.Id);
+            agent.animator.SetInteger(AnimationIndex.TriggerType, animationInfo.Id);
+            agent.animator.SetTrigger(AnimationIndex.FireTrigger);
             agent.LockBehaviorExecution(animationInfo.Length);
         }
 

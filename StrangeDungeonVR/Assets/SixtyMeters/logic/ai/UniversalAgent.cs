@@ -27,7 +27,6 @@ namespace SixtyMeters.logic.ai
         public BehaviourPuppet puppet;
         public PuppetMaster puppetMaster;
         public GameObject rootObject; //Needed for destruction
-        public SkinnedMeshRenderer meshRenderer;
         public AudioSource audioSource;
         public AudioSource audioSourceFeet;
         public Material dmgMaterial;
@@ -52,6 +51,7 @@ namespace SixtyMeters.logic.ai
 
         private GameObject _damageTextObject;
         private UniversalAgentAppearance _appearance;
+        private SkinnedMeshRenderer _meshRenderer;
 
         // Internals
         private readonly List<UniversalAgentBehavior> _behaviors = new();
@@ -93,7 +93,6 @@ namespace SixtyMeters.logic.ai
             aimIK = GetComponent<AimIK>();
             _appearance = GetComponent<UniversalAgentAppearance>();
             _damageTextObject = Resources.Load("DamageText") as GameObject;
-            _originalMaterial = meshRenderer.material;
             _startingHeight = transform.position.y;
 
             _dmgReactionAnimations.Add(AnimationIndex.ImpactHeadHit);
@@ -114,7 +113,12 @@ namespace SixtyMeters.logic.ai
         private void SetupAgentBasedOnTemplate(AgentManager.AgentTemplate template)
         {
             navMeshAgent.speed = template.agentRoamMaxMovementSpeed;
-            _appearance.SetAppearance(template.skin);
+
+            //Setup skin - we need the meshRenderer for the damage effect
+            var appearance = _appearance.SetAppearance(template.skin);
+            _meshRenderer = appearance.GetComponent<SkinnedMeshRenderer>();
+            _originalMaterial = _meshRenderer.material;
+
             animator.SetInteger(MoveSet, (int) template.moveSet);
             _healthPoints = template.healthPoints;
             nameTag.Setup(template.level, template.name, template.initialHealthPercentage);
@@ -146,6 +150,11 @@ namespace SixtyMeters.logic.ai
                 if (config.behavior == UniversalAgentBehaviorType.UnarmedCombatBehavior && !template.hasWeapon)
                 {
                     _behaviors.Add(new UnarmedCombatBehavior(config, this));
+                }
+
+                if (config.behavior == UniversalAgentBehaviorType.ArmedCombatBehavior && template.hasWeapon)
+                {
+                    _behaviors.Add(new ArmedCombatBehavior(config, this));
                 }
 
                 if (config.behavior == UniversalAgentBehaviorType.Idle)
@@ -253,9 +262,10 @@ namespace SixtyMeters.logic.ai
         {
             //audioSource.PlayOneShot(Helper.GETRandomFromList(dmgSounds));
 
-            animator.SetTrigger(Helper.GETRandomFromList(_dmgReactionAnimations).Id);
+            animator.SetInteger(AnimationIndex.TriggerType, Helper.GETRandomFromList(_dmgReactionAnimations).Id);
+            animator.SetTrigger(AnimationIndex.FireTrigger);
 
-            meshRenderer.material = dmgMaterial;
+            _meshRenderer.material = dmgMaterial;
 
             // Damage Text
             var damageText = Instantiate(_damageTextObject, pointOfImpact, Quaternion.identity);
@@ -280,7 +290,7 @@ namespace SixtyMeters.logic.ai
 
         private void ResetHit()
         {
-            meshRenderer.material = _originalMaterial;
+            _meshRenderer.material = _originalMaterial;
             _hitLocked = false;
         }
 

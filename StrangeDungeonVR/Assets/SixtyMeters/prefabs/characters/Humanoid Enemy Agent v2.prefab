@@ -5095,11 +5095,13 @@ MonoBehaviour:
   behaviorConfigurations:
   - behavior: 0
     priority: 100
+  - behavior: 3
+    priority: 50
   - behavior: 2
     priority: 50
   - behavior: 1
     priority: 10
-  - behavior: 3
+  - behavior: 4
     priority: 0
   timeUntilCorpseDisappears: 10
   hasFootstepSounds: 1
@@ -6549,7 +6551,6 @@ GameObject:
   - component: {fileID: 9060174044494811206}
   - component: {fileID: 9060174044494811207}
   - component: {fileID: 9060174044494811204}
-  - component: {fileID: 9060174044494811209}
   m_Layer: 26
   m_Name: NPC Weapon Test
   m_TagString: Untagged
@@ -6850,19 +6851,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.024355412, y: 0.118266225, z: 0.09925842}
   m_Center: {x: 0.0010674, y: 0.9322303, z: -0.037460327}
---- !u!114 &9060174044494811209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032008856254619607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462aebc5252344b4caf628db765936de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerHit: 1
 --- !u!1 &9032008856258650278
 GameObject:
   m_ObjectHideFlags: 0

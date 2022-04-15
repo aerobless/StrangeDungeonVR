@@ -24,12 +24,18 @@ namespace SixtyMeters.logic.ai.appearance
         {
         }
 
-        public void SetAppearance(Skin skin)
+        public GameObject SetAppearance(Skin skin)
         {
+            GameObject chosenAppearance = null;
             skinConfigurations.ForEach(skinConfig =>
             {
                 skinConfig.skinObject.SetActive(skinConfig.skinId.Equals(skin));
+                if (skinConfig.skinId.Equals(skin))
+                {
+                    chosenAppearance = skinConfig.skinObject;
+                }
             });
+            return chosenAppearance;
         }
     }
 }
