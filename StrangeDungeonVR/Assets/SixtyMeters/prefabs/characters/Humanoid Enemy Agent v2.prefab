@@ -5081,6 +5081,8 @@ MonoBehaviour:
   aimIK: {fileID: 0}
   template:
     agentConfigurationId: 
+    name: 
+    level: 0
     skin: 0
     moveSet: 0
     agentRoamMaxMovementSpeed: 0
@@ -5088,7 +5090,8 @@ MonoBehaviour:
     damagePerHit: 0
     hasWeapon: 0
     healthPoints: 0
-  agentTemplateId: skeletonSlave
+    initialHealthPercentage: 0
+  agentTemplateId: skeletonKnight
   behaviorConfigurations:
   - behavior: 0
     priority: 100

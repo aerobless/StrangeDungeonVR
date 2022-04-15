@@ -78,6 +78,11 @@ namespace SixtyMeters.logic.generator
                 .ToList();
         }
 
+        public List<DungeonTileConnection> GetDoorsForArea(DungeonArea area)
+        {
+            return tileDoors.Where(door => door.dungeonArea.Equals(area)).ToList();
+        }
+
         public void SetOccupiedByPlayer()
         {
             _tileIsOccupiedByPlayer = true;

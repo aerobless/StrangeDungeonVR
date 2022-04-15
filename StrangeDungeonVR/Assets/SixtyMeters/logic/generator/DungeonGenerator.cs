@@ -16,7 +16,7 @@ namespace SixtyMeters.logic.generator
         // Internal components
         private StatisticsManager _statistics;
 
-        public List<GameObject> tiles;
+        public List<DungeonTile> tiles;
         public DungeonTile startTile;
         public DungeonTile restartTile;
 
@@ -57,7 +57,7 @@ namespace SixtyMeters.logic.generator
         {
             existingTile.tileDoors
                 .Where(door => door.connection.IsUnattached())
-                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile.connection));
+                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
         }
 
         private void DeactivateTilesOutOfRange(DungeonTile existingTile)
@@ -91,20 +91,20 @@ namespace SixtyMeters.logic.generator
             return respawnTile.GetComponent<StartTile>();
         }
 
-        private List<DungeonTile> AttachNewTile(DungeonTileConnectionGizmo doorInExistingTile)
+        private void AttachNewTile(DungeonTileConnection doorInExistingTile)
         {
             var createdTiles = new List<DungeonTile>();
-            var newTile = SpawnRandomNewTile();
-            AlignAndAttachTileDoor(doorInExistingTile, newTile);
+            var newTile = SpawnRandomNewTile(doorInExistingTile.dungeonArea);
+            AlignAndAttachTileDoor(doorInExistingTile.connection, newTile, doorInExistingTile.dungeonArea);
             createdTiles.Add(newTile.GetComponent<DungeonTile>());
             _activeTiles.AddRange(createdTiles);
-            return createdTiles;
         }
 
-        private GameObject SpawnRandomNewTile()
+        private GameObject SpawnRandomNewTile(DungeonArea area)
         {
-            var randomNextTile = Helper.GETRandomFromList(tiles);
-            var newTile = Instantiate(randomNextTile, Vector3.zero, Quaternion.identity);
+            var compatibleTiles = tiles.Where(tile => tile.GetDoorsForArea(area).Count > 0).ToList();
+            var randomTile = Helper.GETRandomFromList(compatibleTiles);
+            var newTile = Instantiate(randomTile.gameObject, Vector3.zero, Quaternion.identity);
 
             ++_statistics.roomsGenerated;
 
@@ -120,15 +120,17 @@ namespace SixtyMeters.logic.generator
         /// </summary>
         /// <param name="doorInExistingTile">the door in an existing tile, will not be moved</param>
         /// <param name="newTile">the new tile, will be moved to attach to the existing door</param>
-        private void AlignAndAttachTileDoor(DungeonTileConnectionGizmo doorInExistingTile, GameObject newTile)
+        private void AlignAndAttachTileDoor(DungeonTileConnectionGizmo doorInExistingTile, GameObject newTile,
+            DungeonArea area)
         {
-            var randomDoorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().tileDoors).connection;
-            randomDoorInNewTile.Attach(doorInExistingTile);
-            doorInExistingTile.Attach(randomDoorInNewTile);
+            var doorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().GetDoorsForArea(area))
+                .connection;
+            doorInNewTile.Attach(doorInExistingTile);
+            doorInExistingTile.Attach(doorInNewTile);
 
             var targetTransform = doorInExistingTile.transform;
             var newTileParentTransform = newTile.transform;
-            var newTileChildDoorTransform = randomDoorInNewTile.transform;
+            var newTileChildDoorTransform = doorInNewTile.transform;
 
             var childRotToTarget = targetTransform.rotation * Quaternion.Inverse(newTileChildDoorTransform.rotation);
             newTileParentTransform.rotation = childRotToTarget;

@@ -106,6 +106,17 @@ MonoBehaviour:
     hasWeapon: 0
     healthPoints: 100
     initialHealthPercentage: 1
+  - agentConfigurationId: skeletonKnight
+    name: Morbid Skeleton
+    level: 2
+    skin: 15
+    moveSet: 0
+    agentRoamMaxMovementSpeed: 0.75
+    agentAttackMaxMovementSpeed: 1
+    damagePerHit: 20
+    hasWeapon: 1
+    healthPoints: 150
+    initialHealthPercentage: 1
 --- !u!1 &653216278844980259
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,16 +534,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 7374032052285292644, guid: fe6b7b421e0055c41816888b1e8eadb3, type: 3}
-  - {fileID: 4837451502356557523, guid: afa9a842e927fcc4b9b37011d279de76, type: 3}
-  - {fileID: 4446687355556776386, guid: c8e10ea88c2dfdc41ae56aab751a6a4e, type: 3}
-  - {fileID: 6498196126573011843, guid: cef5289452adec646ac58bddea01314f, type: 3}
-  - {fileID: 3097439307577789033, guid: 17011365d576f72479a07dcf7d6a447a, type: 3}
-  - {fileID: 3394606602145008732, guid: 7d28a026547cbff44889e68f2072e92f, type: 3}
+  - {fileID: 2899952396288365302, guid: 7d28a026547cbff44889e68f2072e92f, type: 3}
+  - {fileID: 6108351991586573747, guid: fe6b7b421e0055c41816888b1e8eadb3, type: 3}
+  - {fileID: 1410659919071327663, guid: 17011365d576f72479a07dcf7d6a447a, type: 3}
+  - {fileID: 5283151992211283860, guid: cef5289452adec646ac58bddea01314f, type: 3}
+  - {fileID: 5993152591962987207, guid: afa9a842e927fcc4b9b37011d279de76, type: 3}
+  - {fileID: 989463189623454628, guid: f8875171aeb2d4948ba5585e26295837, type: 3}
+  - {fileID: 1154836799971627044, guid: c8e10ea88c2dfdc41ae56aab751a6a4e, type: 3}
   startTile: {fileID: 0}
   restartTile: {fileID: 8176125771423721272, guid: 7c075ef20b5413c4fb088c65cea2042a,
-    type: 3}
-  deathTile: {fileID: 6321153529344916789, guid: c314a803a9d995148a3afb9a6305316c,
     type: 3}
 --- !u!1 &3080239455736660027
 GameObject:
