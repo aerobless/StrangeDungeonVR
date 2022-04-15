@@ -90,7 +90,7 @@ namespace SixtyMeters.logic.door
             Gizmos.DrawLine(Vector3.zero, Vector3.forward);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawCube(Vector3.zero + new Vector3(0, 0, -3f), new Vector3(0.1f, 0.1f, 3f));
+            Gizmos.DrawCube(Vector3.zero + new Vector3(0, 0, -2f), new Vector3(0.1f, 0.1f, 2f));
         }
         
         public void EnterTile()

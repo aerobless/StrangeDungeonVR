@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* Tile connections are now seamless. There's no need for archways/door frames anymore when connecting tiles.
 * Improved tile doorways. Detecting if a player enters or leaves a tile has been improved. It's now less likely to fail if the player decides to go back half way through a door.
 * Improved dungeon generator. Old tiles are now deactived instead of deleted. The player can now backtrack and is no longer impeded by a shut off corridor.
 * NPC Enemies now have nametags showing their level, name and health.

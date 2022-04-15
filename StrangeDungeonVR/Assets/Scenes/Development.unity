@@ -12367,6 +12367,17 @@ PrefabInstance:
       propertyPath: startTile
       value: 
       objectReference: {fileID: 1297801984}
+    - target: {fileID: 3080239455616282009, guid: 060976c845c8d6445b17679b5d991f72,
+        type: 3}
+      propertyPath: tiles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080239455616282009, guid: 060976c845c8d6445b17679b5d991f72,
+        type: 3}
+      propertyPath: tiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 6498196126573011843, guid: cef5289452adec646ac58bddea01314f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 060976c845c8d6445b17679b5d991f72, type: 3}
 --- !u!1001 &3154386242227339028
@@ -12995,7 +13006,7 @@ PrefabInstance:
     - target: {fileID: 7767969002860601431, guid: cef5289452adec646ac58bddea01314f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 220.1
+      value: 219
       objectReference: {fileID: 0}
     - target: {fileID: 7767969002860601431, guid: cef5289452adec646ac58bddea01314f,
         type: 3}
