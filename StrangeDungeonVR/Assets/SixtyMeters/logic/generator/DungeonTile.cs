@@ -42,8 +42,8 @@ namespace SixtyMeters.logic.generator
 
         public List<DungeonTile> GetAttachedTiles()
         {
-            return tileDoors.Where(door => door.IsAttached())
-                .Select(door => door.GetAttachedTile())
+            return tileDoors.Where(door => door.connection.IsAttached())
+                .Select(door => door.connection.GetAttachedTile())
                 .ToList();
         }
 
@@ -71,21 +71,16 @@ namespace SixtyMeters.logic.generator
             _tileIsOccupiedByPlayer = false;
         }
 
-        public List<DungeonTileConnection> GetAttachedDoors()
+        public List<DungeonTileConnectionGizmo> GetAttachedDoors()
         {
-            return tileDoors.Where(door => door.IsAttached())
-                .Select(door => door.GetAttachedDoor())
+            return tileDoors.Where(door => door.connection.IsAttached())
+                .Select(door => door.connection.GetAttachedDoor())
                 .ToList();
         }
 
         public void SetOccupiedByPlayer()
         {
             _tileIsOccupiedByPlayer = true;
-        }
-
-        public bool HasLockedDoors()
-        {
-            return tileDoors.Any(door => door.IsLocked());
         }
 
         public void DestroyTile()

@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1790243579551595161}
+  - component: {fileID: 6109320662183698306}
   m_Layer: 31
   m_Name: Door v2
   m_TagString: Untagged
@@ -108,6 +109,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6109320662183698306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976457890614720201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185b70bec59a4fd6a17c66eebdfe810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connection: {fileID: 3520024669282941987}
+  dungeonArea: 0
 --- !u!1 &5224799131647176119
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,8 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fdaf41fd0be9d46b1d23b5a8ddc408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionId: 5x gate
-  lockedDoorAppearance: {fileID: 0}
 --- !u!1 &7554015337747781538
 GameObject:
   m_ObjectHideFlags: 0

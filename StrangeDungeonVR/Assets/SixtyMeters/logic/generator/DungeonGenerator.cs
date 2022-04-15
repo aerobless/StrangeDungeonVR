@@ -19,7 +19,6 @@ namespace SixtyMeters.logic.generator
         public List<GameObject> tiles;
         public DungeonTile startTile;
         public DungeonTile restartTile;
-        public DungeonTile deathTile;
 
         private DungeonTile _currentCenterTile;
 
@@ -49,20 +48,21 @@ namespace SixtyMeters.logic.generator
         private static void ReactivateSurroundingTiles(DungeonTile existingTile)
         {
             existingTile.tileDoors
-                .Where(door => door.IsAttached())
-                .ToList().ForEach(doorInExistingTile => doorInExistingTile.GetAttachedTile().ReactivateTile());
+                .Where(door => door.connection.IsAttached())
+                .ToList().ForEach(
+                    doorInExistingTile => doorInExistingTile.connection.GetAttachedTile().ReactivateTile());
         }
 
         private void GenerateNewTilesFor(DungeonTile existingTile)
         {
             existingTile.tileDoors
-                .Where(door => door.IsUnattached())
-                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
+                .Where(door => door.connection.IsUnattached())
+                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile.connection));
         }
 
         private void DeactivateTilesOutOfRange(DungeonTile existingTile)
         {
-            if (!existingTile.HasLockedDoors() && !existingTile.isStartTile)
+            if (!existingTile.isStartTile)
             {
                 // Only delete when entering a fresh corridor
                 existingTile.GetAttachedTiles()
@@ -91,7 +91,7 @@ namespace SixtyMeters.logic.generator
             return respawnTile.GetComponent<StartTile>();
         }
 
-        private List<DungeonTile> AttachNewTile(DungeonTileConnection doorInExistingTile)
+        private List<DungeonTile> AttachNewTile(DungeonTileConnectionGizmo doorInExistingTile)
         {
             var createdTiles = new List<DungeonTile>();
             var newTile = SpawnRandomNewTile();
@@ -120,9 +120,9 @@ namespace SixtyMeters.logic.generator
         /// </summary>
         /// <param name="doorInExistingTile">the door in an existing tile, will not be moved</param>
         /// <param name="newTile">the new tile, will be moved to attach to the existing door</param>
-        private void AlignAndAttachTileDoor(DungeonTileConnection doorInExistingTile, GameObject newTile)
+        private void AlignAndAttachTileDoor(DungeonTileConnectionGizmo doorInExistingTile, GameObject newTile)
         {
-            var randomDoorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().tileDoors);
+            var randomDoorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().tileDoors).connection;
             randomDoorInNewTile.Attach(doorInExistingTile);
             doorInExistingTile.Attach(randomDoorInNewTile);
 
@@ -163,11 +163,6 @@ namespace SixtyMeters.logic.generator
         public GameObject GetCurrentCenterTile()
         {
             return _currentCenterTile.gameObject;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
         }
     }
 }

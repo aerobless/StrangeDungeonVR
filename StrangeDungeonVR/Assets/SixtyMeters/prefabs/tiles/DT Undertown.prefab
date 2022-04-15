@@ -3692,8 +3692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileDoors:
-  - {fileID: 8703558677691379926}
-  - {fileID: 5684381804988934725}
+  - {fileID: 2078492104358712183}
+  - {fileID: 3095083644346059236}
   tileSeed: 0
   isStartTile: 1
 --- !u!114 &3769411054327653272
@@ -26590,24 +26590,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d41d1318909424181f363386dbe1d0, type: 3}
---- !u!4 &5821142506119640684 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1790243579551595161, guid: d8d41d1318909424181f363386dbe1d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5192900270558317813}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8703558677691379926 stripped
+--- !u!114 &2078492104358712183 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3520024669282941987, guid: d8d41d1318909424181f363386dbe1d0,
+  m_CorrespondingSourceObject: {fileID: 6109320662183698306, guid: d8d41d1318909424181f363386dbe1d0,
     type: 3}
   m_PrefabInstance: {fileID: 5192900270558317813}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fdaf41fd0be9d46b1d23b5a8ddc408, type: 3}
+  m_Script: {fileID: 11500000, guid: 185b70bec59a4fd6a17c66eebdfe810c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5821142506119640684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1790243579551595161, guid: d8d41d1318909424181f363386dbe1d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5192900270558317813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5224197091514528691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80930,16 +80930,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d41d1318909424181f363386dbe1d0, type: 3}
---- !u!114 &5684381804988934725 stripped
+--- !u!114 &3095083644346059236 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3520024669282941987, guid: d8d41d1318909424181f363386dbe1d0,
+  m_CorrespondingSourceObject: {fileID: 6109320662183698306, guid: d8d41d1318909424181f363386dbe1d0,
     type: 3}
   m_PrefabInstance: {fileID: 9095961638799382118}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fdaf41fd0be9d46b1d23b5a8ddc408, type: 3}
+  m_Script: {fileID: 11500000, guid: 185b70bec59a4fd6a17c66eebdfe810c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7413877060368542975 stripped
