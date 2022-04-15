@@ -12687,6 +12687,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7773702194229345855, guid: 5864250263b8cc94bbda42365c8214fd,
+        type: 3}
+      propertyPath: spawnableAgents.Array.data[0].templateId
+      value: skeletonKnight
+      objectReference: {fileID: 0}
     - target: {fileID: 8331798524598707337, guid: 5864250263b8cc94bbda42365c8214fd,
         type: 3}
       propertyPath: m_Name

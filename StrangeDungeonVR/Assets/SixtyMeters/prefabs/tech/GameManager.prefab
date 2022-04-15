@@ -107,7 +107,7 @@ MonoBehaviour:
     healthPoints: 100
     initialHealthPercentage: 1
   - agentConfigurationId: skeletonKnight
-    name: Morbid Skeleton
+    name: Ancient Skeleton
     level: 2
     skin: 15
     moveSet: 0

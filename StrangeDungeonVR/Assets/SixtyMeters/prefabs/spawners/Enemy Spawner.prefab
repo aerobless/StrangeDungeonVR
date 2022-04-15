@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5967869386768786504}
   - component: {fileID: 7773702194229345855}
   m_Layer: 0
-  m_Name: Skeleton Spawner
+  m_Name: Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableAgents:
   - agent: {fileID: 9032008854813090424, guid: c4c48f0420695c9499d8e93f5ad93292, type: 3}
+    templateId: skeletonSlave
     heightOffset: 0
   spawnTime: 0
   maxAliveAgents: 1

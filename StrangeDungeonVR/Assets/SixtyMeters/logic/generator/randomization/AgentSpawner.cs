@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SixtyMeters.logic.ai;
 using SixtyMeters.logic.interfaces;
 using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.utilities;
@@ -12,6 +13,7 @@ namespace SixtyMeters.logic.generator.randomization
         public class SpawnableAgent
         {
             public GameObject agent;
+            public string templateId;
             public float heightOffset;
         }
 
@@ -63,10 +65,11 @@ namespace SixtyMeters.logic.generator.randomization
         ///  Spawn a specific agent on this spawner. You can get a list of available agents via spawnableAgents
         /// </summary>
         /// <param name="agent">the agent to be spawned</param>
-        public void SpawnSpecific(SpawnableAgent agent)
+        private void SpawnSpecific(SpawnableAgent agent)
         {
             if (_spawnedAgents.Count < maxAliveAgents)
             {
+                agent.agent.GetComponentInChildren<UniversalAgent>().agentTemplateId = agent.templateId;
                 var spawnedAgent = InstantiateWithOriginalParent(agent, transform);
                 spawnedAgent.GetComponentInChildren<ITrackedLifecycle>().RegisterDestructionListener(this);
                 _spawnedAgents.Add(spawnedAgent);
