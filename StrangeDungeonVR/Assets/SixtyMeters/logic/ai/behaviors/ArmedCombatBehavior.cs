@@ -63,7 +63,7 @@ namespace SixtyMeters.logic.ai.behaviors
                 PlayAnimationAndLock(AnimationIndex.BattleCryTaunt);
             }
 
-            agent.puppetMaster.mode = PuppetMaster.Mode.Active;
+            //agent.puppetMaster.mode = PuppetMaster.Mode.Active;
             //TODO: set aimIK for unarmed combat?
             agent.aimIK.solver.target = _player.head.transform;
 

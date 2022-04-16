@@ -4,8 +4,10 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ## Changelog
 
-### 0.4 (next version)
+### 0.5 (next version)
 * ...
+
+### 0.4 (current live version)
 * New enemy type: Angry Goblin. A goblin with a sword - probably a deadly combination :P.
 * New enemy type: Ancient Skeleton. A skeleton knight with two sword attacks.
 * New enemy type: Morbid Skeleton. A skeleton with two unarmed attacks that behaves a bit like a zombie.
@@ -30,7 +32,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * New trap: Falling stepping stone. This trap triggers when the player stands on a stone for to long, causing them to fall to their death.
 * Jail cell tile got some destructible torture instrument variants.
 
-### 0.3 (current live version)
+### 0.3
 * Implemented leaderboard. Your best score is now recorded when you end a dungeon run.
 * Improved analytics. Implemented custom unity event that tracks users progress during a dungeon run.
 * Health is now displayed in a small HUD on the "stump" of the players left hand.. we'll have to see if that works or if players find it too unsetteling :P
