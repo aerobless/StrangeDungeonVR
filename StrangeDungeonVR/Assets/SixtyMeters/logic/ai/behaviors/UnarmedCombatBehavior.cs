@@ -55,6 +55,7 @@ namespace SixtyMeters.logic.ai.behaviors
         public override void ExecuteUpdate()
         {
             agent.navMeshAgent.speed = agent.template.agentAttackMaxMovementSpeed;
+            agent.nameTag.gameObject.SetActive(true);
 
             if (_freshEngagement)
             {

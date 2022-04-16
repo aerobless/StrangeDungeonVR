@@ -26,6 +26,7 @@ namespace SixtyMeters.logic.ai.behaviors
 
         public override void ExecuteUpdate()
         {
+            agent.nameTag.gameObject.SetActive(false);
             RandomMovement();
         }
 

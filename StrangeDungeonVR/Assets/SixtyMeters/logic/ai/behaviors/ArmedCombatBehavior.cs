@@ -47,14 +47,15 @@ namespace SixtyMeters.logic.ai.behaviors
             if (!_player)
             {
                 _player = agent.gameManager.player;
-                _attackAnimations.Add(AnimationIndex.ZombieOneHandedSideAttack);
-                _attackAnimations.Add(AnimationIndex.ZombieTwoHandedTopDownAttack);
+                _attackAnimations.Add(AnimationIndex.SwordAttackOneHandedHorizontal);
+                _attackAnimations.Add(AnimationIndex.SwordAttackCombo);
             }
         }
 
         public override void ExecuteUpdate()
         {
             agent.navMeshAgent.speed = agent.template.agentAttackMaxMovementSpeed;
+            agent.nameTag.gameObject.SetActive(true);
 
             if (_freshEngagement)
             {

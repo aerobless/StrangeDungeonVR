@@ -952,7 +952,8 @@ GameObject:
   - component: {fileID: 9145747988379129339}
   - component: {fileID: 4313193563583407866}
   - component: {fileID: 2437106392985310119}
-  - component: {fileID: 3622205499595788483}
+  - component: {fileID: 5065940235821542027}
+  - component: {fileID: 856404917622437170}
   m_Layer: 0
   m_Name: darkness
   m_TagString: Untagged
@@ -1038,7 +1039,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 1.1077487, z: 9.999999}
   m_Center: {x: 0, y: 0.004789263, z: 0}
---- !u!114 &3622205499595788483
+--- !u!114 &5065940235821542027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1047,10 +1048,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024351382835833297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462aebc5252344b4caf628db765936de, type: 3}
+  m_Script: {fileID: 11500000, guid: eedf40e2def098b40a1954222fc6f15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spikes: {fileID: 0}
+  loweredPosition: {x: 0, y: 0, z: 0}
+  fullyExtendedPosition: {x: 0, y: 0, z: 0}
+  audioSource: {fileID: 536014728020996092, guid: 453ed8ebdeb9f1c44840e53501dcf73b,
+    type: 3}
+  spikesExtending: {fileID: 8300000, guid: 8228a1ae62fe219419d9153cb2ef0cc5, type: 3}
+  spikesRetracting: {fileID: 0}
+  spikeExtensionTime: 0.07
+  spikeLoweringTime: 2
+  spikeWaitBeforeLoweringTime: 3
   damagePerHit: 100000
+  persistentTrap: 1
+--- !u!114 &856404917622437170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024351382835833297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340268cd427d737499b5ca22950d4b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5065940235821542027}
+        m_TargetAssemblyTypeName: SixtyMeters.logic.traps.SpikeTrap, Assembly-CSharp
+        m_MethodName: TriggerTrap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1143758304721475330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,8 +1286,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 0.97159564, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.5068105, z: -0.0017968368}
 --- !u!114 &6849284456262012707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2524,8 +2566,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 0.944352, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.49318844, z: -0.0017968368}
 --- !u!114 &4356787556757371513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3520,8 +3562,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 0.9768762, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.50945055, z: -0.0017968368}
 --- !u!114 &6242986080823655210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4061,8 +4103,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 1.0728043, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.55741465, z: -0.0017968368}
 --- !u!114 &358739850959475492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5926,8 +5968,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 0.96267176, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.5023483, z: -0.0017968368}
 --- !u!114 &5404021830821935290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6952,8 +6994,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61516464, y: 0.39243305, z: 0.36409822}
-  m_Center: {x: 0.007806293, y: 0.217229, z: -0.0017968368}
+  m_Size: {x: 0.61516464, y: 0.9973559, z: 0.36409822}
+  m_Center: {x: 0.007806303, y: 0.5196906, z: -0.0017968368}
 --- !u!114 &4322783301947457803
 MonoBehaviour:
   m_ObjectHideFlags: 0

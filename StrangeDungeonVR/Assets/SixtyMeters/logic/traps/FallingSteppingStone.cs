@@ -36,7 +36,7 @@ namespace SixtyMeters.logic.traps
         // Start is called before the first frame update
         void Start()
         {
-            _initialPosition = gameObject.transform.position;
+            _initialPosition = gameObject.transform.localPosition;
             _meshRenderer = GetComponent<MeshRenderer>();
             _collider = GetComponent<Collider>();
         }
@@ -68,7 +68,7 @@ namespace SixtyMeters.logic.traps
             StopActiveCoroutines();
 
             // Initial "instant" fall
-            var targetPos = gameObject.transform.position + Vector3.down * onStepFallDistance;
+            var targetPos = gameObject.transform.localPosition + Vector3.down * onStepFallDistance;
             audioSource.PlayOneShot(Helper.GETRandomFromList(warnClips));
             _coroutines.Add(StartCoroutine(Helper.LerpPosition(gameObject.transform, targetPos, onStepFallTime)));
 
@@ -76,7 +76,7 @@ namespace SixtyMeters.logic.traps
             _coroutines.Add(StartCoroutine(Helper.Wait(gracePeriodUntilFall, () =>
             {
                 _resetLock = true;
-                var deathTargetPos = gameObject.transform.position + Vector3.down * deathFallDistance;
+                var deathTargetPos = gameObject.transform.localPosition + Vector3.down * deathFallDistance;
                 audioSource.PlayOneShot(Helper.GETRandomFromList(fallClips));
                 _coroutines.Add(
                     StartCoroutine(Helper.LerpPosition(gameObject.transform, deathTargetPos, deathFallTime, () =>

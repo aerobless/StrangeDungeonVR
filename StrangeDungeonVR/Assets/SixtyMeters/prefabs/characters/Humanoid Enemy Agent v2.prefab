@@ -5051,7 +5051,6 @@ MonoBehaviour:
   puppet: {fileID: 9032008855078672499}
   puppetMaster: {fileID: 9027834118580460755}
   rootObject: {fileID: 9032008854813090424}
-  meshRenderer: {fileID: 9032008854495050266}
   audioSource: {fileID: 9032008855003600507}
   audioSourceFeet: {fileID: 4988337352061795117}
   dmgMaterial: {fileID: 2100000, guid: c65ada08df48c6d4f82d4552015bab7f, type: 2}
@@ -10398,22 +10397,22 @@ PrefabInstance:
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
@@ -10433,7 +10432,7 @@ PrefabInstance:
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2769039952428779456, guid: 123e323230f97c94a85511e6ce5633d7,
         type: 3}
