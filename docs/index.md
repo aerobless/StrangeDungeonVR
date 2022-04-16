@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* New enemy type: Ancient Skeleton. A skeleton knight with two sword attacks.
+* New enemy type: Morbid Skeleton. A skeleton with two unarmed attacks that behaves a bit like a zombie.
 * Tile connections are now seamless. There's no need for archways/door frames anymore when connecting tiles.
 * Improved tile doorways. Detecting if a player enters or leaves a tile has been improved. It's now less likely to fail if the player decides to go back half way through a door.
 * Improved dungeon generator. Old tiles are now deactived instead of deleted. The player can now backtrack and is no longer impeded by a shut off corridor.

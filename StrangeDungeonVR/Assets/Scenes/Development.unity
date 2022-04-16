@@ -8772,21 +8772,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3964216361039224154, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3964216361039224154, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3964216361039224154, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4103534537599517554, guid: 7931ce8597dab2d46baf2f9e827cb2e3,
         type: 3}
       propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.size
