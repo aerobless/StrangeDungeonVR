@@ -6,6 +6,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.4 (next version)
 * ...
+* New enemy type: Angry Goblin. A goblin with a sword - probably a deadly combination :P.
 * New enemy type: Ancient Skeleton. A skeleton knight with two sword attacks.
 * New enemy type: Morbid Skeleton. A skeleton with two unarmed attacks that behaves a bit like a zombie.
 * Tile connections are now seamless. There's no need for archways/door frames anymore when connecting tiles.

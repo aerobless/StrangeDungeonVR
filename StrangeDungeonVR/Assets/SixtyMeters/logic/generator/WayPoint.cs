@@ -21,6 +21,11 @@ namespace SixtyMeters.logic.generator
         {
             return transform.position;
         }
+        
+        public Vector3 GetLocalPosition()
+        {
+            return transform.localPosition;
+        }
 
         void OnDrawGizmos()
         {

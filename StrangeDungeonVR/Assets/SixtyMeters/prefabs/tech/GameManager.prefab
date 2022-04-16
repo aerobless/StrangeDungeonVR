@@ -117,6 +117,17 @@ MonoBehaviour:
     hasWeapon: 1
     healthPoints: 150
     initialHealthPercentage: 1
+  - agentConfigurationId: goblinWarrior
+    name: Angry Goblin
+    level: 2
+    skin: 8
+    moveSet: 0
+    agentRoamMaxMovementSpeed: 0.5
+    agentAttackMaxMovementSpeed: 1
+    damagePerHit: 20
+    hasWeapon: 1
+    healthPoints: 150
+    initialHealthPercentage: 1
 --- !u!1 &653216278844980259
 GameObject:
   m_ObjectHideFlags: 0

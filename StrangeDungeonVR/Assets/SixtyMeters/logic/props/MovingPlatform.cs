@@ -67,22 +67,22 @@ namespace SixtyMeters.logic.props
                 _rigidbody.MovePosition(incrementalMovement);
 
                 _time += Time.deltaTime;
-            }
 
-            if (gameObject.transform.position == route[_currentSegmentNumber].waypointB.GetPosition())
-            {
-                _platformIsActive = false;
-                StartCoroutine(Helper.Wait(route[_currentSegmentNumber].waitAtStopTime,
-                    () => { _platformIsActive = true; }));
-
-                _currentSegmentNumber++;
-                _time = 0;
-
-                // Reset segment number if we're at the end of the list
-                if (_currentSegmentNumber > (route.Count - 1))
+                if (gameObject.transform.position == route[_currentSegmentNumber].waypointB.GetPosition())
                 {
-                    _currentSegmentNumber = 0;
-                    gameObject.transform.position = route[0].waypointA.transform.position;
+                    _platformIsActive = false;
+                    StartCoroutine(Helper.Wait(route[_currentSegmentNumber].waitAtStopTime,
+                        () => { _platformIsActive = true; }));
+
+                    _currentSegmentNumber++;
+                    _time = 0;
+
+                    // Reset segment number if we're at the end of the list
+                    if (_currentSegmentNumber > (route.Count - 1))
+                    {
+                        _currentSegmentNumber = 0;
+                        gameObject.transform.position = route[0].waypointA.transform.position;
+                    }
                 }
             }
         }
