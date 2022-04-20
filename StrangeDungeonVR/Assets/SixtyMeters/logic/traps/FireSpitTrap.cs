@@ -6,7 +6,11 @@ namespace SixtyMeters.logic.traps
 {
     public class FireSpitTrap : MonoBehaviour, ITrap
     {
+        // Components
         public List<ParticleSystem> fireParticles;
+
+        public AudioSource audioSource;
+        public List<AudioClip> fireBreathSound;
 
         // Settings
         public float fireActiveTime;
@@ -31,12 +35,13 @@ namespace SixtyMeters.logic.traps
             if (!_triggered)
             {
                 // Wait before spitting, make sound
-                
+
                 // Spit + sound effect
                 _triggered = true;
                 _chosenFireEffect.gameObject.SetActive(true);
+                audioSource.PlayOneShot(Helper.GETRandomFromList(fireBreathSound));
                 _chosenFireEffect.Play();
-                
+
                 // Reset
                 StartCoroutine(Helper.Wait(fireActiveTime, ResetTrap));
             }
