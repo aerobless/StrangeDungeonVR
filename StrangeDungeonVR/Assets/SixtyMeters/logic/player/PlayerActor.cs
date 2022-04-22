@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using HurricaneVR.Framework.Core.Grabbers;
+using SixtyMeters.logic.events;
 using SixtyMeters.logic.fighting;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SixtyMeters.logic.player
 {
@@ -28,6 +30,10 @@ namespace SixtyMeters.logic.player
         // Internals
         private float _damageTaken;
 
+        // Events
+        public UnityEvent<HealthChangedEvent> onHealthChanged = new();
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -39,11 +45,11 @@ namespace SixtyMeters.logic.player
         }
 
         /// <summary>
-        /// Set all player stats to their base values
+        /// Set all player stats to their base valuesF
         /// </summary>
         private void ResetPlayer(bool afterDeath)
         {
-            _damageTaken = 0; // Restores the player to full health
+            HealthChange(_damageTaken * -1); // Restores the player to full health
             if (afterDeath)
             {
                 _gameManager.variabilityManager.RestoreInitialVariability();
@@ -68,6 +74,7 @@ namespace SixtyMeters.logic.player
             //rightHand.Grab(mainWeapon.GetComponent<HVRGrabbable>(), HVRGrabTrigger.Toggle);
         }
 
+        //TODO: remove me if no longer needed
         private static Action GrabWeapon(HVRHandGrabber hand, GameObject weapon)
         {
             return () => { }; //hand.Grab(weapon.GetComponent<HVRGrabbable>(), HVRGrabTrigger.Active); };
@@ -86,13 +93,32 @@ namespace SixtyMeters.logic.player
 
         public void ApplyDirectDamage(float incomingDmg)
         {
-            _damageTaken += incomingDmg * _gameManager.variabilityManager.player.damageTakenMultiplier;
+            var damageAmount = incomingDmg * _gameManager.variabilityManager.player.damageTakenMultiplier;
+
+            // Apply dmg
+            HealthChange(damageAmount);
+
             Debug.Log("Player took " + incomingDmg + " dmg and their HP is now " + GetHealthPoints());
             if (dmgCanvas)
             {
                 dmgCanvas.alpha = damageCanvasInitialAlpha;
                 StartCoroutine(LerpDamageScreen(dmgCanvas, 0, damageCanvasDuration));
             }
+        }
+
+        private void HealthChange(float dmgTakenAmountPerEvent)
+        {
+            var playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
+            _damageTaken += dmgTakenAmountPerEvent;
+
+            // Prevent overhealing.
+            if (_damageTaken < 0)
+            {
+                _damageTaken = 0;
+            }
+
+            onHealthChanged.Invoke(new HealthChangedEvent(dmgTakenAmountPerEvent, GetHealthPoints(), GetNormalizedHp(),
+                playerBaseHealth));
         }
 
         public void ApplyDamage(float incomingDmg, float relativeVelocityMagnitude, Vector3 pointOfImpact)
@@ -142,13 +168,7 @@ namespace SixtyMeters.logic.player
         /// <param name="hpToBeRestored"> the amount of HP to be restored</param>
         public void Heal(int hpToBeRestored)
         {
-            _damageTaken -= hpToBeRestored;
-
-            // Prevent overhealing.
-            if (_damageTaken < 0)
-            {
-                _damageTaken = 0;
-            }
+            HealthChange(hpToBeRestored * -1);
         }
 
         /// <summary>

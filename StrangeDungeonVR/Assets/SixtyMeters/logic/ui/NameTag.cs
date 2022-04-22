@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -33,7 +32,10 @@ namespace SixtyMeters.logic.ui
 
         public void SetHealthPercentage(float health, float timeForChange)
         {
-            StartCoroutine(UpdateHealth(healthBar.value, health, timeForChange));
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(UpdateHealth(healthBar.value, health, timeForChange));
+            }
         }
 
         private IEnumerator UpdateHealth(float oldHealth, float newHealth, float timeForChange)

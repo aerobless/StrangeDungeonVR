@@ -31,11 +31,27 @@ namespace SixtyMeters.logic.utilities
 
         [HideInInspector] public ControllerFeedbackHelper controllerFeedback;
         [HideInInspector] public PlayerActor player;
+        
+        public static GameManager Instance { get; private set; }
+        
+        private void Awake() 
+        { 
+            // If there is an instance, and it's not me, delete myself.
+    
+            if (Instance != null && Instance != this) 
+            { 
+                Destroy(this); 
+            } 
+            else 
+            { 
+                Instance = this; 
+                player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
+                controllerFeedback = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
+            } 
+        }
 
         private void Start()
         {
-            player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
-            controllerFeedback = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
         }
     }
 }

@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 3841777184914956288}
   - component: {fileID: 3841777184914956291}
   - component: {fileID: 3841777184914956290}
+  - component: {fileID: 8087822957617570945}
   m_Layer: 0
   m_Name: Player HUD 1
   m_TagString: Untagged
@@ -1118,3 +1119,20 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
+--- !u!114 &8087822957617570945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841777184914956349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9c356fb5e449d4f991311b1ced71da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarUiSlider: {fileID: 1407001196292221816}
+  experienceBarSlider: {fileID: 3025623850514627459}
+  healthValueText: {fileID: 3025623850341651628}
+  levelValueText: {fileID: 3841777183924376779}
+  versionInfoText: {fileID: 3025623850924691604}
