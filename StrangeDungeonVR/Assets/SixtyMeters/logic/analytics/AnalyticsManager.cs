@@ -20,7 +20,7 @@ namespace SixtyMeters.logic.analytics
         // Start is called before the first frame update
         async void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
 
             try
             {

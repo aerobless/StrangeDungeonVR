@@ -17,7 +17,7 @@ namespace SixtyMeters.logic.social
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             InvokeRepeating(nameof(UpdateLeaderboard), 1f, 5f);
         }
 

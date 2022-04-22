@@ -20,7 +20,7 @@ namespace SixtyMeters.logic.ui
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             heightCalibrationPage.SetActive(true);
             controllerExplanationPage.SetActive(false);
         }

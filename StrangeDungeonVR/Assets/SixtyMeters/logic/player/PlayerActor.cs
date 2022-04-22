@@ -37,7 +37,7 @@ namespace SixtyMeters.logic.player
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             if (_gameManager.variabilityManager)
             {
                 ResetPlayer(false);

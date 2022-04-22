@@ -21,7 +21,7 @@ namespace SixtyMeters.logic.social
 
         private void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             InvokeRepeating(nameof(UpdatePlayerScore), 60, 60);
         }
 

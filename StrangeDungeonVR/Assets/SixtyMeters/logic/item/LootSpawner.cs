@@ -23,7 +23,7 @@ namespace SixtyMeters.logic.item
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             _packagedLoot = _gameManager.lootManager.GetPackagedLoot(lootBundleId);
             if (spawnAtStart)
             {

@@ -24,7 +24,7 @@ namespace SixtyMeters.logic.fighting
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             _rigidbody = GetComponent<Rigidbody>();
             _grabbable = GetComponent<HVRGrabbable>();
         }

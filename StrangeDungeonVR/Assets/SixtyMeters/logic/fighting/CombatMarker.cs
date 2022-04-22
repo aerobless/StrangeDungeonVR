@@ -34,7 +34,7 @@ namespace SixtyMeters.logic.fighting
         // Start is called before the first frame update
         void Start()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager = GameManager.Instance;
             _collider = GetComponent<BoxCollider>();
             _renderer = GetComponent<MeshRenderer>();
         }
