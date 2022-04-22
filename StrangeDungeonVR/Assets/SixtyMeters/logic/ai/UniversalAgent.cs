@@ -86,7 +86,7 @@ namespace SixtyMeters.logic.ai
         // Start is called before the first frame update
         void Start()
         {
-            gameManager = FindObjectOfType<GameManager>();
+            gameManager = GameManager.Instance;
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
             interactionSystem = GetComponent<InteractionSystem>();

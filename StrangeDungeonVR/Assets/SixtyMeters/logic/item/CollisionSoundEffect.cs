@@ -42,7 +42,7 @@ namespace SixtyMeters.logic.item
                 playOnlyPassiveSound = true;
             }
 
-            _collisionSoundManager = FindObjectOfType<GameManager>().collisionSoundManager;
+            _collisionSoundManager = GameManager.Instance.collisionSoundManager;
         }
 
         // Update is called once per frame

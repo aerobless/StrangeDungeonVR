@@ -12,7 +12,7 @@ namespace SixtyMeters.logic.ui
         // Start is called before the first frame update
         void Start()
         {
-            _inputModule = FindObjectOfType<GameManager>().uiManager;
+            _inputModule = GameManager.Instance.uiManager;
             _canvas = GetComponent<Canvas>();
             _inputModule.AddCanvas(_canvas);
         }

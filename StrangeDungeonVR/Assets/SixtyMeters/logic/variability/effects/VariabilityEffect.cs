@@ -26,13 +26,13 @@ namespace SixtyMeters.logic.variability.effects
         //BEWARE: Actual implementations of Variability Effect may not have a Start() method or they must call super!
         void Start()
         {
-            VariabilityManager = FindObjectOfType<VariabilityManager>();
-            _statistics = FindObjectOfType<StatisticsManager>();
-            _controllerFeedbackHelper = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
+            VariabilityManager = GameManager.Instance.variabilityManager;
+            _statistics = GameManager.Instance.statisticsManager;
+            _controllerFeedbackHelper = GameManager.Instance.controllerFeedback;
+            _dungeonGenerator = GameManager.Instance.dungeonGenerator;
             _itemInfo = GetComponent<ItemInfo>();
             _soulShardHelper = GetComponent<SoulShardHelper>();
             _grabbable = GetComponent<HVRGrabbable>();
-            _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
 
             if (_itemInfo)
             {

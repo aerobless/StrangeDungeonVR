@@ -39,8 +39,8 @@ namespace SixtyMeters.logic.fighting
             _puppetMaster = _humanoidAgent.puppetMaster;
             _audioSource = _humanoidAgent.audioSource;
             _damageTextObject = Resources.Load("DamageText") as GameObject;
-            _variabilityManager = FindObjectOfType<VariabilityManager>();
-            _statistics = FindObjectOfType<StatisticsManager>();
+            _variabilityManager = GameManager.Instance.variabilityManager;
+            _statistics = GameManager.Instance.statisticsManager;
 
             _puppetMaster.GetComponentsInChildren<PhysicalAgentHitbox>().ToList()
                 .ForEach(hitbox => hitbox.SetupHitbox(this, _puppetMaster));

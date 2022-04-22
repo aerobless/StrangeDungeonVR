@@ -35,7 +35,7 @@ namespace SixtyMeters.logic.item
         {
             _grabbable = GetComponent<HVRGrabbable>();
             _itemInfo = GetComponent<ItemInfo>();
-            GameManager = FindObjectOfType<GameManager>();
+            GameManager = GameManager.Instance;
 
             InitImplementation();
 

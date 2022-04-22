@@ -1,4 +1,5 @@
 using SixtyMeters.logic.analytics;
+using SixtyMeters.logic.utilities;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace SixtyMeters.logic.ui
         // Start is called before the first frame update
         void Start()
         {
-            _statistics = FindObjectOfType<StatisticsManager>();
+            _statistics = GameManager.Instance.statisticsManager;
 
             if (_statistics)
             {

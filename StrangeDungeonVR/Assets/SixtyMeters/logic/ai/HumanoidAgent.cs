@@ -5,6 +5,7 @@ using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.interfaces.lifecycle;
 using SixtyMeters.logic.player;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -55,9 +56,9 @@ namespace SixtyMeters.logic.ai
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _animator = GetComponent<Animator>();
             _interactionSystem = GetComponent<InteractionSystem>();
-            _statistics = FindObjectOfType<StatisticsManager>();
+            _statistics = GameManager.Instance.statisticsManager;
             _aimIK = GetComponent<AimIK>();
-            _player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
+            _player = GameManager.Instance.player;
             _moveToLocation = transform.position;
 
             // Pickup weapon and enable puppet mode once setup is finished
