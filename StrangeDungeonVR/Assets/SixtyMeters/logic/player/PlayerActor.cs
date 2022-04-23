@@ -27,11 +27,16 @@ namespace SixtyMeters.logic.player
         public float damageCanvasInitialAlpha = 0.5f;
         public float damageCanvasDuration = 3f;
 
+        //TODO: increase dynamically via variability
+        private const float ExpNeededForNextLevel = 100;
+
         // Internals
         private float _damageTaken;
+        private float _expCollected;
 
         // Events
         public UnityEvent<HealthChangedEvent> onHealthChanged = new();
+        public UnityEvent<ExpCollectedEvent> onExpCollected = new();
 
 
         // Start is called before the first frame update
@@ -50,6 +55,7 @@ namespace SixtyMeters.logic.player
         private void ResetPlayer(bool afterDeath)
         {
             HealthChange(_damageTaken * -1); // Restores the player to full health
+            CollectExp(_expCollected * -1); // Restore collected exp to zero
             if (afterDeath)
             {
                 _gameManager.variabilityManager.RestoreInitialVariability();
@@ -158,7 +164,7 @@ namespace SixtyMeters.logic.player
         public float GetNormalizedHp()
         {
             float playerBaseHealth = _gameManager.variabilityManager.player.baseHealth;
-            float actualHealth = GetHealthPoints();
+            var actualHealth = GetHealthPoints();
             return 1 / playerBaseHealth * actualHealth;
         }
 
@@ -169,6 +175,19 @@ namespace SixtyMeters.logic.player
         public void Heal(int hpToBeRestored)
         {
             HealthChange(hpToBeRestored * -1);
+        }
+
+        public void CollectExp(float amount)
+        {
+            _expCollected += amount;
+            if (_expCollected >= ExpNeededForNextLevel)
+            {
+                _expCollected -= ExpNeededForNextLevel;
+                //TODO: level-up
+            }
+
+            var normalizedExp = 1 / ExpNeededForNextLevel * _expCollected;
+            onExpCollected.Invoke(new ExpCollectedEvent(normalizedExp));
         }
 
         /// <summary>
@@ -189,6 +208,11 @@ namespace SixtyMeters.logic.player
         public void RestorePlayerAttachmentToDefault()
         {
             xrRig.transform.parent = xrTech.transform;
+        }
+
+        public bool IsInRange(Transform caller, float range)
+        {
+            return Vector3.Distance(caller.position, gameObject.transform.position) <= range;
         }
     }
 }

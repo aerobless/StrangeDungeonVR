@@ -11,7 +11,7 @@ namespace SixtyMeters.logic.ui
     {
         // Components
         public Slider healthBarUiSlider;
-        public Image experienceBarSlider;
+        public Image expCircle;
         public TextMeshProUGUI healthValueText;
         public TextMeshProUGUI levelValueText;
         public TextMeshProUGUI versionInfoText;
@@ -20,13 +20,15 @@ namespace SixtyMeters.logic.ui
         private GameManager _gameManager;
 
         // Settings
-        private const float TimeForChange = 0.5f;
+        private const float Tfc = 0.5f;
 
         // Start is called before the first frame update
         void Start()
         {
             _gameManager = GameManager.Instance;
             _gameManager.player.onHealthChanged.AddListener(HealthChangedEvent);
+            _gameManager.player.onExpCollected.AddListener(ExpCollectedEvent);
+
             versionInfoText.text = "Undertown Alpha: " + Application.version;
         }
 
@@ -35,9 +37,26 @@ namespace SixtyMeters.logic.ui
         {
         }
 
+        private void ExpCollectedEvent(ExpCollectedEvent expCollectedEvent)
+        {
+            StartCoroutine(UpdateExp(expCircle.fillAmount, expCollectedEvent.totalExpCollectedNormalized, Tfc));
+        }
+
+        private IEnumerator UpdateExp(float oldExp, float newExp, float timeForChange)
+        {
+            float time = 0;
+            while (time < timeForChange)
+            {
+                expCircle.fillAmount = Mathf.Lerp(oldExp, newExp, time / timeForChange);
+                time += Time.deltaTime;
+
+                yield return null;
+            }
+        }
+
         private void HealthChangedEvent(HealthChangedEvent changedEvent)
         {
-            StartCoroutine(UpdateHealth(healthBarUiSlider.value, changedEvent.NewHealthNormalized, TimeForChange));
+            StartCoroutine(UpdateHealth(healthBarUiSlider.value, changedEvent.NewHealthNormalized, Tfc));
             healthValueText.text = changedEvent.NewHealth + " / " + changedEvent.MaxHealth;
         }
 
@@ -50,11 +69,6 @@ namespace SixtyMeters.logic.ui
                 time += Time.deltaTime;
 
                 yield return null;
-            }
-
-            if (newHealth <= 0)
-            {
-                Destroy(gameObject);
             }
         }
     }

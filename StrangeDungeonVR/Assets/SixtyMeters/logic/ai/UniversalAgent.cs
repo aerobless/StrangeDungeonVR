@@ -12,6 +12,7 @@ using SixtyMeters.logic.ui;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using static SixtyMeters.logic.fighting.CombatMarkerMove;
 using AnimationInfo = SixtyMeters.logic.ai.appearance.AnimationInfo;
 using Random = UnityEngine.Random;
@@ -82,6 +83,9 @@ namespace SixtyMeters.logic.ai
             public UniversalAgentBehaviorType behavior;
             public int priority;
         }
+        
+        // Events
+        public UnityEvent onDeath = new();
 
         // Start is called before the first frame update
         void Start()
@@ -213,6 +217,7 @@ namespace SixtyMeters.logic.ai
 
         public void Die()
         {
+            onDeath.Invoke();
             _isDead = true;
             puppetMaster.Kill();
             _destructionListener.ForEach(listener => listener.ObjectDestroyed(gameObject));

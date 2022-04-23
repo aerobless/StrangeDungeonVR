@@ -4394,6 +4394,7 @@ GameObject:
   - component: {fileID: 9032008855660292787}
   - component: {fileID: 9032008855660292791}
   - component: {fileID: 7794063180287849924}
+  - component: {fileID: 4534778961190769407}
   m_Layer: 8
   m_Name: Agent
   m_TagString: Untagged
@@ -5104,6 +5105,9 @@ MonoBehaviour:
     priority: 0
   timeUntilCorpseDisappears: 10
   hasFootstepSounds: 1
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7794063180287849924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,6 +5153,20 @@ MonoBehaviour:
     skinObject: {fileID: 9032008855330877666}
   - skinId: 15
     skinObject: {fileID: 9032008855986825055}
+--- !u!114 &4534778961190769407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032008855660292777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbd6f97b6de49e4b8ae47f7c1f0b346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathOrb: {fileID: 3686722968880826336, guid: 7107c8b19fb2e4b40a38dc35fe43b102,
+    type: 3}
 --- !u!1 &9032008855702176608
 GameObject:
   m_ObjectHideFlags: 0

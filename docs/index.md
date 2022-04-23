@@ -6,7 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.5 (next version)
 * ...
-* Player now has a persistent HUD element in their peripheral HUD area showing health, level and experience.
+* The player can now earn exp by killing enemies
+* The player now has a persistent HUD element in their peripheral HUD area showing health, level and experience.
 
 ### 0.4 (current live version)
 * New enemy type: Angry Goblin. A goblin with a sword - probably a deadly combination :P.

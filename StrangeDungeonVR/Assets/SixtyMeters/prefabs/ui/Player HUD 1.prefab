@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3025623850514627456}
   - component: {fileID: 3025623850514627457}
   m_Layer: 5
-  m_Name: Exp Indicator
+  m_Name: Exp Indicator Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarUiSlider: {fileID: 1407001196292221816}
-  experienceBarSlider: {fileID: 3025623850514627459}
+  expCircle: {fileID: 3025623850514627459}
   healthValueText: {fileID: 3025623850341651628}
   levelValueText: {fileID: 3841777183924376779}
   versionInfoText: {fileID: 3025623850924691604}
