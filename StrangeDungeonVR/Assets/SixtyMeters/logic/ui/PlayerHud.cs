@@ -28,6 +28,7 @@ namespace SixtyMeters.logic.ui
             _gameManager = GameManager.Instance;
             _gameManager.player.onHealthChanged.AddListener(HealthChangedEvent);
             _gameManager.player.onExpCollected.AddListener(ExpCollectedEvent);
+            _gameManager.player.onLevelUp.AddListener(LevelUpEvent);
 
             versionInfoText.text = "Undertown Alpha: " + Application.version;
         }
@@ -35,6 +36,11 @@ namespace SixtyMeters.logic.ui
         // Update is called once per frame
         void Update()
         {
+        }
+
+        private void LevelUpEvent(int currentLevel)
+        {
+            levelValueText.text = "" + currentLevel;
         }
 
         private void ExpCollectedEvent(ExpCollectedEvent expCollectedEvent)

@@ -78,9 +78,24 @@ namespace SixtyMeters.logic.generator
                 .ToList();
         }
 
-        public List<DungeonTileConnection> GetDoorsForArea(DungeonArea area)
+        public List<DungeonTileConnection> GetEntranceDoorsForArea(DungeonArea area)
         {
-            return tileDoors.Where(door => door.dungeonArea.Equals(area)).ToList();
+            var allowedTypes = new List<TileConnectionType>
+            {
+                TileConnectionType.EntranceOnly, TileConnectionType.EntranceAndExit
+            };
+            return tileDoors
+                .Where(door => door.dungeonArea.Equals(area) && allowedTypes.Contains(door.tileConnectionType))
+                .ToList();
+        }
+
+
+        public List<DungeonTileConnection> GetDoorsForAreaAndType(DungeonArea area,
+            List<TileConnectionType> allowedTypes)
+        {
+            return tileDoors
+                .Where(door => door.dungeonArea.Equals(area) && allowedTypes.Contains(door.tileConnectionType))
+                .ToList();
         }
 
         public void SetOccupiedByPlayer()

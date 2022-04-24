@@ -6,6 +6,8 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 
 ### 0.5 (next version)
 * ...
+* Added support for directional doorways from/to dungeon tiles. This allows to create more versatile tiles, where the player can be expected to enter through certain doors.
+* Added dungeon tile that transitions from one stage to another.
 * The player can now earn exp by killing enemies
 * The player now has a persistent HUD element in their peripheral HUD area showing health, level and experience.
 

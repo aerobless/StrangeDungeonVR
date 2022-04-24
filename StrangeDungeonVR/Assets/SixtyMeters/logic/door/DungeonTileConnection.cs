@@ -7,8 +7,9 @@ namespace SixtyMeters.logic.door
     {
         // Components
         public DungeonTileConnectionGizmo connection;
-        
+
         // Settings
         public DungeonArea dungeonArea;
+        public TileConnectionType tileConnectionType;
     }
 }

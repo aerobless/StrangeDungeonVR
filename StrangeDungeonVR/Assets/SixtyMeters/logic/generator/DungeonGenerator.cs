@@ -102,7 +102,7 @@ namespace SixtyMeters.logic.generator
 
         private GameObject SpawnRandomNewTile(DungeonArea area)
         {
-            var compatibleTiles = tiles.Where(tile => tile.GetDoorsForArea(area).Count > 0).ToList();
+            var compatibleTiles = tiles.Where(tile => tile.GetEntranceDoorsForArea(area).Count > 0).ToList();
             var randomTile = Helper.GETRandomFromList(compatibleTiles);
             var newTile = Instantiate(randomTile.gameObject, Vector3.zero, Quaternion.identity);
 
@@ -120,10 +120,11 @@ namespace SixtyMeters.logic.generator
         /// </summary>
         /// <param name="doorInExistingTile">the door in an existing tile, will not be moved</param>
         /// <param name="newTile">the new tile, will be moved to attach to the existing door</param>
+        /// <param name="area">the area of the door in the new dungeon tile</param>
         private void AlignAndAttachTileDoor(DungeonTileConnectionGizmo doorInExistingTile, GameObject newTile,
             DungeonArea area)
         {
-            var doorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().GetDoorsForArea(area))
+            var doorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().GetEntranceDoorsForArea(area))
                 .connection;
             doorInNewTile.Attach(doorInExistingTile);
             doorInExistingTile.Attach(doorInNewTile);

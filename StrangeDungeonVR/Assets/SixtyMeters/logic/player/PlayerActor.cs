@@ -33,10 +33,12 @@ namespace SixtyMeters.logic.player
         // Internals
         private float _damageTaken;
         private float _expCollected;
+        private int _level = 1;
 
         // Events
         public UnityEvent<HealthChangedEvent> onHealthChanged = new();
         public UnityEvent<ExpCollectedEvent> onExpCollected = new();
+        public UnityEvent<int> onLevelUp = new();
 
 
         // Start is called before the first frame update
@@ -183,7 +185,8 @@ namespace SixtyMeters.logic.player
             if (_expCollected >= ExpNeededForNextLevel)
             {
                 _expCollected -= ExpNeededForNextLevel;
-                //TODO: level-up
+                _level++;
+                onLevelUp.Invoke(_level);
             }
 
             var normalizedExp = 1 / ExpNeededForNextLevel * _expCollected;

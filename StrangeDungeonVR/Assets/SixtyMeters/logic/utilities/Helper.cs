@@ -66,6 +66,23 @@ namespace SixtyMeters.logic.utilities
             doAfter?.Invoke();
         }
 
+        public static IEnumerator LerpWorldPosition(Transform objectToMove, Transform target, float duration,
+            Action doAfter)
+        {
+            float time = 0;
+            var startPosition = objectToMove.position;
+            while (time < duration)
+            {
+                var smoothStep = Mathf.SmoothStep(0f, 1f, time / duration);
+                objectToMove.position = Vector3.Lerp(startPosition, target.position, smoothStep);
+                time += Time.deltaTime;
+                yield return null;
+            }
+
+            objectToMove.position = target.position;
+            doAfter?.Invoke();
+        }
+
         public static IEnumerator LerpPosition(Transform objectToMove, Vector3 targetPosition, float duration)
         {
             return LerpPosition(objectToMove, targetPosition, duration, NoAction());
@@ -86,12 +103,20 @@ namespace SixtyMeters.logic.utilities
             objectToRotate.localRotation = targetRotation;
             doAfter?.Invoke();
         }
-        
+
 
         public static IEnumerator PlaySound(AudioSource audioSource, List<AudioClip> audioClips, Action doAfter)
         {
             var randomClip = GETRandomFromList(audioClips);
             return PlaySound(audioSource, randomClip, randomClip.length, doAfter);
+        }
+
+        public static void PlayRandomIfExists(AudioSource audioSource, List<AudioClip> audioClips)
+        {
+            if (audioClips.Count > 0)
+            {
+                audioSource.PlayOneShot(Helper.GETRandomFromList(audioClips));
+            }
         }
 
         public static IEnumerator PlaySound(AudioSource audioSource, AudioClip audioClip, Action doAfter)

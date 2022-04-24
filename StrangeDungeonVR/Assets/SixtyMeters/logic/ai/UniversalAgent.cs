@@ -176,7 +176,7 @@ namespace SixtyMeters.logic.ai
 
             if (navMeshAgent.enabled)
             {
-                if (_executeBehavior)
+                if (_executeBehavior && IsAlive())
                 {
                     var executableBehaviorsByPriority = _behaviors.Where(behavior => behavior.CanBeExecuted()).ToList()
                         .OrderByDescending(behavior => behavior.GetPriority()).ToList();

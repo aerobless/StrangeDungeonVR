@@ -26,7 +26,7 @@ namespace SixtyMeters.logic.item
             StartCoroutine(Helper.LerpPosition(transform,
                 transform.position + new Vector3(0, 2, 0), 1f, () =>
                 {
-                    StartCoroutine(Helper.LerpPosition(transform,
+                    StartCoroutine(Helper.LerpWorldPosition(transform,
                         _gameManager.player.rightHand.transform, 2f,
                         () =>
                         {
