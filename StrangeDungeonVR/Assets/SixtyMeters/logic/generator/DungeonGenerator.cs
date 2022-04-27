@@ -19,10 +19,12 @@ namespace SixtyMeters.logic.generator
         public List<DungeonTile> tiles;
         public DungeonTile startTile;
         public DungeonTile restartTile;
+        public StageCompleteDungeonTile stageCompleteDungeonTile;
 
-        private DungeonTile _currentCenterTile;
-
+        // Internals
         private readonly List<DungeonTile> _activeTiles = new();
+        private DungeonTile _currentCenterTile;
+        private bool _spawnNextStage;
 
         // Start is called before the first frame update
         void Start()
@@ -91,6 +93,16 @@ namespace SixtyMeters.logic.generator
             return respawnTile.GetComponent<StartTile>();
         }
 
+        public void SpawnNextStage()
+        {
+            _spawnNextStage = true;
+        }
+
+        public void StateCompleteCleanup()
+        {
+            _spawnNextStage = false;
+        }
+
         private void AttachNewTile(DungeonTileConnection doorInExistingTile)
         {
             var createdTiles = new List<DungeonTile>();
@@ -102,7 +114,17 @@ namespace SixtyMeters.logic.generator
 
         private GameObject SpawnRandomNewTile(DungeonArea area)
         {
-            var compatibleTiles = tiles.Where(tile => tile.GetEntranceDoorsForArea(area).Count > 0).ToList();
+            List<DungeonTile> compatibleTiles;
+            if (_spawnNextStage && !_currentCenterTile.GetComponent<StageCompleteDungeonTile>())
+            {
+                // Always spawn stage complete unless already a stage complete tile itself
+                compatibleTiles = new List<DungeonTile> {stageCompleteDungeonTile};
+            }
+            else
+            {
+                compatibleTiles = tiles.Where(tile => tile.GetEntranceDoorsForArea(area).Count > 0).ToList();
+            }
+
             var randomTile = Helper.GETRandomFromList(compatibleTiles);
             var newTile = Instantiate(randomTile.gameObject, Vector3.zero, Quaternion.identity);
 
@@ -124,7 +146,8 @@ namespace SixtyMeters.logic.generator
         private void AlignAndAttachTileDoor(DungeonTileConnectionGizmo doorInExistingTile, GameObject newTile,
             DungeonArea area)
         {
-            var doorInNewTile = Helper.GETRandomFromList(newTile.GetComponent<DungeonTile>().GetEntranceDoorsForArea(area))
+            var doorInNewTile = Helper
+                .GETRandomFromList(newTile.GetComponent<DungeonTile>().GetEntranceDoorsForArea(area))
                 .connection;
             doorInNewTile.Attach(doorInExistingTile);
             doorInExistingTile.Attach(doorInNewTile);

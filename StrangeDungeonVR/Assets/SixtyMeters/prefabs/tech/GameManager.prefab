@@ -555,6 +555,8 @@ MonoBehaviour:
   startTile: {fileID: 0}
   restartTile: {fileID: 8176125771423721272, guid: 7c075ef20b5413c4fb088c65cea2042a,
     type: 3}
+  stageCompleteDungeonTile: {fileID: 8097743592320872042, guid: f470fd9ba7d96c64d9bc4e5b5a7c4e48,
+    type: 3}
 --- !u!1 &3080239455736660027
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,4 +762,5 @@ MonoBehaviour:
   soulShardsFound: 0
   soulShardsUsed: 0
   potionsUsed: 0
+  dungeonStage: 1
   sessionDeaths: 0

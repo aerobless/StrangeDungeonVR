@@ -3,6 +3,7 @@ using System.Linq;
 using SixtyMeters.logic.analytics;
 using SixtyMeters.logic.door;
 using SixtyMeters.logic.interfaces;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.generator
@@ -19,20 +20,22 @@ namespace SixtyMeters.logic.generator
         private bool _tileIsOccupiedByPlayer = false;
 
         // Internal components
-        private DungeonGenerator _dungeonGenerator;
-        private StatisticsManager _statistics;
+        protected GameManager GameManager;
 
         // Start is called before the first frame update
         void Start()
         {
-            _dungeonGenerator = FindObjectOfType<DungeonGenerator>();
-            _statistics = FindObjectOfType<StatisticsManager>();
+            GameManager = GameManager.Instance;
+            //_dungeonGenerator = FindObjectOfType<DungeonGenerator>(); //TODO: replace
+            //_statistics = FindObjectOfType<StatisticsManager>();
 
             var randomizedElements = GetComponentsInChildren<IRandomizeable>();
             foreach (var go in randomizedElements)
             {
                 go.Randomize();
             }
+
+            LateInit();
         }
 
         // Update is called once per frame
@@ -53,11 +56,11 @@ namespace SixtyMeters.logic.generator
             {
                 Debug.Log("Player has entered tile " + gameObject.name);
                 _tileIsOccupiedByPlayer = true;
-                _dungeonGenerator.TileEntered(this);
+                GameManager.dungeonGenerator.TileEntered(this);
 
                 // Statistics
-                _statistics.StartTrackingIfNotStartedYet();
-                ++_statistics.roomsDiscovered;
+                GameManager.statisticsManager.StartTrackingIfNotStartedYet();
+                ++GameManager.statisticsManager.roomsDiscovered;
             }
         }
 
@@ -116,6 +119,11 @@ namespace SixtyMeters.logic.generator
         public void ReactivateTile()
         {
             gameObject.SetActive(true);
+        }
+
+        protected virtual void LateInit()
+        {
+            // do nothing, used to be overwritten by children
         }
     }
 }
