@@ -1,21 +1,22 @@
 using System.Collections.Generic;
+using HurricaneVR.Framework.Components;
+using HurricaneVR.Framework.Core;
 using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.props
 {
     [RequireComponent(typeof(AudioSource))]
-    public class UniversalProp : MonoBehaviour
+    public sealed class UniversalProp : MonoBehaviour
     {
         [System.Serializable]
         public class Appearance
         {
-            [Tooltip("The prop in its original state")]
-            public GameObject originalState;
+            public GameObject originalRoot;
+            public Collider originalCollider;
 
-            public GameObject destroyedState;
+            public GameObject destroyedRoot;
         }
-
 
         // Internal components
         private AudioSource _audioSource;
@@ -25,14 +26,21 @@ namespace SixtyMeters.logic.props
         public List<AudioClip> destroyedSound;
         public List<Appearance> appearances;
 
+        public float forceThreshold = 3;
+        public float explosionPower = 1;
+        public bool removeDebris = true;
+        public float removeDebrisTimerUpper = 10f;
+        public float removeDebrisTimerLower = 5f;
+        public bool ignorePlayerCollision = true;
+
         // Start is called before the first frame update
         void Start()
         {
             if (appearances.Count > 1)
             {
-                appearances.ForEach(ap => ap.originalState.SetActive(false));
+                appearances.ForEach(ap => ap.originalRoot.SetActive(false));
                 _selectedAppearance = Helper.GETRandomFromList(appearances);
-                _selectedAppearance.originalState.SetActive(true);
+                _selectedAppearance.originalRoot.SetActive(true);
             }
             else
             {
@@ -40,7 +48,8 @@ namespace SixtyMeters.logic.props
             }
 
             _audioSource = GetComponent<AudioSource>();
-            var collisionObject = _selectedAppearance.originalState.AddComponent<CollisionDelegation>();
+            _audioSource.spatialBlend = 1;
+            var collisionObject = _selectedAppearance.originalCollider.gameObject.AddComponent<CollisionDelegation>();
             collisionObject.onCollisionEnter.AddListener(OnDelegatedCollision);
         }
 
@@ -51,14 +60,63 @@ namespace SixtyMeters.logic.props
 
         private void OnDelegatedCollision(Collision collision)
         {
-            //TODO: test good value
-            if (collision.impulse.magnitude > 0.1)
+            var lastImpulse = collision.impulse.magnitude;
+            var forceMet = lastImpulse > forceThreshold;
+            
+            if (forceMet)
             {
-                _audioSource.PlayOneShot(Helper.GETRandomFromList(destroyedSound));
-                _selectedAppearance.originalState.SetActive(false);
-                _selectedAppearance.destroyedState.SetActive(true);   
+                Destroy();
             }
-            //TODO: make destroyed object(s) slowly disappear
+        }
+
+        public void Destroy()
+        {
+            _audioSource.PlayOneShot(Helper.GETRandomFromList(destroyedSound));
+            _selectedAppearance.originalRoot.SetActive(false);
+            if (_selectedAppearance.destroyedRoot)
+            {
+                var destroyed = Instantiate(_selectedAppearance.destroyedRoot,
+                    _selectedAppearance.originalRoot.transform.position,
+                    _selectedAppearance.originalRoot.transform.rotation);
+                destroyed.SetActive(true);
+
+                foreach (var rigidBody in destroyed.GetComponentsInChildren<Rigidbody>())
+                {
+                    var v = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                    rigidBody.AddForce(v * explosionPower, ForceMode.VelocityChange);
+
+                    if (removeDebris)
+                    {
+                        var delay = Random.Range(removeDebrisTimerLower, removeDebrisTimerUpper);
+                        if (delay < .1f)
+                        {
+                            delay = 3f;
+                        }
+
+                        var timer = rigidBody.gameObject.AddComponent<HVRDestroyTimer>();
+                        timer.StartTimer(delay);
+                    }
+
+                    if (ignorePlayerCollision)
+                    {
+                        var colliders = rigidBody.gameObject.GetComponentsInChildren<Collider>();
+                        HVRManager.Instance?.IgnorePlayerCollision(colliders);
+                    }
+
+                    rigidBody.transform.parent = null;
+                }
+
+                if (removeDebris)
+                {
+                    var timer = destroyed.gameObject.AddComponent<HVRDestroyTimer>();
+                    var delay = removeDebrisTimerUpper;
+                    if (delay <= .1f)
+                        delay = 3f;
+                    timer.StartTimer(delay);
+                }
+            }
+
+            Destroy(gameObject, 2);
         }
     }
 }
