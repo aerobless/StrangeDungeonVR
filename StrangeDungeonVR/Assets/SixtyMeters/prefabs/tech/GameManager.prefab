@@ -552,6 +552,7 @@ MonoBehaviour:
   - {fileID: 5993152591962987207, guid: afa9a842e927fcc4b9b37011d279de76, type: 3}
   - {fileID: 989463189623454628, guid: f8875171aeb2d4948ba5585e26295837, type: 3}
   - {fileID: 1154836799971627044, guid: c8e10ea88c2dfdc41ae56aab751a6a4e, type: 3}
+  - {fileID: 5906721866322734292, guid: 24a9762aad1a2a948a1e91c11d476ef9, type: 3}
   startTile: {fileID: 0}
   restartTile: {fileID: 8176125771423721272, guid: 7c075ef20b5413c4fb088c65cea2042a,
     type: 3}
