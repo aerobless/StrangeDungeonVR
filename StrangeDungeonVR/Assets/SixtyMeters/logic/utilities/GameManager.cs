@@ -3,6 +3,7 @@ using HurricaneVR.Framework.ControllerInput;
 using HurricaneVR.Framework.Core.UI;
 using SixtyMeters.logic.ai;
 using SixtyMeters.logic.analytics;
+using SixtyMeters.logic.difficulty;
 using SixtyMeters.logic.generator;
 using SixtyMeters.logic.item;
 using SixtyMeters.logic.player;
@@ -28,26 +29,27 @@ namespace SixtyMeters.logic.utilities
         public CollisionSoundManager collisionSoundManager;
         public MetaPlatformManager platformManager;
         public AgentManager agentManager;
+        public DifficultyManager difficultyManager;
 
         [HideInInspector] public ControllerFeedbackHelper controllerFeedback;
         [HideInInspector] public PlayerActor player;
-        
+
         public static GameManager Instance { get; private set; }
-        
-        private void Awake() 
-        { 
+
+        private void Awake()
+        {
             // If there is an instance, and it's not me, delete myself.
-    
-            if (Instance != null && Instance != this) 
-            { 
-                Destroy(this); 
-            } 
-            else 
-            { 
-                Instance = this; 
+
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
                 player = GameObject.Find("PlayerController").GetComponent<PlayerActor>();
                 controllerFeedback = new ControllerFeedbackHelper(FindObjectOfType<HVRInputManager>());
-            } 
+            }
         }
 
         private void Start()

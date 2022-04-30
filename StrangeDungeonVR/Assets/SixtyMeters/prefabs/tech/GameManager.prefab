@@ -474,6 +474,7 @@ Transform:
   - {fileID: 319473221355767524}
   - {fileID: 1141871460817640724}
   - {fileID: 5076346093616018117}
+  - {fileID: 2759836195824876874}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -499,6 +500,7 @@ MonoBehaviour:
   collisionSoundManager: {fileID: 6205460013878630811}
   platformManager: {fileID: 8632078419217373536}
   agentManager: {fileID: 5741841430077659486}
+  difficultyManager: {fileID: 2131497226720649290}
   player: {fileID: 0}
 --- !u!1 &3080239455616282011
 GameObject:
@@ -765,3 +767,48 @@ MonoBehaviour:
   potionsUsed: 0
   dungeonStage: 1
   sessionDeaths: 0
+--- !u!1 &7439678094391214959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2759836195824876874}
+  - component: {fileID: 2131497226720649290}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2759836195824876874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439678094391214959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3080239455570012819}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2131497226720649290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439678094391214959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b3e16811b7dd94d92e0cd20720333e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStage: 0

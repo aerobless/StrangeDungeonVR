@@ -217,5 +217,7 @@ namespace SixtyMeters.logic.player
         {
             return Vector3.Distance(caller.position, gameObject.transform.position) <= range;
         }
+
+        public int Level => _level;
     }
 }

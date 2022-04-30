@@ -8,12 +8,12 @@ namespace SixtyMeters.logic.generator
 
         protected override void LateInit()
         {
-            stageTitle.text = "Stage " + GameManager.statisticsManager.dungeonStage + " Complete";
+            stageTitle.text = "Stage " + (int) GameManager.difficultyManager.currentStage + " Complete";
         }
 
         public void StageIncrement()
         {
-            //TODO: tbd
+            GameManager.difficultyManager.ProgressToNextStage();
         }
     }
 }

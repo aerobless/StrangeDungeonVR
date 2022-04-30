@@ -25,8 +25,6 @@ namespace SixtyMeters.logic.analytics
         public int soulShardsUsed = 0;
         public int potionsUsed = 0;
 
-        public int dungeonStage = 1;
-
         // Permanent Session Stats
         private DateTime _gameStartTime;
         public int sessionDeaths = 0;
@@ -95,7 +93,6 @@ namespace SixtyMeters.logic.analytics
             soulShardsFound = 0;
             soulShardsUsed = 0;
             potionsUsed = 0;
-            dungeonStage = 1;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace SixtyMeters.logic.generator
     public class DungeonGenerator : MonoBehaviour
     {
         // Internal components
-        private StatisticsManager _statistics;
+        private GameManager _gameManager;
 
         public List<DungeonTile> tiles;
         public DungeonTile startTile;
@@ -29,7 +29,7 @@ namespace SixtyMeters.logic.generator
         // Start is called before the first frame update
         void Start()
         {
-            _statistics = FindObjectOfType<StatisticsManager>();
+            _gameManager = GameManager.Instance;
 
             // The player starts off in this tile, so we need to set it as occupied manually
             startTile.SetOccupiedByPlayer();
@@ -57,9 +57,10 @@ namespace SixtyMeters.logic.generator
 
         private void GenerateNewTilesFor(DungeonTile existingTile)
         {
+            _spawnNextStage = _gameManager.difficultyManager.CanPlayerProgressToNextStage();
             existingTile.tileDoors
                 .Where(door => door.connection.IsUnattached())
-                .ToList().ForEach(doorInExistingTile => AttachNewTile(doorInExistingTile));
+                .ToList().ForEach(AttachNewTile);
         }
 
         private void DeactivateTilesOutOfRange(DungeonTile existingTile)
@@ -93,16 +94,6 @@ namespace SixtyMeters.logic.generator
             return respawnTile.GetComponent<StartTile>();
         }
 
-        public void SpawnNextStage()
-        {
-            _spawnNextStage = true;
-        }
-
-        public void StateCompleteCleanup()
-        {
-            _spawnNextStage = false;
-        }
-
         private void AttachNewTile(DungeonTileConnection doorInExistingTile)
         {
             var createdTiles = new List<DungeonTile>();
@@ -115,7 +106,9 @@ namespace SixtyMeters.logic.generator
         private GameObject SpawnRandomNewTile(DungeonArea area)
         {
             List<DungeonTile> compatibleTiles;
-            if (_spawnNextStage && !_currentCenterTile.GetComponent<StageCompleteDungeonTile>())
+            if (_spawnNextStage // Next stage can be spawned
+                && !_currentCenterTile.GetComponent<StageCompleteDungeonTile>() // Current tile isn't StageComplete tile
+                && area.Equals(DungeonArea.DefaultHall)) // door is DefaultHall. (Otherwise StageComplete woulnd't fit)
             {
                 // Always spawn stage complete unless already a stage complete tile itself
                 compatibleTiles = new List<DungeonTile> {stageCompleteDungeonTile};
@@ -128,7 +121,7 @@ namespace SixtyMeters.logic.generator
             var randomTile = Helper.GETRandomFromList(compatibleTiles);
             var newTile = Instantiate(randomTile.gameObject, Vector3.zero, Quaternion.identity);
 
-            ++_statistics.roomsGenerated;
+            ++_gameManager.statisticsManager.roomsGenerated;
 
             // The tile seed is intended to avoid player decisions (go left or right) messing with the predictable
             // nature of a seeded level. By setting a seed for each door connection point it does not matter what
