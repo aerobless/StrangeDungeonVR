@@ -10,6 +10,7 @@ Discover an endless dungeon full of monsters, treasure and secrets. Battle throu
 * Added dungeon tile that transitions from one stage to another.
 * The player can now earn exp by killing enemies
 * The player now has a persistent HUD element in their peripheral HUD area showing health, level and experience.
+* Updated unity version to 2022.1
 
 ### 0.4 (current live version)
 * New enemy type: Angry Goblin. A goblin with a sword - probably a deadly combination :P.
