@@ -1,16 +1,18 @@
-﻿using SixtyMeters.logic.utilities;
+﻿using System.Collections.Generic;
+using HurricaneVR.Framework.Shared;
+using SixtyMeters.logic.utilities;
 using UnityEngine;
 
 namespace SixtyMeters.logic.item
 {
     public class ExperienceOrb : MonoBehaviour
     {
-        
         // Internal components
         private GameManager _gameManager;
-        
-        // 
-        
+
+        // Components
+        public List<AudioClip> expCollected;
+
         private void Start()
         {
             _gameManager = GameManager.Instance;
@@ -18,7 +20,6 @@ namespace SixtyMeters.logic.item
 
         private void Update()
         {
-        
         }
 
         public void MoveToPlayer()
@@ -31,6 +32,10 @@ namespace SixtyMeters.logic.item
                         () =>
                         {
                             _gameManager.player.CollectExp(10); //TODO: read for variability or agent
+                            //TODO: use sword hand (left/right support)
+                            _gameManager.controllerFeedback.VibrateHand(HVRHandSide.Right,
+                                ControllerFeedbackHelper.ExperienceGained);
+                            Helper.PlayRandomIfExists(_gameManager.player.playerDirectAudio, expCollected);
                             Destroy(gameObject);
                         }));
                 }));

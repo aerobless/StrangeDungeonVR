@@ -19,6 +19,7 @@ namespace SixtyMeters.logic.player
         public GameObject xrRig;
         public GameObject xrTech;
         public CombatMarkerDisplay combatMarkerDisplay;
+        public AudioSource playerDirectAudio;
 
         // Internals components
         private GameManager _gameManager;
