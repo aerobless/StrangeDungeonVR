@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using HurricaneVR.Framework.Core.Utils;
 using SixtyMeters.logic.generator;
@@ -35,7 +33,7 @@ namespace SixtyMeters.logic.props
         private int _currentSegmentNumber = 0;
         private bool _platformIsActive = true;
         private Rigidbody _rigidbody;
-        float _time = 0;
+        private float _time = 0;
         private GameObject _realPlayerParent;
 
         // Start is called before the first frame update
@@ -68,7 +66,8 @@ namespace SixtyMeters.logic.props
 
                 _time += Time.deltaTime;
 
-                if (gameObject.transform.position == route[_currentSegmentNumber].waypointB.GetPosition())
+                // We cannot compare exact positions here because MovePosition is inaccurate for offset tiles
+                if (_time >= route[_currentSegmentNumber].movementTime)
                 {
                     _platformIsActive = false;
                     StartCoroutine(Helper.Wait(route[_currentSegmentNumber].waitAtStopTime,
