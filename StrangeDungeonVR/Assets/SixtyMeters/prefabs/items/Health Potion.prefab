@@ -243,7 +243,7 @@ Transform:
   - {fileID: 5646736476996269255}
   - {fileID: 4442586607969539386}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8463082933907007468
 MeshFilter:
@@ -523,6 +523,8 @@ MonoBehaviour:
   audioSource: {fileID: 726645412164659340}
   dynamicBehavior: 0
   stopIfVelocityDrops: 0
+  resetIfVelocityDrops: 0
+  audioClips: []
 --- !u!114 &102648489920002335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +554,7 @@ MonoBehaviour:
   hpRestoredPercentage: 20
   randomDescription:
   - Tastes icky...
-  - Mistress Roslindas healing potion. Est. 1850.
+  - Mistress Roselindas healing potion. Est. 1850.
   - M-Budget Ice Tea
   - Sugarfree healing potion. Zero calories.
   - May contain traces of bat venom. Do not consume in large quantities.
@@ -626,6 +628,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8463082933904140278}
     m_Modifications:
     - target: {fileID: 552980793654179497, guid: aeed102ee249c8f439a8626caea1e996,
@@ -776,6 +779,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: aeed102ee249c8f439a8626caea1e996, type: 3}
 --- !u!114 &5646736476996269251 stripped
 MonoBehaviour:
